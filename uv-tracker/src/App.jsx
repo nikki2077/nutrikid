@@ -27,7 +27,7 @@ function App() {
       <div className='app-logo' onClick={() => setView('home')}>G'day UV</div>
         <button onClick={() => setView('tracker')} className="Button Tracker">Tracker</button>
         <button onClick={() => setView('sunscreenCalculator')} className="Button SunscreenCalculator">Sunscreen Calculator</button>
-        <button onClick={() => setView('graph')} className="Button Graph">Graph</button>
+        <button onClick={() => setView('graph')} className="Button Graph">Trend</button>
       </div>
       {renderComponent()}
     </div>
