@@ -1,0 +1,100 @@
+.weather-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    border-radius: 8px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FFC964;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  .right-column, .left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .SearchLocation {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .search-input-box input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #B3A0FF; 
+    border-radius: 8px;
+    color: #B3A0FF; 
+    background-color: #FFFFFF; 
+  }
+  
+  #searchButton {
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #B3A0FF; 
+    border: 1px solid #B3A0FF;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-left: 20px;
+  }
+  
+
+  #searchButton:hover {
+    background-color: #B3A0FF; 
+    color: #FFFFFF;
+  }
+  
+  .Numbers, .City, .Icon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .Temp, .UvLevel, .March2024, .NowLocation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .Icon img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .Message {
+    background-color: #FFC964;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+  }
+  
+
