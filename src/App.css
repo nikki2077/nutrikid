@@ -1,0 +1,39 @@
+.app{
+  min-height: 100vh;
+}
+
+.NavigationBar {
+  width: 100%;
+  padding: 15px 16px;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.app-logo {
+  padding-left: 18px;
+  padding-right: 18px;
+  font-size: 48px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  color: #FFF0D4;
+  word-wrap: break-word;
+}
+
+.Button {
+  padding: 10px 20px;
+  border-radius: 42px;
+  font-size: 24px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  color: #FFF0D4;
+  background: #B3A0FF; 
+  border: none;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+
+
+
+
