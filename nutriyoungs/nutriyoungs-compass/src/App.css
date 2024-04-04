@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.main-section {
+  position: relative;
+  width: 100%; /* Full width of the viewport */
+  height: 100%;
+ 
+}
+
+.NavigationBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  color: #000;
+}
+
+.app-logo {
+  font-size: 48px; 
+  cursor: pointer;
+}
+
+.button {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 32px; 
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-right: 45px; 
+}
+
+.button:hover {
+  text-decoration: underline; 
+}
+
+.hero-section {
+  background-image: url('./assets/images/Background.png'); 
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px; 
+  height: 100vh; 
+  width: 100%; 
+}
+
+@media (min-width: 1920px) {
+  .hero-section {
+    height: 1080px; 
+    width: 1920px; 
+    margin: 0 auto; 
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
