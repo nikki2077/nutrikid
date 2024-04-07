@@ -1,6 +1,8 @@
+import './About.css'
+
 export default function About(){
     return(
-        <div>this is about</div>
+        <div className="about">this is about</div>
     )
 }
 

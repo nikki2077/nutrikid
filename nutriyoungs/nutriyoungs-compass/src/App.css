@@ -21,7 +21,8 @@ html, body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  color: #000;
+  color:white;
+  background: #000;
 }
 
 .app-logo {
@@ -32,7 +33,7 @@ html, body {
 .button {
   background: none;
   border: none;
-  color: #000;
+  color: white;
   font-size: 32px; 
   cursor: pointer;
   padding: 10px 20px;

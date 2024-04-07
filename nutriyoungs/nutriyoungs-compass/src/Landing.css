@@ -1,6 +1,7 @@
 .landing {
     text-align: center;
-    color: #C8E4FF;
+    color: #F5F5F5;
+    background: linear-gradient(to right, #C8E4FF, #FFE5E5);
   }
 
   .hero-section {
@@ -35,8 +36,8 @@
   }
   
   .cta-button {
-    background-color: #C8E4FF; 
-    color: white; 
+    background-color: #5985B1; 
+    color: #F5F5F5; 
     border: none;
     border-radius: 20px; 
     padding: 10px 20px;
@@ -47,7 +48,7 @@
   }
   
   .cta-button:hover {
-    background-color: #C8E4FF; 
+    background-color: #F5F5F5; 
   }
 
 
