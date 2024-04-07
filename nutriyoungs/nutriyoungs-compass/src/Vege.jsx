@@ -36,6 +36,9 @@ const Vege = () => {
       xanchor: 'right',
       x: 1,
     },
+    width: 1000,
+    height: 600,
+    autosize: false,
   };
 
   return (

@@ -12,12 +12,30 @@ const FoodConsumption = () => {
     name: group
   }));
 
-  const layout = {
-    title: 'Food Consumption by Age Group',
-    barmode: 'group',
-    xaxis: { title: 'Food Type' },
-    yaxis: { title: 'Consumption (%)' }
-  };
+const layout = {
+  title: 'Food Consumption by Age Group',
+  barmode: 'group',
+  xaxis: {
+    title: 'Food Type',
+    tickangle: 45, 
+    tickfont: {
+      size: 10, 
+      color: 'black'
+    }
+  },
+  yaxis: { title: 'Consumption (%)' },
+  width: 1000,
+  height: 600,
+  autosize: false,
+  margin: {
+    l: 50,
+    r: 50,
+    b: 200, 
+    t: 100,
+    pad: 4
+  },
+};
+
 
   return <Plot data={traces} layout={layout} />;
 };
