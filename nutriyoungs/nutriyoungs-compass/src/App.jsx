@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import Footer from './Footer';
-import BMI from './BMI'
-import About from './About'
-import Knowledge from './Knowledge'
+import BMI from './BMI';
+import About from './About';
+import Knowledge from './Knowledge';
 
 function App() {
   const [view, setView] = useState('home'); 
