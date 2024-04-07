@@ -1,1 +1,74 @@
-[{"Age group (years)":"2-3","Boys_no_fruit_consumption":3.7,"Girls_no_fruit_consumption":7.8,"All children_no_fruit_consumption":5.3,"Boys_no_vegetable_consumption":70.8,"Girls_no_vegetable_consumption":74.8,"All children_no_vegetable_consumption":72.6,"Boys_no_combined_consumption":70.8,"Girls_no_combined_consumption":74.8,"All children_no_combined_consumption":72.6},{"Age group (years)":"4-8","Boys_no_fruit_consumption":28.6,"Girls_no_fruit_consumption":32.8,"All children_no_fruit_consumption":30.9,"Boys_no_vegetable_consumption":90.8,"Girls_no_vegetable_consumption":91.2,"All children_no_vegetable_consumption":92.3,"Boys_no_combined_consumption":92.2,"Girls_no_combined_consumption":91.4,"All children_no_combined_consumption":92.4},{"Age group (years)":"9-11","Boys_no_fruit_consumption":49.0,"Girls_no_fruit_consumption":39.1,"All children_no_fruit_consumption":43.2,"Boys_no_vegetable_consumption":97.7,"Girls_no_vegetable_consumption":90.5,"All children_no_vegetable_consumption":92.3,"Boys_no_combined_consumption":98.0,"Girls_no_combined_consumption":88.7,"All children_no_combined_consumption":92.0},{"Age group (years)":"12-13","Boys_no_fruit_consumption":38.9,"Girls_no_fruit_consumption":43.4,"All children_no_fruit_consumption":40.5,"Boys_no_vegetable_consumption":96.4,"Girls_no_vegetable_consumption":90.7,"All children_no_vegetable_consumption":94.6,"Boys_no_combined_consumption":96.4,"Girls_no_combined_consumption":92.6,"All children_no_combined_consumption":95.3},{"Age group (years)":"14-17","Boys_no_fruit_consumption":57.0,"Girls_no_fruit_consumption":53.0,"All children_no_fruit_consumption":55.7,"Boys_no_vegetable_consumption":95.1,"Girls_no_vegetable_consumption":92.3,"All children_no_vegetable_consumption":94.2,"Boys_no_combined_consumption":95.2,"Girls_no_combined_consumption":94.4,"All children_no_combined_consumption":94.6},{"Age group (years)":"Total 2-17","Boys_no_fruit_consumption":37.7,"Girls_no_fruit_consumption":36.9,"All children_no_fruit_consumption":37.3,"Boys_no_vegetable_consumption":92.6,"Girls_no_vegetable_consumption":89.2,"All children_no_vegetable_consumption":90.4,"Boys_no_combined_consumption":92.4,"Girls_no_combined_consumption":90.2,"All children_no_combined_consumption":90.8}]
+[
+    {
+        "Age group (years)": "2-3",
+        "Boys_no_fruit_consumption": 3.7,
+        "Girls_no_fruit_consumption": 7.8,
+        "All children_no_fruit_consumption": 5.3,
+        "Boys_no_vegetable_consumption": 70.8,
+        "Girls_no_vegetable_consumption": 74.8,
+        "All children_no_vegetable_consumption": 72.6,
+        "Boys_no_combined_consumption": 70.8,
+        "Girls_no_combined_consumption": 74.8,
+        "All children_no_combined_consumption": 72.6
+    },
+    {
+        "Age group (years)": "4-8",
+        "Boys_no_fruit_consumption": 28.6,
+        "Girls_no_fruit_consumption": 32.8,
+        "All children_no_fruit_consumption": 30.9,
+        "Boys_no_vegetable_consumption": 90.8,
+        "Girls_no_vegetable_consumption": 91.2,
+        "All children_no_vegetable_consumption": 92.3,
+        "Boys_no_combined_consumption": 92.2,
+        "Girls_no_combined_consumption": 91.4,
+        "All children_no_combined_consumption": 92.4
+    },
+    {
+        "Age group (years)": "9-11",
+        "Boys_no_fruit_consumption": 49.0,
+        "Girls_no_fruit_consumption": 39.1,
+        "All children_no_fruit_consumption": 43.2,
+        "Boys_no_vegetable_consumption": 97.7,
+        "Girls_no_vegetable_consumption": 90.5,
+        "All children_no_vegetable_consumption": 92.3,
+        "Boys_no_combined_consumption": 98.0,
+        "Girls_no_combined_consumption": 88.7,
+        "All children_no_combined_consumption": 92.0
+    },
+    {
+        "Age group (years)": "12-13",
+        "Boys_no_fruit_consumption": 38.9,
+        "Girls_no_fruit_consumption": 43.4,
+        "All children_no_fruit_consumption": 40.5,
+        "Boys_no_vegetable_consumption": 96.4,
+        "Girls_no_vegetable_consumption": 90.7,
+        "All children_no_vegetable_consumption": 94.6,
+        "Boys_no_combined_consumption": 96.4,
+        "Girls_no_combined_consumption": 92.6,
+        "All children_no_combined_consumption": 95.3
+    },
+    {
+        "Age group (years)": "14-17",
+        "Boys_no_fruit_consumption": 57.0,
+        "Girls_no_fruit_consumption": 53.0,
+        "All children_no_fruit_consumption": 55.7,
+        "Boys_no_vegetable_consumption": 95.1,
+        "Girls_no_vegetable_consumption": 92.3,
+        "All children_no_vegetable_consumption": 94.2,
+        "Boys_no_combined_consumption": 95.2,
+        "Girls_no_combined_consumption": 94.4,
+        "All children_no_combined_consumption": 94.6
+    },
+    {
+        "Age group (years)": "Total 2-17",
+        "Boys_no_fruit_consumption": 37.7,
+        "Girls_no_fruit_consumption": 36.9,
+        "All children_no_fruit_consumption": 37.3,
+        "Boys_no_vegetable_consumption": 92.6,
+        "Girls_no_vegetable_consumption": 89.2,
+        "All children_no_vegetable_consumption": 90.4,
+        "Boys_no_combined_consumption": 92.4,
+        "Girls_no_combined_consumption": 90.2,
+        "All children_no_combined_consumption": 90.8
+    }
+]
