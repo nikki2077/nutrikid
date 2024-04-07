@@ -9,12 +9,22 @@ export default function BMI(){
     const [result, setResult] = useState(null);
     const [bmi, setBmi] = useState(24.9); 
     const [status, setStatus] = useState('You’re Healthy');
-
+      
     useEffect(() => {
+        
+    function handleBMIResult(data) {
+        console.log('testing');
+        if (data && data.bmi && data.status) {
+          setBmi(data.bmi);
+          setStatus(data.status);
+        } else {
+          console.error('Invalid data received', data);
+        }
+      }
+
       const handleMessage = (event) => {
-        if (event.origin === "https://www.cdc.gov") {
-          console.log("Data received:", event.data);
-          setResult(event.data);
+        if (event.origin.startsWith("https://www.cdc.gov")) {
+          handleBMIResult(event.data);
         }
       };
   
@@ -23,7 +33,8 @@ export default function BMI(){
       return () => {
         window.removeEventListener("message", handleMessage);
       };
-    }, []);
+    }, [])
+
     return(
         <div className="bmi-page">
       <main className="bmi-content">
@@ -41,15 +52,19 @@ export default function BMI(){
             <a href="https://www.cdc.gov/obesity/downloads/bmiforpactitioners.pdf" target="_blank" rel="noopener noreferrer">Read more</a>
           </article>
         </section>
-        <aside className="bmi-wrapper">
+
+        <div className="bmi-wrapper">
             <iframe
             src="https://www.cdc.gov/healthyweight/bmi/calculator-widget.html"
             title="BMI Calculator for Child and Teen"
-            style={{ width: '100%', border: 'none' }}
+            style={{ width: '100%', height:'100%',border: 'none' }}
         ></iframe>
-
-        <div className="bmi-calculator">
+            
+        {/* <div className="bmi-calculator">
+            <div className='calculator-wrapper'>
+            <div className='header'>
             <h1>BMI Calculator</h1>
+            </div>
             <div className="bmi-display">
                 <div className="bmi-info">
                 <h2>Body Mass Index (BMI)</h2>
@@ -58,14 +73,15 @@ export default function BMI(){
                 <div className="bmi-scale">
                     <img src={scale} alt="scale" />
                 </div>
-                </div>
-                <div className="bmi-illustration">
+                </div>          
+            </div>
+            <div className='bmi-illustration'>
                 <img src={figure} alt="figure" />
-                </div>
             </div>
             </div>
+        </div> */}
           
-        </aside>
+        </div>
       </main>
     </div>
     )

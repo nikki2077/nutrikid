@@ -2,7 +2,6 @@
     display: grid;
     gap: 20px;
     padding: 20px;
-    height: 100vh;
     background: linear-gradient(to right, #C8E4FF, #FFE5E5);
   }
   
@@ -30,19 +29,21 @@
     margin-bottom: 40px;
   }
   
-  .bmi-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
+.bmi-wrapper {
+  height: 62vh;
+  width:50%;
+  align-self: center; 
 }
-
+/* 
   .bmi-iframe, .bmi-calculator {
     height: 100%; 
   }
 
   .bmi-iframe {
     border: none;
-  }
+    width: 100%; 
+    overflow: hidden;
+}
   
   .bmi-calculator {
     background: #000000;
@@ -52,23 +53,22 @@
     margin-left: 20px;
     align-self: center; 
     width: 100%;
+    display:gri;
   }
 
+  .calculator-wrapper{
 
+  }
   
   .bmi-display {
     background: #4A4949;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px
+    margin: 50px;
+    width:50%;
 }
   
   .bmi-info {
     flex: 1; 
-  }
-  
-  .bmi-illustration {
-   
   }
   
   .bmi-value, .bmi-status {
@@ -76,13 +76,9 @@
   }
   
   .bmi-scale img {
-    width: 70%; 
+    width: 50%; 
     height: auto;
 }
    
   
-  .bmi-illustration img {
-    width: 100%; 
-    height: auto;
-  }
-  
+   */
