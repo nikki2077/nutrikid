@@ -15,7 +15,7 @@ const FruitVege = () => {
               return response.json();
           })
           .then(responseData => {
-              // Parse the stringified 'body' to JSON
+
               const bodyData = JSON.parse(responseData.body);
               setData(bodyData);
           })
