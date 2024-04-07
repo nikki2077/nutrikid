@@ -4,6 +4,8 @@ import Fruit from './Fruit';
 import FruitVege from './Fruit-Vege';
 import FoodConsumption from './FoodConsumption';
 import './Knowledge.css';
+import Overweight from './Overweight';
+import Macro from './Macro';
 
 export default function Knowledge() {
   const [selectedGraph, setSelectedGraph] = useState('vege');
@@ -18,6 +20,10 @@ export default function Knowledge() {
         return <FruitVege />;
       case 'foodConsumption':
         return <FoodConsumption />;
+      case 'overweight':
+        return <Overweight />;
+      case 'macro':
+        return <Macro />
       default:
         return null;
     }
@@ -38,6 +44,8 @@ export default function Knowledge() {
                 <option value="fruit">Fruit Consumption</option>
                 <option value="fruitVege">Fruit & Vegetable Consumption</option>
                 <option value="foodConsumption">Food Consumption</option>
+                <option value="overweight">Obesity and Overweight</option>
+                <option value="macro">Macro Nutrient</option>
                 </select>
         </div>
         {renderGraph()}

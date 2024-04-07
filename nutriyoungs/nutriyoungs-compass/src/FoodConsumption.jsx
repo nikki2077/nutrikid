@@ -13,7 +13,7 @@ const FoodConsumption = () => {
   }));
 
 const layout = {
-  title: 'Food Consumption by Age Group',
+  title: 'Food Consumption by Age Group, 2011-2012',
   barmode: 'group',
   xaxis: {
     title: 'Food Type',
