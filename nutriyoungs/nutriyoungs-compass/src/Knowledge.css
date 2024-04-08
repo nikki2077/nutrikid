@@ -1,52 +1,37 @@
 .knowledge {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 60px;
-    background: linear-gradient(to right, #C8E4FF, #FFE5E5);
-  }
+  display: flex; 
+  justify-content: center;
+  min-height: 100vh; 
+  padding: 60px;
+  background: linear-gradient(to right, #C8E4FF, #FFE5E5);
+}
 
-  .wrapper{
-    margin-bottom: 40px;
-  }
-  
-  .dropdown-container {
-    grid-column: 1 / -1; 
-    margin-bottom: 10px; 
-  }
-  
-  #graph-select {
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
+.wrapper {
+  margin-bottom: 40px;
+  max-width: 1000px; 
+}
 
-  .bmi-article h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
-  
-  .bmi-article p {
-    font-size: 24px;
-  }
-  
+.dropdown-container {
+  grid-column: 1 / -1; 
+  margin-bottom: 10px; 
+}
 
-  
-  .bmi-article {
-    margin-bottom: 40px;
-  }
-  
-  .graph-header h1 {
-    margin-top: 20px;
-    font-size: 48px;
-  }
+#graph-select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.graph-header h1 {
+  margin-top: 20px;
+  font-size: 48px;
+}
 
 .dropdown-container label,
 #graph-select {
-  font-size: 24px; 
+font-size: 24px; 
 }
 
-
 #graph-select {
-  padding: 10px;
+padding: 10px;
 }
