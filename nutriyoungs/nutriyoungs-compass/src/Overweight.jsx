@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Plot from 'react-plotly.js';
 import data from './assets/data/overweight.json';
+import './Overweight.css'
 
 const Overweight = () => {
     const [barHeights, setBarHeights] = useState(data.map(() => 0));
@@ -64,15 +65,24 @@ const Overweight = () => {
       title: 'Percentage of Overweight or Obese by Age Group',
       xaxis: { title: 'Age Group' },
       yaxis: { title: 'Percentage Overweight or Obese', range: [0, Math.max(...data.map(item => item['Overweight or obese'])) + 5] },
-      autosize: true
+      width: 1000,
+      height: 600,
     };
   
     const buttonText = animationStatus === 'playing' ? 'Pause' : animationStatus === 'finished' ? 'Play Again' : 'Play';
   
     return (
       <>
-        <button onClick={togglePlayPause}>{buttonText}</button>
+        <div className='overweight-graph'>
         <Plot data={traces} layout={layout} />
+        <br />
+        <br />
+        <div className='btn'>
+        <button className='play-btn' onClick={togglePlayPause}>{buttonText}</button>
+        
+        </div>
+        
+        </div>
       </>
     );
   };

@@ -4,7 +4,6 @@ import Landing from './Landing';
 import Dashboard from './Dashboard';
 import Footer from './Footer';
 import BMI from './BMI';
-import About from './About';
 import Knowledge from './Knowledge';
 
 function App() {
@@ -16,8 +15,6 @@ function App() {
         return <Dashboard />;
       case 'bmi':
         return <BMI />;
-      case 'about':
-        return <About />;
       case 'knowledge':
         return <Knowledge />;
       case 'home':
@@ -34,8 +31,6 @@ function App() {
         <button onClick={() => setView('dashboard')} className="button">Dashboard</button>
           <button onClick={() => setView('knowledge')} className="button">Nutrition knowledge</button>
           <button onClick={() => setView('bmi')} className="button">BMI Calculator</button>
-          <button onClick={() => setView('about')} className="button">About</button>
-  
         </div>
         
       </div>
