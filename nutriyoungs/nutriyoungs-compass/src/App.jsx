@@ -5,14 +5,19 @@ import Dashboard from './Dashboard';
 import Footer from './Footer';
 import BMI from './BMI';
 import Knowledge from './Knowledge';
+import ComingSoon from './ComingSoon';
 
 function App() {
   const [view, setView] = useState('home'); 
 
+  const handleFooterNavigation = (viewName) => {
+    setView(viewName);
+  };
+
   const renderComponent = () => {
     switch (view) {
       case 'dashboard':
-        return <Dashboard />;
+        return <ComingSoon/>;
       case 'bmi':
         return <BMI />;
       case 'knowledge':
@@ -37,7 +42,7 @@ function App() {
 
       {renderComponent()}
       
-      <Footer /> 
+      <Footer onNavigate={handleFooterNavigation} /> 
     </div>
   );
 }

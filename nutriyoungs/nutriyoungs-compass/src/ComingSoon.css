@@ -1,0 +1,21 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+
+  .ComingSoon {
+    margin-top: 40%;
+    margin-bottom: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+
+  .ComingSoon h1 {
+    font-size: 98px;
+  }
+  
