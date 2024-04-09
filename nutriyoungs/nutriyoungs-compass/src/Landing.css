@@ -27,7 +27,8 @@
   .title {
     font-size: 96px; 
     margin: 0;
-    margin-top: 15%;
+    margin-top: 20%;
+    color: pink;
   }
   
   .subtitle {
@@ -36,7 +37,7 @@
   }
   
   .cta-button {
-    background-color: #5985B1; 
+    background-color:lightblue; 
     color: #F5F5F5; 
     border: none;
     border-radius: 20px; 
