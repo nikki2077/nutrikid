@@ -9,6 +9,11 @@ const Footer = ({ onNavigate }) => {
   return (
     <footer className="footer">
       <div className="footer-content">
+      <div className="footer-section">
+          <h3>SustainaMoment</h3>
+          <hr />
+          <div>© 2024 All Rights Reserved</div>
+        </div>
         <div className="footer-product">
           <div className='product-list'>Product</div>
           <div className='list-item'>
