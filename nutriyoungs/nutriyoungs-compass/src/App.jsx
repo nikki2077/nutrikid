@@ -10,6 +10,10 @@ import ComingSoon from './ComingSoon';
 function App() {
   const [view, setView] = useState('home'); 
 
+  const handleFooterNavigation = (viewName) => {
+    setView(viewName);
+  };
+
   const renderComponent = () => {
     switch (view) {
       case 'dashboard':
@@ -38,7 +42,7 @@ function App() {
 
       {renderComponent()}
       
-      <Footer /> 
+      <Footer onNavigate={handleFooterNavigation} /> 
     </div>
   );
 }
