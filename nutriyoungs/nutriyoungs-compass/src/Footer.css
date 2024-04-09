@@ -1,63 +1,90 @@
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 
-  body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+}
 
 .footer {
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-  }
-  
-  .footer-section {
-    display: flex;
+  background-color: #1a1a1a; 
+  color: #fff;
+  padding: 20px 50px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+.footer-content{
+  display: flex;
+}
+
+.footer-section,
+.footer-product {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-product{
+  margin-left: 50px;
+}
+
+.footer-section h3 {
+  margin: 0; 
+}
+
+.footer-section hr {
+  border: 0;
+  height: 2px;
+  background-color: #fff; 
+  width: 50%; 
+  margin: 10px 0; 
+}
+
+.footer-product > div {
+  font-weight: bold; 
+}
+
+.footer-product a {
+  color: #fff;
+  text-decoration: none;
+  margin-top: 10px;
+  display:contents;
+}
+
+.footer-product a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer {
     flex-direction: column;
+    align-items: flex-start; 
   }
-  
-  .site-logo {
-    font-size: 24px;
-    margin-bottom: 10px;
+
+  .footer-section {
+    margin-bottom: 20px; 
+    margin-right: 50px;
   }
-  
-  .social-icons a {
-    display: inline-block;
-    margin-right: 10px;
+
+  .footer-section hr {
+    width: 100%; 
   }
-  
-  .social-icons a:last-child {
-    margin-right: 0;
-  }
-  
-  .footer-links a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 60px;
-  }
-  
-  .footer-links a:last-child {
-    margin-right: 0;
-  }
-  
-  hr {
-    border: 1px solid #fff;
-    margin: 10px 0;
-  }
-  
-  a[href="#"] {
-    color: white;
-  }
-  
+}
+
+
+
+.footer-product a:last-child {
+  margin-bottom: 0;
+}
+
+.list-item a {
+  margin-right: 50px; 
+}
+
+.list-item a:last-child {
+  margin-right: 0; 
+}
