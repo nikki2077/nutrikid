@@ -1,12 +1,11 @@
 import './App.css'; 
 import React, { useState } from 'react';
 import Landing from './Landing';
-import Dashboard from './Dashboard';
 import Footer from './Footer';
 import BMI from './BMI';
 import Knowledge from './Knowledge';
 import ComingSoon from './ComingSoon';
-import Logo from './assets/images/compass.png'
+
 
 function App() {
   const [view, setView] = useState('home'); 
@@ -17,8 +16,6 @@ function App() {
 
   const renderComponent = () => {
     switch (view) {
-      case 'dashboard':
-        return <ComingSoon/>;
       case 'bmi':
         return <BMI />;
       case 'knowledge':
@@ -29,6 +26,11 @@ function App() {
     }
   };
 
+  const activeButtonStyle = {
+    backgroundColor: '#4CAF50', 
+    color: 'white',
+  };
+
   return (
     <div className="main-section">
       <div className="NavigationBar">
@@ -36,9 +38,20 @@ function App() {
           NutriYoungs Compass
           </div>
         <div>
-        <button onClick={() => setView('dashboard')} className="button">Dashboard</button>
-          <button onClick={() => setView('knowledge')} className="button">Nutrition knowledge</button>
-          <button onClick={() => setView('bmi')} className="button">BMI Calculator</button>
+        <button
+            onClick={() => setView('bmi')}
+            className="button"
+            style={view === 'bmi' ? activeButtonStyle : {}}
+          >
+            BMI Calculator
+          </button>
+          <button
+            onClick={() => setView('knowledge')}
+            className="button"
+            style={view === 'knowledge' ? activeButtonStyle : {}}
+          >
+            Nutrition knowledge
+          </button>
         </div>
         
       </div>

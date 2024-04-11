@@ -18,7 +18,7 @@
   }
   
   .bmi-article p {
-    font-size: 24px;
+    font-size: 28px;
   }
   
   .bmi-info {
@@ -27,58 +27,34 @@
   
   .bmi-article {
     margin-bottom: 40px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
   
 .bmi-wrapper {
-  height: 62vh;
+  height: 55vh;
   width:50%;
   align-self: center; 
 }
-/* 
-  .bmi-iframe, .bmi-calculator {
-    height: 100%; 
-  }
 
-  .bmi-iframe {
-    border: none;
-    width: 100%; 
-    overflow: hidden;
+.recipe-button {
+  background-color:#3a86ff; 
+  color: #ffffff; 
+  border: none;
+  border-radius: 20px; 
+  padding: 10px 20px;
+  font-size: 36px;
+  cursor: pointer;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: background-color 0.3s;
 }
-  
-  .bmi-calculator {
-    background: #000000;
-    border-radius: 20px;
-    padding: 20px;
-    color: white;
-    margin-left: 20px;
-    align-self: center; 
-    width: 100%;
-    display:gri;
-  }
 
-  .calculator-wrapper{
+.recipt-wrapper{
+  margin-bottom: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 40px;
+  text-align: center;
+}
 
-  }
-  
-  .bmi-display {
-    background: #4A4949;
-    display: flex;
-    margin: 50px;
-    width:50%;
-}
-  
-  .bmi-info {
-    flex: 1; 
-  }
-  
-  .bmi-value, .bmi-status {
-    text-align: center; 
-  }
-  
-  .bmi-scale img {
-    width: 50%; 
-    height: auto;
-}
-   
-  
-   */

@@ -3,11 +3,11 @@
 }
 
 .play-btn {
-    background-color: #5985B1; 
-    color: #F5F5F5; 
+  background-color:#3a86ff; 
+  color: #ffffff; 
     border: none;
     border-radius: 20px; 
-    padding: 10px 50px; 
+    padding: 10px 20px; 
     margin-left: 40%;
     font-size: 36px;
     cursor: pointer;
