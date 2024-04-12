@@ -41,16 +41,18 @@ export default function BMI(){
         <section className="bmi-info">
           <article className="bmi-article">
             <h2>What is BMI?</h2>
-            <p>Body mass index (BMI) is a measure of weight adjusted for height, calculated as weight in kilograms divided by the square of height in meters (kg/m2 ). Although BMI is often considered an indicator of body fatness, it is a surrogate measure of body fat because it measures excess weight rather than excess fat. Despite this fact, studies have shown that BMI is correlated to more direct measures of body fat, such as underwater weighing and dual energy x-ray absorptiometry.</p>
+            <p>BMI, or Body Mass Index, is a ratio of weight to height (kg/m²) often used as a proxy for body fatness. However, it doesn't directly measure body fat; it estimates weight excess. Studies confirm BMI is broadly indicative of body fat levels, as gauged by more precise methods like underwater weighing and DXA scans.</p>
             <br />
             <a href="https://www.cdc.gov/obesity/downloads/bmiforpactitioners.pdf" target="_blank" rel="noopener noreferrer">Read more</a>
           </article>
           <article className="bmi-article">
             <h2>Why use BMI?</h2>
-            <p>BMI is a simple, inexpensive, and noninvasive surrogate measure of body fat. In contrast to other methods, BMI relies solely on height and weight and with access to the proper equipment, individuals can have their BMI routinely measured and calculated with reasonable accuracy. Furthermore, studies have shown that BMI levels correlate with body fat and with future health risks. High BMI predicts future morbidity and death. Therefore, BMI is an appropriate measure for screening for obesity and its health risks. Lastly, the widespread and longstanding application of BMI contributes to its utility at the population level. Its use has resulted in an increased availability of published population data that allows public health professionals to make comparisons across time, regions, and population subgroups.</p>
+            <p>BMI is a quick, easy method to estimate body fat based on height and weight. It's not a precise measurement of body fat but correlates well with health risks associated with obesity. It's widely used for population health assessments.</p>
             <br />
             <a href="https://www.cdc.gov/obesity/downloads/bmiforpactitioners.pdf" target="_blank" rel="noopener noreferrer">Read more</a>
           </article>
+
+
         </section>
 
         <div className="bmi-wrapper">
@@ -59,29 +61,16 @@ export default function BMI(){
             title="BMI Calculator for Child and Teen"
             style={{ width: '100%', height:'100%',border: 'none' }}
         ></iframe>
-            
-        {/* <div className="bmi-calculator">
-            <div className='calculator-wrapper'>
-            <div className='header'>
-            <h1>BMI Calculator</h1>
-            </div>
-            <div className="bmi-display">
-                <div className="bmi-info">
-                <h2>Body Mass Index (BMI)</h2>
-                <div className="bmi-value">{bmi}</div>
-                <div className="bmi-status">{status}</div>
-                <div className="bmi-scale">
-                    <img src={scale} alt="scale" />
-                </div>
-                </div>          
-            </div>
-            <div className='bmi-illustration'>
-                <img src={figure} alt="figure" />
-            </div>
-            </div>
-        </div> */}
-          
         </div>
+
+        <div className='recipt-wrapper'>
+              <h1>To explore personalized meal suggestions based on your child’s nutritional needs: </h1>
+              <br />
+                <button className="recipe-button" onClick={() => onNavigate('bmi')}>
+                    Try recipt recommendation
+                </button>
+        </div>
+        
       </main>
     </div>
     )
