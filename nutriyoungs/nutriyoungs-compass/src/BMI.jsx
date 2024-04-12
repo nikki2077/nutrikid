@@ -67,7 +67,7 @@ export default function BMI(){
               <h1>To explore personalized meal suggestions based on your child’s nutritional needs: </h1>
               <br />
                 <button className="recipe-button" onClick={() => onNavigate('bmi')}>
-                    Try recipt recommendation
+                    Try recipe recommendation
                 </button>
         </div>
         
