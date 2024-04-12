@@ -20,6 +20,10 @@
   .bmi-article p {
     font-size: 28px;
   }
+
+  .bmi-article a {
+    font-size: 28px;
+  }
   
   .bmi-info {
     margin: 30px;
@@ -32,8 +36,8 @@
   }
   
 .bmi-wrapper {
-  height: 55vh;
-  width:50%;
+  height: 56vh;
+  width:39%;
   align-self: center; 
 }
 

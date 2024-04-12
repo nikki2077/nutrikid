@@ -6,9 +6,11 @@
   background: linear-gradient(to right, #C8E4FF, #FFE5E5);
 }
 
-.wrapper {
-  margin-bottom: 40px;
-  max-width: 1000px; 
+
+
+.graph-wrapper{
+  justify-content: center;
+  display: grid; 
 }
 
 .dropdown-container {
@@ -22,10 +24,7 @@
   border: 1px solid #ccc;
 }
 
-.graph-header h1 {
-  margin-top: 20px;
-  font-size: 48px;
-}
+
 
 .dropdown-container label,
 #graph-select {
