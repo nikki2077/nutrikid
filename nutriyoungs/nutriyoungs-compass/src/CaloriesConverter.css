@@ -1,0 +1,28 @@
+.weight-input {
+    width: 80px; 
+    padding: 8px; 
+    border: 2px solid #ccc;
+    border-radius: 4px; 
+    text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input[type="number"]:hover::-webkit-inner-spin-button,
+input[type="number"]:hover::-webkit-outer-spin-button {
+    -webkit-appearance: inner-spin-button; 
+    height: 20px; 
+    opacity: 1; 
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]:hover {
+    cursor: pointer; 
+}
