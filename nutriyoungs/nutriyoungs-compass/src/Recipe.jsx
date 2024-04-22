@@ -8,12 +8,12 @@ export default function Recipe() {
     const [showConverter, setShowConverter] = useState(false);
 
     const toggleConverterVisibility = () => {
-        setShowConverter(prev => !prev);
+        setShowConverter(prev => !prev);  
     };
 
     return (
         <div className='recipe'>
-            <CaloriesConverter isVisible={showConverter} />
+            {showConverter && <CaloriesConverter />}  
             <DietOption onToggleVisibility={toggleConverterVisibility} />
             <DisplayRecipe />
         </div>
