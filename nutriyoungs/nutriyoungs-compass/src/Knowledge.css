@@ -6,8 +6,6 @@
   background: linear-gradient(to right, #C8E4FF, #FFE5E5);
 }
 
-
-
 .graph-wrapper{
   justify-content: center;
   display: grid; 
@@ -23,8 +21,6 @@
   border-radius: 5px;
   border: 1px solid #ccc;
 }
-
-
 
 .dropdown-container label,
 #graph-select {
