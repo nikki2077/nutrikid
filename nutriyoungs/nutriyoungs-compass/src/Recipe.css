@@ -1,13 +1,12 @@
 input[type='number'] {
     margin: 0 5px;
-    width: 60px; /* or any width that fits well in your layout */
+    width: 60px;
     padding: 5px;
-    border: 1px solid #ccc; /* customise your border */
-    border-radius: 4px; /* rounded corners */
-    font-size: 1em; /* size of the text */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
 }
 
-/* Style for the arrows, this might need to be browser-specific */
 input[type='number']::-webkit-inner-spin-button, 
 input[type='number']::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
@@ -16,5 +15,5 @@ input[type='number']::-webkit-outer-spin-button {
 
 input[type='number']:focus {
     outline: none;
-    border-color: #4CAF50; /* or any color you prefer */
+    border-color: #4CAF50; 
 }
