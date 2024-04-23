@@ -1,0 +1,22 @@
+.recipe-details h1 {
+    font-size: 2em; 
+}
+
+.recipe-details img {
+    width: 50%; 
+    height: 50%;
+    display: block; 
+    margin: 0 auto 20px;
+}
+
+.recipe-details ul,
+.recipe-details .ins,
+.recipe-details p {
+    font-size: 1.8em; 
+    margin-left: 40px; 
+    margin-bottom: 20px;
+}
+
+.recipe-details ul li {
+    margin-bottom: 10px;
+}

@@ -5,6 +5,8 @@ import Footer from './Footer';
 import BMI from './BMI';
 import Knowledge from './Knowledge';
 import ComingSoon from './ComingSoon';
+import Upload from './Upload';
+import Recipe from './Recipe'
 
 
 function App() {
@@ -20,6 +22,10 @@ function App() {
         return <BMI />;
       case 'knowledge':
         return <Knowledge />;
+      case 'upload':
+        return <Upload />
+      case 'recipe':
+        return <Recipe />
       case 'home':
       default:
         return <Landing onNavigate={setView} />; 
@@ -51,6 +57,20 @@ function App() {
             style={view === 'knowledge' ? activeButtonStyle : {}}
           >
             Nutrition knowledge
+          </button>
+          <button
+            onClick={() => setView('upload')}
+            className="button"
+            style={view === 'upload' ? activeButtonStyle : {}}
+          >
+            Upload
+          </button>
+          <button
+            onClick={() => setView('recipe')}
+            className="button"
+            style={view === 'recipe' ? activeButtonStyle : {}}
+          >
+            Recipe
           </button>
         </div>
         

@@ -1,0 +1,53 @@
+input[type='number'] {
+    margin: 0 5px;
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input[type='number']:focus {
+    outline: none;
+    border-color: #4CAF50; 
+}
+
+.recipe {
+    min-height: 100vh; 
+    padding: 60px;
+    background: #faf3e0;
+  }
+
+.page-container {
+    display: grid; 
+    justify-content: left;
+    min-height: 100vh; 
+    padding: 120px;
+    background: #faf3e0;
+  }
+
+  .recipe h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .recipe h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .recipe p {
+    font-size: 28px;
+  }
+
+  .recipe a {
+    font-size: 28px;
+  }
+  
+  

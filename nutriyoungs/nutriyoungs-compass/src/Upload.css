@@ -1,0 +1,103 @@
+UploadPage.css
+
+body {
+    font-family: 'Arial', sans-serif; /* Replace with the font you are using */
+    background-color: #f8f9fa; /* Background color of the page */
+    color: #333; /* Default text color */
+    margin: 0;
+    padding: 20px; /* Adjust as necessary */
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  
+  .header h1 {
+    font-size: 24px; /* Adjust as necessary */
+  }
+  
+  .nav {
+    display: flex;
+    gap: 20px; /* Space between navigation items */
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .upload-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px; /* Adjust as necessary */
+    margin: 30px auto; /* Centers the container with a margin top and bottom */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Simple box-shadow for depth */
+  }
+  
+  .upload-container h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .dropzone {
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .dropzone:hover {
+    border-color: #0275d8; /* Highlight color on hover */
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input-group input[type="text"] {
+    padding: 10px;
+    flex-grow: 1; /* Input field takes up available space */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .input-group button {
+    padding: 10px 20px;
+    background-color: #0275d8; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .input-group button:hover {
+    background-color: #025aa5; /* Darker shade for hover state */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .upload-container {
+      padding: 10px;
+    }
+  
+    .nav {
+      flex-direction: column;
+    }
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+  }
+  

@@ -3,10 +3,8 @@
   justify-content: center;
   min-height: 100vh; 
   padding: 60px;
-  background: linear-gradient(to right, #C8E4FF, #FFE5E5);
+  background: #faf3e0;
 }
-
-
 
 .graph-wrapper{
   justify-content: center;
@@ -23,8 +21,6 @@
   border-radius: 5px;
   border: 1px solid #ccc;
 }
-
-
 
 .dropdown-container label,
 #graph-select {
