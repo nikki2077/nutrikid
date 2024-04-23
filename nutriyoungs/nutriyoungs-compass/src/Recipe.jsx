@@ -42,9 +42,19 @@ export default function Recipe() {
 
     return (
         <div className='recipe'>
-            {showConverter && <CaloriesConverter />}
-            <DietOption onToggleVisibility={toggleConverterVisibility} onSubmitPreferences={handlePreferencesSubmit} />
-            {recipe && <DisplayRecipe recipe={recipe} />}
+            <div className='page-container'>
+                <div className='recipe-title'>
+                    <h1>Recipe Recommendation</h1>
+                </div>
+                <div className='recipe-options'>
+                {showConverter && <CaloriesConverter />}
+                <DietOption onToggleVisibility={toggleConverterVisibility} onSubmitPreferences={handlePreferencesSubmit} />
+                </div>
+                <div className='recipe-content'>
+                {recipe && <DisplayRecipe recipe={recipe} />}
+                </div>
+            </div>
+           
         </div>
     );
 }

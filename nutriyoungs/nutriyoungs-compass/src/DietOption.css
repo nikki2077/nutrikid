@@ -1,6 +1,23 @@
 .diet-option {
-    text-align: center;
-    margin: 20px;
+    padding: 20px;
+    background: #faf3e0;
+}
+
+.calorie-slider-container,
+.selection-container,
+.cuisine-selection,
+.diet-habit-selection {
+    text-align: left; 
+}
+
+.selection-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cuisine-selection, .diet-habit-selection {
+    gap: 20px; 
 }
 
 .calorie-values {
@@ -44,22 +61,6 @@
     cursor: pointer;
 }
 
-.unsure-button,
-.generate-button {
-    margin-bottom: 10px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    background-color: #008CBA;
-    color: #4CAF50;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.unsure-button:hover,
-.generate-button:hover {
-    background-color: #005f73;
-}
 
 .button-group {
     display: flex;
@@ -75,6 +76,16 @@
     background-color: #f8f8f8;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    border-radius: 25px;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: none; 
+    color: #3498DB;
+    margin: 5px; 
+    cursor: pointer;
+    outline: none; 
 }
 
 .button-group button.selected,
@@ -86,4 +97,35 @@
 
 .calorie-slider-container {
     margin-bottom: 20px;
+}
+
+.unsure-button,
+.generate-button {
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    background-color: #008CBA;
+    color: #f8f8f8;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.unsure-button:hover,
+.generate-button:hover {
+    background-color: #005f73;
+}
+
+.diet-option button{
+    font-size: 1.5em; 
+}
+
+.diet-option label{
+    font-size: 1.5em;
+}
+
+
+.unsure-button:hover {
+    background-color: #e67e22; /* Darken on hover */
 }

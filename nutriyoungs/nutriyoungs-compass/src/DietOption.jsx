@@ -32,11 +32,13 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
 
     return (
         <div className="diet-option">
-            <p>Diet Option Component</p>
-            <button onClick={onToggleVisibility} className="unsure-button">
-                I'm not sure about this
-            </button>
             <div className="calorie-slider-container">
+                <h2>Level of Calorie Needs (per day)?</h2>
+                <button onClick={onToggleVisibility} className="unsure-button">
+                    I'm not sure about this
+                </button>
+                <br />
+                <br />
                 <label htmlFor="calorie-slider">Calories per day:</label>
                 <input
                     type="range"
@@ -55,10 +57,11 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
             </div>
             <div className="selection-container">
                 <div className="cuisine-selection">
-                    <p>Cuisine Preference:</p>
+                    <h2>Any Cusine Preference?</h2>
                     {cuisines.map((cuisine) => (
                         <button
                             key={cuisine}
+                            name={cuisine}
                             onClick={() => handleCuisineSelection(cuisine)}
                             className={selectedCuisine === cuisine ? 'selected' : ''}
                         >
@@ -67,10 +70,11 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
                     ))}
                 </div>
                 <div className="diet-habit-selection">
-                    <p>Diet Habit:</p>
+                    <h2>Any Diet Preference?</h2>
                     {dietHabits.map((habit) => (
                         <button
                             key={habit}
+                            name={habit.replace(' ', '_')}
                             onClick={() => handleDietHabitSelection(habit)}
                             className={selectedDietHabit === habit ? 'selected' : ''}
                         >
