@@ -208,3 +208,9 @@
 .selection-container, .calorie-slider-container {
     min-height: 100px; 
 }
+
+
+.diet-option .cuisine-selection button,
+.diet-option .diet-habit-selection button {
+    text-transform: capitalize;
+}

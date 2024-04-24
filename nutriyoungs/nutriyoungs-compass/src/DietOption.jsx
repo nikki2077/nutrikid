@@ -7,8 +7,8 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
     const [selectedCuisine, setSelectedCuisine] = useState('');
     const [selectedDietHabit, setSelectedDietHabit] = useState('');
 
-    const cuisines = ['Italian', 'Japanese', 'Chinese', 'Indian', 'American'];
-    const dietHabits = ['Dairy Free', 'Gluten Free', 'Vegetarian'];
+    const cuisines = ['italian', 'japanese', 'chinese', 'indian', 'american'];
+    const dietHabits = ['Dairy Free', 'Gluten Free', 'vegetarian'];
 
     const handleCalorieChange = (event) => {
         setCalorieNeeds(event.target.value);
