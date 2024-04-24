@@ -49,21 +49,21 @@ function App() {
             className="button"
             style={view === 'bmi' ? activeButtonStyle : {}}
           >
-            BMI Calculator
+            BMI 
           </button>
           <button
             onClick={() => setView('knowledge')}
             className="button"
             style={view === 'knowledge' ? activeButtonStyle : {}}
           >
-            Nutrition knowledge
+            Trends
           </button>
           <button
             onClick={() => setView('upload')}
             className="button"
             style={view === 'upload' ? activeButtonStyle : {}}
           >
-            Upload
+            Recognize
           </button>
           <button
             onClick={() => setView('recipe')}

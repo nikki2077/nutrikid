@@ -43,10 +43,8 @@ export default function Recipe() {
     return (
         <div className='recipe'>
             <div className='page-container'>
-                <div className='recipe-title'>
-                    <h1>Recipe Recommendation</h1>
-                </div>
                 <div className='recipe-options'>
+                <h1>Recipe Recommendation</h1>
                 {showConverter && <CaloriesConverter />}
                 <DietOption onToggleVisibility={toggleConverterVisibility} onSubmitPreferences={handlePreferencesSubmit} />
                 </div>
@@ -54,7 +52,6 @@ export default function Recipe() {
                 {recipe && <DisplayRecipe recipe={recipe} />}
                 </div>
             </div>
-           
         </div>
     );
 }

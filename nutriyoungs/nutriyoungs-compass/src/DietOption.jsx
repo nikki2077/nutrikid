@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './DietOption.css';
 
+
 const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
     const [calorieNeeds, setCalorieNeeds] = useState(2500);
     const [selectedCuisine, setSelectedCuisine] = useState('');
@@ -39,20 +40,22 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
                 </button>
                 <br />
                 <br />
-                <label htmlFor="calorie-slider">Calories per day:</label>
-                <input
-                    type="range"
-                    id="calorie-slider"
-                    min="1500"
-                    max="3000"
-                    value={calorieNeeds}
-                    onChange={handleCalorieChange}
-                    step="100" 
-                />
-                <div className="calorie-values">
-                    <span>1500</span>
-                    <span>{calorieNeeds}</span> 
-                    <span>3000</span>
+                <div className="calorie-slider-container">
+                    <label htmlFor="calorie-slider">Calories per day:</label> <br />
+                    <input
+                        type="range"
+                        id="calorie-slider"
+                        min="0"  
+                        max="3000"
+                        value={calorieNeeds}
+                        onChange={handleCalorieChange}
+                        step="100"
+                    />
+                    <div className="calorie-values">
+                        <span>0</span>
+                        <span>{calorieNeeds}</span>
+                        <span>3000</span>
+                    </div>
                 </div>
             </div>
             <div className="selection-container">
@@ -82,10 +85,14 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
                         </button>
                     ))}
                 </div>
+                <div className="button-container">
+                <button onClick={handleSubmit} className="generate-button">
+                    Generate
+                </button>
             </div>
-            <button onClick={handleSubmit} className="generate-button">
-                Generate
-            </button>
+            </div>
+
+
         </div>
     );
 };

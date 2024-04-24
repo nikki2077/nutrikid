@@ -1,3 +1,65 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10px; 
+}
+
+.generate-button {
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    background-color: #28A745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transform: scale(1);
+}
+
+.generate-button:hover {
+    background-color: #34CE57;
+    transform: scale(1.05);
+}
+
+
+.unsure-button {
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    background-color: #FFC107; 
+    color: #333; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transform: scale(1); 
+}
+
+.unsure-button:hover {
+    background-color: #FFCA28; 
+    transform: scale(1.05);
+}
+
+.generate-button {
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    background-color: #28A745; 
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transform: scale(1);
+}
+
+.generate-button:hover {
+    background-color: #34CE57;
+    transform: scale(1.05); 
+}
+
+
 .diet-option {
     padding: 20px;
     background: #faf3e0;
@@ -32,7 +94,7 @@
 
 #calorie-slider {
     -webkit-appearance: none;
-    width: 100%;
+    width: 50%;
     height: 15px;
     background: #ddd;
     outline: none;
@@ -96,25 +158,36 @@
 }
 
 .calorie-slider-container {
+    position: relative; 
+    width: 100%; 
+    text-align: left;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
 }
 
-.unsure-button,
-.generate-button {
-    margin-bottom: 10px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    background-color: #008CBA;
-    color: #f8f8f8;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    
+#calorie-slider {
+    -webkit-appearance: none;
+    width: 50%; 
+    height: 15px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    margin-bottom: 8px; 
 }
 
-.unsure-button:hover,
-.generate-button:hover {
-    background-color: #005f73;
+.calorie-values {
+    display: flex;
+    justify-content: space-between; 
+    width: 50%; 
+    padding: 0;
+}
+
+.calorie-values span {
+    font-size: 24px; 
+    position: relative; 
 }
 
 .diet-option button{
@@ -125,7 +198,13 @@
     font-size: 1.5em;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10px;
+}
 
-.unsure-button:hover {
-    background-color: #e67e22; /* Darken on hover */
+.selection-container, .calorie-slider-container {
+    min-height: 100px; 
 }
