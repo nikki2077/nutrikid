@@ -11,15 +11,24 @@ dependencies:
   react:
     specifier: ^18.2.0
     version: 18.2.0
+  react-card-flip:
+    specifier: ^1.2.2
+    version: 1.2.2(react-dom@18.2.0)(react@18.2.0)
   react-chartjs-2:
     specifier: ^5.2.0
     version: 5.2.0(chart.js@4.4.2)(react@18.2.0)
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  react-dropzone:
+    specifier: ^14.2.3
+    version: 14.2.3(react@18.2.0)
   react-plotly.js:
     specifier: ^2.6.0
     version: 2.6.0(plotly.js@2.30.1)(react@18.2.0)
+  react-router-dom:
+    specifier: ^6.22.3
+    version: 6.23.0(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@types/react':
@@ -723,6 +732,11 @@ packages:
     resolution: {integrity: sha512-Mdk+vUACbQvjd0m/1JJjOOafmkp/EpmHjISsopEz5Av44CBq7rPC05HHNbYGKVyNUF2zmEoBS/TT0pd0SPFFyw==}
     dev: false
 
+  /@remix-run/router@1.16.0:
+    resolution: {integrity: sha512-Quz1KOffeEf/zwkCBM3kBtH4ZoZ+pT3xIXBG4PPW/XFtDP7EGhtTiC2+gpL9GnR7+Qdet5Oa6cYSvwKYg6kN9Q==}
+    engines: {node: '>=14.0.0'}
+    dev: false
+
   /@rollup/rollup-android-arm-eabi@4.14.0:
     resolution: {integrity: sha512-jwXtxYbRt1V+CdQSy6Z+uZti7JF5irRKF8hlKfEnF/xJpcNGuuiZMBvuoYM+x9sr9iWGnzrlM0+9hvQ1kgkf1w==}
     cpu: [arm]
@@ -1111,6 +1125,11 @@ packages:
       is-array-buffer: 3.0.4
       is-shared-array-buffer: 1.0.3
     dev: true
+
+  /attr-accept@2.2.2:
+    resolution: {integrity: sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==}
+    engines: {node: '>=4'}
+    dev: false
 
   /available-typed-arrays@1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
@@ -2038,6 +2057,13 @@ packages:
     dependencies:
       flat-cache: 3.2.0
     dev: true
+
+  /file-selector@0.6.0:
+    resolution: {integrity: sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==}
+    engines: {node: '>= 12'}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
 
   /find-up@5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
@@ -3217,6 +3243,16 @@ packages:
       performance-now: 2.1.0
     dev: false
 
+  /react-card-flip@1.2.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-EGAdHsH0OIU3Rbfevr8bZB0yN/zBj2Jq9bvtNfyFKYWUjx7zTF+4aEJF7BzA4mRr2pb1nHRWmZFRtA9rOArcoA==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /react-chartjs-2@5.2.0(chart.js@4.4.2)(react@18.2.0):
     resolution: {integrity: sha512-98iN5aguJyVSxp5U3CblRLH67J8gkfyGNbiK3c+l1QI/G4irHMPQw44aEPmjVag+YKTyQ260NcF82GTQ3bdscA==}
     peerDependencies:
@@ -3237,6 +3273,18 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-dropzone@14.2.3(react@18.2.0):
+    resolution: {integrity: sha512-O3om8I+PkFKbxCukfIR3QAGftYXDZfOE2N1mr/7qebQJHs7U+/RSL/9xomJNpRg9kM5h9soQSdf0Gc7OHF5Fug==}
+    engines: {node: '>= 10.13'}
+    peerDependencies:
+      react: '>= 16.8 || 18.0.0'
+    dependencies:
+      attr-accept: 2.2.2
+      file-selector: 0.6.0
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -3255,6 +3303,29 @@ packages:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /react-router-dom@6.23.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Q9YaSYvubwgbal2c9DJKfx6hTNoBp3iJDsl+Duva/DwxoJH+OTXkxGpql4iUK2sla/8z4RpjAm6EWx1qUDuopQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.16.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-router: 6.23.0(react@18.2.0)
+    dev: false
+
+  /react-router@6.23.0(react@18.2.0):
+    resolution: {integrity: sha512-wPMZ8S2TuPadH0sF5irFGjkNLIcRvOSaEe7v+JER8508dyJumm6XZB1u5kztlX0RVq6AzRVndzqcUh6sFIauzA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.16.0
+      react: 18.2.0
+    dev: false
 
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
@@ -3762,6 +3833,10 @@ packages:
     hasBin: true
     dependencies:
       commander: 2.20.3
+    dev: false
+
+  /tslib@2.6.2:
+    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
     dev: false
 
   /type-check@0.4.0:
