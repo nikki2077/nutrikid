@@ -11,19 +11,27 @@ export default function Recipe() {
     const toggleConverterVisibility = () => setShowConverter(prev => !prev);
 
     const handlePreferencesSubmit = async (preferences) => {
+        console.log("Preferences received:", preferences);
+    
         const apiKey = import.meta.env.VITE_API_KEY;
         let url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1`;
-
-        if (preferences.cuisine && preferences.cuisine !== 'All') {
-            url += `&cuisine=${preferences.cuisine}`;
+    
+        const { cuisine = 'All', dietHabit = 'No Diet Habit' } = preferences;
+    
+        if (cuisine !== 'All' || dietHabit !== 'No Diet Habit') {
+            if (dietHabit.includes('Free')) { 
+                const excluded = dietHabit.toLowerCase().split(' ')[0]; 
+                url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1&exclude-tags=${excluded}`;
+            } else if (cuisine !== 'All') {
+                url += `&include-tags=${cuisine}`;
+                if (dietHabit !== 'No Diet Habit') {
+                    url += `,${dietHabit.toLowerCase()}`;
+                }
+            } else {
+                url += `&include-tags=${dietHabit.toLowerCase()}`;
+            }
         }
-        if (preferences.dietHabit && preferences.dietHabit !== 'No Diet Habit') {
-            url += `&diet=${preferences.dietHabit}`;
-        }
-        if (preferences.calorieNeeds) {
-            url += `&maxCalories=${preferences.calorieNeeds}`;
-        }
-
+    
         console.log("Fetching URL: ", url);
         try {
             const response = await fetch(url);
@@ -39,22 +47,19 @@ export default function Recipe() {
             console.error('Error fetching the recipe:', error);
         }
     };
-
+    
     return (
         <div className='recipe'>
             <div className='page-container'>
-                <div className='recipe-title'>
-                    <h1>Recipe Recommendation</h1>
-                </div>
                 <div className='recipe-options'>
-                {showConverter && <CaloriesConverter />}
-                <DietOption onToggleVisibility={toggleConverterVisibility} onSubmitPreferences={handlePreferencesSubmit} />
+                    <h1>Recipe Recommendation</h1>
+                    {showConverter && <CaloriesConverter />}
+                    <DietOption onToggleVisibility={toggleConverterVisibility} onSubmitPreferences={handlePreferencesSubmit} />
                 </div>
                 <div className='recipe-content'>
-                {recipe && <DisplayRecipe recipe={recipe} />}
+                    {recipe && <DisplayRecipe recipe={recipe} />}
                 </div>
             </div>
-           
         </div>
     );
 }

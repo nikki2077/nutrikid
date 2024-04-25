@@ -61,16 +61,17 @@ export default function CaloriesConverter() {
         <div className="converter">
             <div>
                 I am a  
-                <select value={gender} onChange={handleGenderChange}>
+                <span> </span>
+                <select value={gender} onChange={handleGenderChange} className="custom-select">
                     <option value="">Select gender</option>
                     <option value="boy">Boy</option>
                     <option value="girl">Girl</option>
-                </select>,
-                <select value={ageGroup} onChange={handleAgeGroupChange}>
+                </select>, <span> </span>
+                <select value={ageGroup} onChange={handleAgeGroupChange} className="custom-select">
                     <option value="">Select age group</option>
                     <option value="3-10">3-10 years old</option>
                     <option value="10-18">10-18 years old</option>
-                </select>
+                </select> <span> </span>
                 years old, my weight is 
                 <input 
                     type="number"
@@ -79,8 +80,8 @@ export default function CaloriesConverter() {
                     min="0"
                     max="500"
                     step="1"
-                /> kg, and my activity level is 
-                <select value={activityLevel} onChange={handleActivityLevelChange}>
+                /> kg, and my activity level is <span> </span>
+                <select value={activityLevel} onChange={handleActivityLevelChange} className='custom-select'>
                     <option value="">Select activity level</option>
                     <option value="sedentary">Sedentary (minimal activity)</option>
                     <option value="lightly_active">Lightly active (light exercise or sports 1-3 days/week)</option>
@@ -89,7 +90,7 @@ export default function CaloriesConverter() {
                 </select>.
             </div>
             <div>
-                Estimated Daily Caloric Need: {calculateCalories()} Calories
+                Estimated Daily Caloric Need: <span className="highlight-output">{calculateCalories()} Calories</span>
             </div>
         </div>
     );
