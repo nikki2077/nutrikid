@@ -31,6 +31,7 @@ body {
   
   .upload-container {
     background-color: #fff;
+    height: 300px;
     border-radius: 8px;
     padding: 20px;
     max-width: 600px; /* Adjust as necessary */
@@ -48,6 +49,7 @@ body {
     border-radius: 4px;
     padding: 20px;
     text-align: center;
+    align-items: center;
     margin-bottom: 20px;
   }
   
