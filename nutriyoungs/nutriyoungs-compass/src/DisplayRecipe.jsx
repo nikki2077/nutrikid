@@ -6,10 +6,9 @@ const DisplayRecipe = ({ recipe }) => {
 
   useEffect(() => {
     if (recipe && recipe.id) {
-      const apiKey = import.meta.env.VITE_API_KEY; // Ensure this is defined in your environment variables
+      const apiKey = import.meta.env.VITE_API_KEY; 
       const url = `https://api.spoonacular.com/recipes/${recipe.id}/nutritionWidget.png?apiKey=${apiKey}`;
 
-      // Set the image URL directly; no need to fetch as the browser will handle loading the image.
       setNutritionImageUrl(url);
     }
   }, [recipe]);
