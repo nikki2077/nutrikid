@@ -3,7 +3,7 @@ import './DietOption.css';
 
 
 const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
-    const [calorieNeeds, setCalorieNeeds] = useState(2000);
+    const [calorieNeeds, setCalorieNeeds] = useState(0);
     const [selectedCuisine, setSelectedCuisine] = useState('');
     const [selectedDietHabit, setSelectedDietHabit] = useState('');
 
@@ -52,7 +52,7 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
                         step="100"
                     />
                     <div className="calorie-values">
-                        <span>1000</span>
+                        <span>0</span>
                         <span>{calorieNeeds}</span>
                         <span>3000</span>
                     </div>
