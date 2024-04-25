@@ -16,31 +16,20 @@ export default function Recipe() {
         const apiKey = import.meta.env.VITE_API_KEY;
         let url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1`;
     
-        if (preferences.cuisine !== 'All' || preferences.dietHabit !== 'No Diet Habit') {
-            url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1&include-tags=`;
+        const { cuisine = 'All', dietHabit = 'No Diet Habit' } = preferences;
     
-            if (preferences.cuisine !== 'All' && preferences.dietHabit === 'No Diet Habit') {
-                url += `${preferences.cuisine}`;
-            } else if (preferences.cuisine === 'All' && preferences.dietHabit !== 'No Diet Habit') {
-                if (preferences.dietHabit === 'vegetarian') {
-                    url += `${preferences.cuisine},${preferences.dietHabit.toLowerCase()}`;
-                } else if (preferences.dietHabit === 'Dairy Free'){
-                    url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1&exclude-tags=`;
-                    url += `dairy`;
-                } else {
-                    url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1&exclude-tags=`;
-                    url += `gluten`;
+        if (cuisine !== 'All' || dietHabit !== 'No Diet Habit') {
+            if (dietHabit.includes('Free')) { 
+                const excluded = dietHabit.toLowerCase().split(' ')[0]; 
+                url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1&exclude-tags=${excluded}`;
+            } else if (cuisine !== 'All') {
+                url += `&include-tags=${cuisine}`;
+                if (dietHabit !== 'No Diet Habit') {
+                    url += `,${dietHabit.toLowerCase()}`;
                 }
             } else {
-                if (preferences.dietHabit === 'vegetarian') {
-                    url += `${preferences.cuisine},${preferences.dietHabit.toLowerCase()}`;
-                } else {
-                    url += `${preferences.cuisine}&exclude-tags=${preferences.dietHabit.split(' ')[0].toLowerCase()}`;
-                    console.log(url);
-                }
+                url += `&include-tags=${dietHabit.toLowerCase()}`;
             }
-        } else {
-            url += `&exclude-tags=${preferences.dietHabit.toLowerCase()}`;
         }
     
         console.log("Fetching URL: ", url);
@@ -59,7 +48,6 @@ export default function Recipe() {
         }
     };
     
-
     return (
         <div className='recipe'>
             <div className='page-container'>
