@@ -78,7 +78,7 @@ function Upload() {
 
     return (
         <div className="Upload">
-            <main>
+            <main style={{backgroundColor: '#faf3e0'}}>
                 <div className="row">
                     <div className="col-md-6">
                         <h2>Image Upload</h2>

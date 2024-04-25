@@ -2,7 +2,7 @@ UploadPage.css
 
 body {
     font-family: 'Arial', sans-serif; /* Replace with the font you are using */
-    background-color: #f8f9fa; /* Background color of the page */
+    background-color: #faf3e0; /* Background color of the page */
     color: #333; /* Default text color */
     margin: 0;
     padding: 20px; /* Adjust as necessary */
@@ -30,7 +30,7 @@ body {
   }
   
   .upload-container {
-    background-color: #fff;
+    background-color: #ffffff;
     height: 300px;
     border-radius: 8px;
     padding: 20px;
@@ -45,7 +45,7 @@ body {
   }
   
   .dropzone {
-    border: 2px dashed #ccc;
+    border: 2px dashed #0f0c04;
     border-radius: 4px;
     padding: 20px;
     text-align: center;
