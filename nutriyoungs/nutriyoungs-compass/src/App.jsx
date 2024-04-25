@@ -1,4 +1,4 @@
-import './App.css'; 
+import './App.css';
 import React, { useState } from 'react';
 import Landing from './Landing';
 import Footer from './Footer';
@@ -6,8 +6,7 @@ import BMI from './BMI';
 import Knowledge from './Knowledge';
 import ComingSoon from './ComingSoon';
 import Upload from './Upload';
-import Recipe from './Recipe'
-
+import Recipe from './Recipe';
 
 function App() {
   const [view, setView] = useState('home'); 
@@ -19,13 +18,13 @@ function App() {
   const renderComponent = () => {
     switch (view) {
       case 'bmi':
-        return <BMI />;
+        return <BMI onNavigate={setView} />;  
       case 'knowledge':
         return <Knowledge />;
       case 'upload':
-        return <Upload />
+        return <Upload />;
       case 'recipe':
-        return <Recipe />
+        return <Recipe />;
       case 'home':
       default:
         return <Landing onNavigate={setView} />; 
@@ -42,42 +41,42 @@ function App() {
       <div className="NavigationBar">
         <div className='app-logo' onClick={() => setView('home')}>
           NutriYoungs Compass
-          </div>
+        </div>
         <div>
-        <button
-            onClick={() => setView('bmi')}
-            className="button"
-            style={view === 'bmi' ? activeButtonStyle : {}}
-          >
-            BMI 
+          <button
+              onClick={() => setView('bmi')}
+              className="button"
+              style={view === 'bmi' ? activeButtonStyle : {}}
+            >
+              BMI
           </button>
           <button
-            onClick={() => setView('knowledge')}
-            className="button"
-            style={view === 'knowledge' ? activeButtonStyle : {}}
-          >
-            Trends
+              onClick={() => setView('knowledge')}
+              className="button"
+              style={view === 'knowledge' ? activeButtonStyle : {}}
+            >
+              Trends
           </button>
           <button
-            onClick={() => setView('upload')}
-            className="button"
-            style={view === 'upload' ? activeButtonStyle : {}}
-          >
-            Recognize
+              onClick={() => setView('upload')}
+              className="button"
+              style={view === 'upload' ? activeButtonStyle : {}}
+            >
+              Recognize
           </button>
           <button
-            onClick={() => setView('recipe')}
-            className="button"
-            style={view === 'recipe' ? activeButtonStyle : {}}
-          >
-            Recipe
+              onClick={() => setView('recipe')}
+              className="button"
+              style={view === 'recipe' ? activeButtonStyle : {}}
+            >
+              Recipe
           </button>
         </div>
         
       </div>
 
       {renderComponent()}
-      
+
       <Footer onNavigate={handleFooterNavigation} /> 
     </div>
   );

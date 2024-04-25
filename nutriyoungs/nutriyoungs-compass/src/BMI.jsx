@@ -4,8 +4,9 @@ import React from 'react';
 import './BMI.css'
 import scale from './assets/images/scale.png';
 import figure from './assets/images/bmi-figure.png';
+import Recipe from './Recipe'
 
-export default function BMI(){
+export default function BMI({ onNavigate }){
     const [result, setResult] = useState(null);
     const [bmi, setBmi] = useState(24.9); 
     const [status, setStatus] = useState('You’re Healthy');
@@ -66,7 +67,7 @@ export default function BMI(){
         <div className='recipt-wrapper'>
               <h1>To explore personalized meal suggestions based on your child’s nutritional needs: </h1>
               <br />
-                <button className="recipe-button" onClick={() => onNavigate('bmi')}>
+                <button className="recipe-button" onClick={() => onNavigate('recipe')}>
                     Try recipe recommendation
                 </button>
         </div>
