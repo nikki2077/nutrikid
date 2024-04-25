@@ -7,7 +7,7 @@ function PerformanceOverview() {
       {/* You would have your cards for performance data here */}
       {/* For example: */}
       <div className="card">
-        <span>Total Revenue</span>
+        <span>Categra</span>
         <h3>$125,24</h3>
       </div>
       <div className="card">
