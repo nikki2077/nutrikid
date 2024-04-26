@@ -6,6 +6,7 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
     const [calorieNeeds, setCalorieNeeds] = useState(2000);
     const [selectedCuisine, setSelectedCuisine] = useState('');
     const [selectedDietHabit, setSelectedDietHabit] = useState('');
+    const [mealCount, setMealCount] = useState(3);
 
     const cuisines = ['italian', 'japanese', 'chinese', 'indian', 'american'];
     const dietHabits = ['Gluten Free', 'vegetarian'];
@@ -27,6 +28,7 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
             calorieNeeds,
             cuisine: selectedCuisine || undefined,
             dietHabit: selectedDietHabit || undefined,
+            mealCount,
         };
         onSubmitPreferences(preferences);
     };
@@ -83,8 +85,20 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
                         >
                             {habit}
                         </button>
+                        
                     ))}
+                    <br /><br />
+                    <h2>Meals per day:</h2>
+                        <input 
+                        type="number" 
+                        value={mealCount} 
+                        onChange={e => setMealCount(e.target.value)} 
+                        min="1" 
+                        max="5" 
+                        className="meals-per-day-input" 
+                        />
                 </div>
+
                 <div className="button-container">
                 <button onClick={handleSubmit} className="generate-button">
                     Generate
