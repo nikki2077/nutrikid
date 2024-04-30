@@ -1,74 +1,95 @@
 import React, { useState } from 'react';
-import './Landing.css'; 
-import ReactCardFlip from 'react-card-flip';
-import carbsImage from './assets/images/protein.jpeg'
+import './Landing.css';
+import backgroundImage from './assets/images/bg.png';
+import bmiGrid from './assets/images/bmiGrid.png';
+import dynamicGrid from './assets/images/dynamicGrid.png';
+import trackingGrid from './assets/images/trackingGrid.png';
+import recipeGrid from './assets/images/recipeGrid.png';
+import groceriedGrid from './assets/images/groceriesGrid.png';
 
-const initialCardInfo = [
-  {
-    image: carbsImage,
-    category: 'Macro Nutrients',
-    cardName: 'Carbohydrates',
-    information: 'Good sources of carbohydrates include fruits, vegetables, whole grains like oats and brown rice, and starchy foods like potatoes and whole grain bread.',
-    isFlipped: false
-  },
-  {
-    image: carbsImage,
-    category: 'Macro Nutrients',
-    cardName: 'Proteins',
-    information: 'Good sources of protein include meat, poultry, fish, eggs, dairy products like milk and cheese, beans, and nuts.',
-    isFlipped: false
-  },
-  {
-    image: carbsImage,
-    category: 'Macro Nutrients',
-    cardName: 'Fats',
-    information: 'Good sources of healthy fats include avocados, nuts, seeds, olive oil, and fatty fish like salmon.',
-    isFlipped: false
-  }
-];
 
 export default function Landing({ onNavigate }) {
-    const [cards, setCards] = useState(initialCardInfo);
+  return (
+    <div className="landing">
+      <div className="hero-section">
+        <div className="hero-left">
+          <h1 className="title">NutriYoungs Compass</h1>
+          <h2 className="sub-title">Empower Nutritional Choices, Foster Healthy Growth,
+          Enlighten with Affordable Solutions.</h2>
+          <br />
+          <button className="cta-button" onClick={() => onNavigate('bmi')}>
+            Let's set sail
+          </button>
+        </div>
+        <div className="hero-right">
+          <img src={backgroundImage} alt="background-image" className="background-image" />
+        </div>
+      </div>
 
-    function flipCard(index){
-        const newCards = [...cards];
-        newCards[index].isFlipped = !newCards[index].isFlipped;
-        setCards(newCards);
-    }
-
-    return (
-        <div className="landing">
-            <div className="hero-section">
-                <h1 className="title">Want to whip up healthy feeds that your little nippers will actually eat? <br />We’ve got you sorted with brilliant ideas!</h1>
-                <br />
-                <button className="cta-button" onClick={() => onNavigate('bmi')}>
-                    Starting with a BMI Test
-                </button>
+      <div className="info-section">
+        <h2>Some things you should know about children’s nutrition</h2>
+        <h3>The question that every parent is most concerned about: How to scientifically and happily keep children healthy at a cost-effective manner?</h3>
+        <div className="info-content">
+          <div className="info-grid">
+        
+            <div className='left-grid'>
+            <div className="grid-item">
+              <img src={bmiGrid} alt="Description" className="grid-image" />
+              <h2 className="grid-title">Calculate BMI</h2> 
+              <h3 className="grid-subtitle">Body Mass Index & Nutrition advice</h3>
+              <p className="grid-description">Calculate children's Body Mass Index (BMI) and receive personalized nutrition advice.</p>
+              <div className="button-container">
+                <button className='try-it-btn' onClick={() => onNavigate('bmi')}>Try it</button>
+              </div>
             </div>
 
-            {/* <div className='cards-container'>
-            {cards.map((card, index) => (
-              <div className='Info-wrapper' key={index}>
-                  <ReactCardFlip flipDirection='horizontal' isFlipped={card.isFlipped}>
-                      <div className='card card-front' onClick={() => flipCard(index)}>
-                          <img src={card.image} alt={card.cardName} className="card-image" />
-                          <div className="card-content">
-                            <span className="card-category">{card.category}</span>
-                            <h2 className="card-name">{card.cardName}</h2>
-                          </div>
-                      </div>
-
-                      <div className='card card-back' onClick={() => flipCard(index)}>
-                          <div className="card-content">
-                            <h2 className="card-name">{card.cardName}</h2>
-                            <p className="card-information">{card.information}</p>
-                          </div>
-                      </div>
-                  </ReactCardFlip>
+            <div className="grid-item">
+              <img src={recipeGrid} alt="Description" className="grid-image" />
+              <h2 className="grid-title">Recipe Recommendation</h2>
+              <h3 className="grid-subtitle">Healthy & Tasty nutritional recipes</h3>
+              <p className="grid-description">Suggest healthy and tasty recipes tailored to children's nutritional needs and family preferences.</p>
+              <div className="button-container">
+                <button className='try-it-btn' onClick={() => onNavigate('recipe')}>Try it</button>
               </div>
-            ))}
-            </div> */}
+            </div>
 
+            <div className="grid-item">
+              <img src={groceriedGrid} alt="Description" className="grid-image" />
+              <h2 className="grid-title">Groceries Receipt Insights</h2>
+              <h3 className="grid-subtitle">Shopping</h3>
+              <p className="grid-description">Empower to make informed decisions about grocery spending and nutritional choices through advanced analysis of grocery receipts.</p>
+              <div className="button-container">
+                <button className='try-it-btn' >Try it</button>
+              </div>
+            </div>
+            </div>
+       
+            <div className='right-grid'>
+            <div className="grid-item">
+              <img src={dynamicGrid} alt="Description" className="grid-image" />
+              <h2 className="grid-title">Dynamic Visualisations</h2>
+              <h3 className="grid-subtitle">Nutritional intake & Food consumption proportion</h3>
+              <p className="grid-description">Display trends in children's nutritional intake, and food consumption proportion for various age categories.</p>
+              <div className='btn-wrapper'>
+              <div className="button-container">
+                <button className='try-it-btn' onClick={() => onNavigate('knowledge')}>Try it</button>
+              </div>
+              </div>
+            </div>
+            <div className="grid-item">
+              <img src={trackingGrid} alt="Description" className="grid-image" />
+              <h2 className="grid-title">Food Recognition & Nutrient Tracking</h2>
+              <h3 className="grid-subtitle">Recognition & Tracking</h3>
+              <p className="grid-description">Take pictures, food information will be presented without any obstruction. "Click-click" and learn about the food data you're most curious about.</p>
+              <div className="button-container">
+                <button className='try-it-btn' onClick={() => onNavigate('upload')}>Try it</button>
+              </div>
+            </div>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
+

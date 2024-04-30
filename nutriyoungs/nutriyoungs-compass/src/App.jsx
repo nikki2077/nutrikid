@@ -7,6 +7,7 @@ import Knowledge from './Knowledge';
 import ComingSoon from './ComingSoon';
 import Upload from './Upload';
 import Recipe from './Recipe';
+import logoImage from './assets/images/logo.png'
 
 function App() {
   const [view, setView] = useState('home'); 
@@ -32,14 +33,14 @@ function App() {
   };
 
   const activeButtonStyle = {
-    backgroundColor: '#4CAF50', 
-    color: 'white',
+    color: '#3498DB',
   };
 
   return (
     <div className="main-section">
       <div className="NavigationBar">
         <div className='app-logo' onClick={() => setView('home')}>
+          <img src={logoImage} alt="logo-image" className='logo-image' />
           NutriYoungs Compass
         </div>
         <div>
