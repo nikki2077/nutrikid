@@ -21,8 +21,8 @@ html, body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  color:white;
-  background: #000;
+  color:#4CAF50;
+  background: #faf3e0;
 }
 
 .app-logo {
@@ -36,19 +36,21 @@ html, body {
 .button {
   background: none;
   border: none;
-  color: white;
+  color: #4CAF50;
   font-size: 24px; 
+  font-weight: bold;
   cursor: pointer;
   padding: 10px 20px;
   margin-right: 45px; 
+  transition: color 0.3s;
 }
 
 .button:hover {
   text-decoration: underline; 
 }
 
+
 .hero-section {
-  background-image: url('./assets/images/Background.png'); 
   background-size: cover;
   background-position: center;
   padding: 100px 20px; 
@@ -68,4 +70,15 @@ html, body {
 
 body {
   font-family: 'Roboto', sans-serif;
+}
+
+.app-logo {
+  display: flex; 
+  align-items: center; 
+  cursor: pointer;
+}
+
+.logo-image {
+  height: 50px; 
+  margin-right: 10px; 
 }
