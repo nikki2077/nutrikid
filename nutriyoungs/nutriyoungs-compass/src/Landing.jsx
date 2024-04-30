@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Landing.css';
-import backgroundImage from './assets/images/background.png';
+import backgroundImage from './assets/images/bg.png';
 import bmiGrid from './assets/images/bmiGrid.png';
 import dynamicGrid from './assets/images/dynamicGrid.png';
 import trackingGrid from './assets/images/trackingGrid.png';
@@ -22,7 +22,7 @@ export default function Landing({ onNavigate }) {
           </button>
         </div>
         <div className="hero-right">
-          <img src={backgroundImage} alt="backgournd-image" className="background-image" />
+          <img src={backgroundImage} alt="background-image" className="background-image" />
         </div>
       </div>
 
