@@ -1,45 +1,54 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import React from 'react';
-import './BMI.css'
-import scale from './assets/images/scale.png';
-import figure from './assets/images/bmi-figure.png';
-import Recipe from './Recipe'
+import './BMI.css';
+import bmiImage from './assets/images/bmi.png';
 
-export default function BMI({ onNavigate }){
-    const [result, setResult] = useState(null);
-    const [bmi, setBmi] = useState(24.9); 
-    const [status, setStatus] = useState('You’re Healthy');
-      
-    useEffect(() => {
-        
+export default function BMI({ onNavigate }) {
+  const [result, setResult] = useState(null);
+  const [bmi, setBmi] = useState(24.9);
+  const [status, setStatus] = useState('You’re Healthy');
+
+  useEffect(() => {
     function handleBMIResult(data) {
-        console.log('testing');
-        if (data && data.bmi && data.status) {
-          setBmi(data.bmi);
-          setStatus(data.status);
-        } else {
-          console.error('Invalid data received', data);
-        }
+      if (data && data.bmi && data.status) {
+        setBmi(data.bmi);
+        setStatus(data.status);
+      } else {
+        console.error('Invalid data received', data);
       }
+    }
 
-      const handleMessage = (event) => {
-        if (event.origin.startsWith("https://www.cdc.gov")) {
-          handleBMIResult(event.data);
-        }
-      };
-  
-      window.addEventListener("message", handleMessage);
-  
-      return () => {
-        window.removeEventListener("message", handleMessage);
-      };
-    }, [])
+    const handleMessage = (event) => {
+      if (event.origin.startsWith("https://www.cdc.gov")) {
+        handleBMIResult(event.data);
+      }
+    };
 
-    return(
-        <div className="bmi-page">
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
+
+  return (
+    <div className="bmi-page">
+        <div className="intro-section">
+            <h1 className="bmi-title">BMI Calculator</h1>
+            <p className="bmi-intro">
+                Streamlined, intuitive interface, quickly assess a child's body mass index (BMI) to ensure their growth is on track and they maintain a healthy weight for their age and activity level. Get instant calculations by entering basic information like age, height, and weight.
+            </p>
+        </div>
       <main className="bmi-content">
         <section className="bmi-info">
+        <div className="bmi-wrapper">
+          <iframe
+            src="https://www.cdc.gov/healthyweight/bmi/calculator-widget.html"
+            title="BMI Calculator for Child and Teen"
+            style={{ width: '100%', height: '100%', border: 'none' }}
+          ></iframe>
+          {/* <img src={bmiImage} alt="bmi-image" className="bmi-image" /> */}
+        </div>
           <article className="bmi-article">
             <h2>What is BMI?</h2>
             <p>BMI, or Body Mass Index, is a ratio of weight to height (kg/m²) often used as a proxy for body fatness. However, it doesn't directly measure body fat; it estimates weight excess. Studies confirm BMI is broadly indicative of body fat levels, as gauged by more precise methods like underwater weighing and DXA scans.</p>
@@ -52,28 +61,15 @@ export default function BMI({ onNavigate }){
             <br />
             <a href="https://www.cdc.gov/obesity/downloads/bmiforpactitioners.pdf" target="_blank" rel="noopener noreferrer">Read more</a>
           </article>
-
-
         </section>
-
-        <div className="bmi-wrapper">
-            <iframe
-            src="https://www.cdc.gov/healthyweight/bmi/calculator-widget.html"
-            title="BMI Calculator for Child and Teen"
-            style={{ width: '100%', height:'100%',border: 'none' }}
-        ></iframe>
-        </div>
-
-        <div className='recipt-wrapper'>
-              <h1>To explore personalized meal suggestions based on your child’s nutritional needs: </h1>
-              <br />
-                <button className="recipe-button" onClick={() => onNavigate('recipe')}>
-                    Try recipe recommendation
-                </button>
-        </div>
-        
+        {/* <div className='recipt-wrapper'>
+          <h1>To explore personalized meal suggestions based on your child’s nutritional needs: </h1>
+          <br />
+          <button className="recipe-button" onClick={() => onNavigate('recipe')}>
+            Try recipe recommendation
+          </button>
+        </div> */}
       </main>
     </div>
-    )
+  );
 }
-
