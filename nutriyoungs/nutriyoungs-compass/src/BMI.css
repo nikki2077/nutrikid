@@ -1,15 +1,37 @@
 .bmi-page {
-    display: grid;
-    gap: 20px;
-    padding: 20px;
-    background: #faf3e0;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 100px;
+  background: #faf3e0;
+}
+
+.intro-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+
+.bmi-title {
+  flex-basis: 30%;
+  font-size: 64px;
+  color: #4CAF50;
+}
+
+.bmi-intro {
+  flex-basis: 60%;
+  font-size: 24px;
+  color: #4CAF50;
+}
+
   
   .bmi-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
   }
 
   .bmi-article h2 {
@@ -31,12 +53,12 @@
   
   .bmi-article {
     margin-bottom: 40px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
   
 .bmi-wrapper {
-  height: 56vh;
+  height: 89vh;
   width:39%;
   align-self: center; 
 }
