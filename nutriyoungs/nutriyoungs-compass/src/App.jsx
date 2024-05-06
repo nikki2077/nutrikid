@@ -4,13 +4,12 @@ import Landing from './Landing';
 import Footer from './Footer';
 import BMI from './BMI';
 import Knowledge from './Knowledge';
-import ComingSoon from './ComingSoon';
 import Upload from './Upload';
 import Recipe from './Recipe';
-import logoImage from './assets/images/logo.png'
+import logoImage from './assets/images/logo.png';
 
 function App() {
-  const [view, setView] = useState('home'); 
+  const [view, setView] = useState('home');
 
   const handleFooterNavigation = (viewName) => {
     setView(viewName);
@@ -19,16 +18,16 @@ function App() {
   const renderComponent = () => {
     switch (view) {
       case 'bmi':
-        return <BMI onNavigate={setView} />;  
+        return <BMI onNavigate={setView} />;
       case 'knowledge':
-        return <Knowledge />;
+        return <Knowledge onNavigate={setView} />; // Pass `onNavigate` to Knowledge
       case 'upload':
-        return <Upload />;
+        return <Upload onNavigate={setView} />; // Pass `onNavigate` to Upload
       case 'recipe':
-        return <Recipe />;
+        return <Recipe onNavigate={setView} />; // Pass `onNavigate` to Recipe
       case 'home':
       default:
-        return <Landing onNavigate={setView} />; 
+        return <Landing onNavigate={setView} />;
     }
   };
 
@@ -59,7 +58,7 @@ function App() {
               Trends
           </button>
           <button
-              onClick={() => setView('upload')}
+              onClick={() =>setView('upload')}
               className="button"
               style={view === 'upload' ? activeButtonStyle : {}}
             >
@@ -73,12 +72,11 @@ function App() {
               Recipe
           </button>
         </div>
-        
       </div>
 
       {renderComponent()}
 
-      <Footer onNavigate={handleFooterNavigation} /> 
+      <Footer onNavigate={handleFooterNavigation} />
     </div>
   );
 }

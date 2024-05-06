@@ -36,8 +36,8 @@ const Fruit = () => {
           xanchor: 'center',
           x: 0.5,
         },
-        width: 1000,
-        height: 600,
+        width: 1280,
+        height: 720,
         margin: {
           l: 50,
           r: 50,

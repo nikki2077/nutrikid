@@ -4,7 +4,6 @@ import './BMI.css';
 import bmiImage from './assets/images/bmi.png';
 
 export default function BMI({ onNavigate }) {
-  const [result, setResult] = useState(null);
   const [bmi, setBmi] = useState(24.9);
   const [status, setStatus] = useState('You’re Healthy');
 
