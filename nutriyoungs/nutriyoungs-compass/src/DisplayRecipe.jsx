@@ -23,7 +23,7 @@ const DisplayRecipe = ({ recipe }) => {
 
   return (
     <div className="recipe-details">
-      <h1>{recipe.title}</h1>
+      <h1 className='recipe-title'>{recipe.title}</h1>
       {recipe.image && <img src={recipe.image} alt={recipe.title} />}
       <h2>Ingredients</h2>
       <ul>{ingredientsList}</ul>

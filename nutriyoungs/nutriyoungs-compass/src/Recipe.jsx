@@ -45,8 +45,13 @@ export default function Recipe() {
     return (
         <div className='recipe'>
             <div className='page-container'>
+            <div className="intro-section">
+          <h1 className="bmi-title">Recipe Recommendation</h1>
+          <p className="bmi-intro">
+          Rapid creation and customization of weekly meal plans based on a child's dietary needs and preferences to ensure a balanced and varied diet throughout the week. Enter the daily calorie intake to get a tailored weekly meal plan. Provides options to adjust meals according to specific dietary requirements, easily manage and optimize their children's nutrition. Supports informed decision-making for maintaining balanced dietary habits.
+          </p>
+        </div>
                 <div className='recipe-options'>
-                    <h1>Recipe Recommendation</h1>
                     {showConverter && <CaloriesConverter />}
                     <DietOption onToggleVisibility={toggleConverterVisibility} onSubmitPreferences={handlePreferencesSubmit} />
                 </div>
