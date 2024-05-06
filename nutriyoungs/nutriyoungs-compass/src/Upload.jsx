@@ -165,7 +165,7 @@ function Upload() {
                                     <div className='col-md-4'>
                                         <img src={nameicon} style={{marginLeft:'40px', marginTop:'40px'}}></img>
                                         <h3 style={{marginLeft:'40px', color:'#4CAF50'}}>Name</h3>
-                                    </div>
+                      m              </div>
                                     <div className='col-md-8' style={{textAlign:'center', marginTop:'45px'}}>
                                         <span style={{fontSize:'36px', marginTop:'40px', fontWeight:'bold', color:'#4CAF50'}}>{category || "No Category Detected"}</span>  {/* Display detected category */}
                                     </div>
