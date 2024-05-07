@@ -165,7 +165,7 @@ function Upload() {
                                     <div className='col-md-4'>
                                         <img src={nameicon} style={{marginLeft:'40px', marginTop:'40px'}}></img>
                                         <h3 style={{marginLeft:'40px', color:'#4CAF50'}}>Name</h3>
-                      m              </div>
+                                    </div>
                                     <div className='col-md-8' style={{textAlign:'center', marginTop:'45px'}}>
                                         <span style={{fontSize:'36px', marginTop:'40px', fontWeight:'bold', color:'#4CAF50'}}>{category || "No Category Detected"}</span>  {/* Display detected category */}
                                     </div>
@@ -191,19 +191,19 @@ function Upload() {
                                 <div className='col-lg-4'>
                                     <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                         <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Fat (g)</h5>
-                                        <span>{categoryData?.['Fat (g)'] || "N/A"}</span>  {/* Display detected category */}
+                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Fat (g)'] || "N/A"}</span>  {/* Display detected category */}
                                     </div>
                                 </div>
                                 <div class='col-md-4'>
                                     <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                         <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Carbohydrates (g)</h5>
-                                        <span>{categoryData?.['Carbohydrates (g)'] || "N/A"}</span>  {/* Display detected category */}
+                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Carbohydrates (g)'] || "N/A"}</span>  {/* Display detected category */}
                                     </div>
                                 </div>
                                 <div className='col-md-4'>
                                     <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                         <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Total Sugars (g)</h5>
-                                        <span>{categoryData?.['Total Sugars (g)'] || "N/A"}</span>  {/* Display detected category */}
+                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Total Sugars (g)'] || "N/A"}</span>  {/* Display detected category */}
                                     </div>
                                 </div>
                             </div>
@@ -211,19 +211,19 @@ function Upload() {
                                 <div className='col-md-4'>
                                     <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                         <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Cholesterol (mg)</h5>
-                                        <span>{categoryData?.['Cholesterol (mg)'] || "N/A"}</span>  {/* Display detected category */}
+                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Cholesterol (mg)'] || "N/A"}</span>  {/* Display detected category */}
                                     </div>
                                 </div>
                                 <div className='col-md-4'>
                                     <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                         <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Fiber (g)</h5>
-                                        <span>{categoryData?.['Fiber (g)'] || "N/A"}</span>  {/* Display detected category */}
+                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Fiber (g)'] || "N/A"}</span>  {/* Display detected category */}
                                     </div>
                                 </div>
                                 <div className='col-md-4'>
                                     <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                         <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Portion (g)</h5>
-                                        <span>{categoryData?.['Portion (g)'] || "N/A"}</span>  {/* Display detected category */}
+                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Portion (g)'] || "N/A"}</span>  {/* Display detected category */}
                                     </div>
                                 </div>
                             </div>
@@ -233,15 +233,15 @@ function Upload() {
                 <div className='row'>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                     <div className="col-md-8" style={{marginTop:'5%'}}>
+                        <h1 style={{color:'black'}}>Limitations</h1>
                         <p style={{color:'black'}}>The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
-                        <p style={{color:'black'}}>Burgers can be enjoyed by children, but it's important to choose lean meat options and limit high-fat toppings like cheese and bacon, As with other fast food items, burgers should be an occasional treat rather than a regular meal.</p>
                         <p style={{color:'black'}}>The current capabilities of our model allow for the identification of nine specific types of food: donuts. chicken curry, French fries, ice cream. pizza. waffies. garlic bread, burgers, and onion rings. We regret any inaccuracies in food recognition that may occur and are actively working to expand the range of foods our model can accurately identify. Thank you for your understanding.</p>
                         <p style={{color:'black'}}>Due to the performance of the model, the current model accuracy is only 70%. We apologize for the images that may not be correctly recognized.We are working on improving the model accuracy. Thanks for your understanding.</p>
                     </div>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>
                 <div style={{position: 'fixed', bottom: '20px', right: '20px', display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
-                    <button className="btn btn-secondary mb-2" onClick={() => window.history.back()}>Back</button>
+                    <button className="btn-secondary mb-2" onClick={() => onNavigate('landing')}>Back to Home</button>
                     <button className="btn btn-primary" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>To the Top</button>
                 </div>
             </main>
