@@ -44,8 +44,8 @@ const FruitVege = () => {
     title: 'Children Not Meeting Daily Fruit & Vegetable Intake Percentage, 2021',
     xaxis: { title: 'Age Group (years)' },
     yaxis: { title: 'Percentage of Children' },
-    width: 1200,
-    height: 800,
+    width: 1280,
+    height: 720,
     autosize: false,
     legend: {
       orientation: 'h',

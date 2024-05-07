@@ -10,8 +10,8 @@ const macronutrientsData = [
 const MacroNutrientCharts = () => {
   const ageGroups = ['2-3', '4-8', '9-13', '14-18'];
   const layout = {
-    width: 1000,
-    height: 600,
+    width: 1280,
+    height: 720,
     grid: { rows: 2, columns: 2, pattern: 'independent' },
     annotations: [],
     legend: {

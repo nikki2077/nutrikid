@@ -87,7 +87,7 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
                         </button>
                         
                     ))}
-                    <br /><br />
+                    
                     <h2>Meals per day:</h2>
                         <input 
                         type="number" 

@@ -65,8 +65,8 @@ const Overweight = () => {
       title: 'Percentage of Overweight or Obese by Age Group',
       xaxis: { title: 'Age Group' },
       yaxis: { title: 'Percentage Overweight or Obese', range: [0, Math.max(...data.map(item => item['Overweight or obese'])) + 5] },
-      width: 1000,
-      height: 600,
+      width: 1280,
+      height: 720,
     };
   
     const buttonText = animationStatus === 'playing' ? 'Pause' : animationStatus === 'finished' ? 'Play Again' : 'Play';
