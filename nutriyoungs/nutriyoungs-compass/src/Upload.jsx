@@ -9,7 +9,7 @@ import nameicon from './assets/images/fork_knife.png'
 import energyicon from './assets/images/energyicon.png'
 import proteinicon from './assets/images/proteinicon.png'
 
-function Upload() {
+function Upload({onNavigate}) {
     const [base64, setBase64] = useState("");
     const [category, setCategory] = useState("");
     const [nutritionData, setNutritionData] = useState(new Map());
