@@ -241,7 +241,7 @@ function Upload() {
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>
                 <div style={{position: 'fixed', bottom: '20px', right: '20px', display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
-                    <button className="btn btn-secondary mb-2" onClick={() => window.history.back()}>Back</button>
+                    <button className="btn-secondary mb-2" onClick={() => onNavigate('landing')}>Back to Home</button>
                     <button className="btn btn-primary" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>To the Top</button>
                 </div>
             </main>
