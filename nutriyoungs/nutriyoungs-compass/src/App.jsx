@@ -6,6 +6,7 @@ import BMI from './BMI';
 import Knowledge from './Knowledge';
 import Upload from './Upload';
 import Recipe from './Recipe';
+import Recipt from './recipt'
 import logoImage from './assets/images/logo.png';
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
         return <Upload onNavigate={setView} />; // Pass `onNavigate` to Upload
       case 'recipe':
         return <Recipe onNavigate={setView} />; // Pass `onNavigate` to Recipe
+        case 'recipt':
+          return <Recipt onNavigate={setView} />; // Pass `onNavigate` to recipt
       case 'home':
       default:
         return <Landing onNavigate={setView} />;
@@ -70,6 +73,13 @@ function App() {
               style={view === 'recipe' ? activeButtonStyle : {}}
             >
               Recipe
+          </button>
+          <button
+              onClick={() => setView('recipt')}
+              className="button"
+              style={view === 'recipt' ? activeButtonStyle : {}}
+            >
+              Recipt Scanner
           </button>
         </div>
       </div>
