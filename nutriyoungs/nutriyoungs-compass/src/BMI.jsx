@@ -70,16 +70,30 @@ export default function BMI({ onNavigate }) {
           <h1>To explore personalized meal suggestions based on your child’s nutritional needs:</h1>
           <br />
           <div className='recipt-button-wrapper'>
-          <button className="recipe-button" onClick={() => onNavigate('recipe')}>
-            Try recipe recommendation
+          <button className="recipe-button" onClick={() => {
+              onNavigate('recipe');
+              setTimeout(() => {
+                  window.scrollTo(0, 0);
+              }, 0);  
+          }}>
+              Try recipe recommendation
           </button>
+
           </div>
         </div>
         <div className="bmi-buttons">
           <button className="btn-secondary mb-2" onClick={() => onNavigate('landing')}>Back to Home</button>
-          <button className="btn-primary" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>To the Top</button>
+          <button className="btn-primary" onClick={() => window.scrollTo(0,0)}>To the Top</button>
         </div>
-
+        <div className="bmi-buttons">
+                <button className="btn-secondary mb-2" onClick={() => {
+                    onNavigate('landing');
+                    setTimeout(() => {
+                        window.scrollTo(0, 0);
+                    }, 0);  
+                }}>Back to Home</button>
+                <button className="btn-primary" onClick={() => window.scrollTo(0, 0)}>To the Top</button>
+            </div>
       </main>
     </div>
   );

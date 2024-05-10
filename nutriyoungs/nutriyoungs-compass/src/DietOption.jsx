@@ -62,7 +62,7 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
             </div>
             <div className="selection-container">
                 <div className="cuisine-selection">
-                    <h2>Any Cusine Preference?</h2>
+                    <h2>Any Cuisine Preference?</h2>
                     {cuisines.map((cuisine) => (
                         <button
                             key={cuisine}

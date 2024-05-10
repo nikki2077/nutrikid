@@ -89,6 +89,9 @@ export default function Landing({ onNavigate }) {
           </div>
         </div>
       </div>
+      <div className="bmi-buttons">
+                <button className="btn-primary" onClick={() => window.scrollTo(0, 0)}>To the Top</button>
+            </div>
     </div>
   );
 }
