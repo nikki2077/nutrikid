@@ -21,13 +21,13 @@ function App() {
       case 'bmi':
         return <BMI onNavigate={setView} />;
       case 'knowledge':
-        return <Knowledge onNavigate={setView} />; // Pass `onNavigate` to Knowledge
+        return <Knowledge onNavigate={setView} />; 
       case 'upload':
-        return <Upload onNavigate={setView} />; // Pass `onNavigate` to Upload
+        return <Upload onNavigate={setView} />; 
       case 'recipe':
-        return <Recipe onNavigate={setView} />; // Pass `onNavigate` to Recipe
+        return <Recipe onNavigate={setView} />; 
         case 'recipt':
-          return <Recipt onNavigate={setView} />; // Pass `onNavigate` to recipt
+          return <Recipt onNavigate={setView} />;
       case 'home':
       default:
         return <Landing onNavigate={setView} />;
