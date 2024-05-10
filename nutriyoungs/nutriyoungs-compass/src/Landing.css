@@ -1,4 +1,4 @@
-
+.landing {
   .hero-section {
     display: flex; 
     align-items: center;
@@ -8,25 +8,25 @@
     width: 100%; 
     background-size: cover; 
     background-position: center; 
-    background-color:#faf3e0;
+    background-color: #faf3e0;
   }
-  
+
   .hero-left {
     flex-basis: 50%; 
     padding: 100px;
   }
-  
+
   .hero-right {
     flex-basis: 50%;
   }
-  
+
   .hero-image {
     width: 100%;
     height: auto; 
     max-width: 100%; 
     object-fit: cover; 
   }
-  
+
   @media (max-width: 768px) {
     .hero-section {
       flex-direction: column; 
@@ -35,9 +35,9 @@
       flex-basis: auto; 
     }
   }
-  
+
   .cta-button {
-    background-color:#3a86ff; 
+    background-color: #3a86ff; 
     color: #ffffff; 
     border: none;
     border-radius: 20px; 
@@ -58,20 +58,19 @@
     color: #4CAF50;
     margin-bottom: 30px;
   }
-  
+
   .sub-title {
     font-size: 24px;
     color: #4CAF50;
     margin-bottom: 30px;
   }
-  
 
   .info-section {
     display: flex;
     flex-direction: column;
     align-items: left;
     padding: 20px;
-    background-color:#EDE3C7;
+    background-color: #EDE3C7;
     padding-left: 50px;
   }
 
@@ -81,7 +80,7 @@
     font-size: 48px;
     margin-top: 50px;
   }
-  
+
   .info-section h3 {
     color: #777;
     font-weight: normal; 
@@ -95,21 +94,21 @@
     font-size: 24px;
     margin-bottom: 50px;
   }
-  
+
   .info-content {
     display: flex;
     grid-template-columns: 1fr 1fr;
     gap: 30px; 
     width: 100%;
   }
-  
+
   .info-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1px 30px;
     width: 100%;
   }
-  
+
   .grid-item {
     background-color: white; 
     border-radius: 8px;
@@ -118,20 +117,18 @@
     margin-bottom: 30px;
     width: 80%;
     margin: 30px;
-  
   }
-  
+
   .left-grid {
     display: flex;
     flex-direction: column;
-
   }
-  
+
   .right-grid {
     display: flex;
     flex-direction: column;
   }
-  
+
   .grid-item {
     background-color: #FFFEF5;
     border-radius: 16px;
@@ -139,36 +136,33 @@
     padding: 16px;
     text-align: left;
     padding: 40px;
-
   }
-  
+
   .grid-image {
     max-width: 100%;
     height: auto;
   }
-  
+
   .grid-subtitle {
     font-size: 14px;
     color: #666;
     margin-top: 8px;
     margin-bottom: 0;
   }
-  
+
   .grid-title {
     font-size: 24px;
     color: #333;
     margin-top: 0px; 
   }
 
-
   .grid-description {
     font-size: 16px;
     color: #666;
   }
-  
 
   .try-it-btn {
-    background-color:#3a86ff; 
+    background-color: #3a86ff; 
     color: #ffffff; 
     border: none;
     border-radius: 20px; 
@@ -180,7 +174,7 @@
     transition: background-color 0.3s;
   }
 
-  .try-it-btn {
+  .try-it-btn:hover {
     background-color: #45a049;
   }
-
+}
