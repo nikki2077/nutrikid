@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './App.css';
-import './Upload.css';
+import './recipt.css';
 import './Knowledge.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Papa from 'papaparse';
@@ -9,7 +9,7 @@ import nameicon from './assets/images/fork_knife.png'
 import energyicon from './assets/images/energyicon.png'
 import proteinicon from './assets/images/proteinicon.png'
 
-function Upload({onNavigate}) {
+function Recipt({onNavigate}) {
     const [base64, setBase64] = useState("");
     const [category, setCategory] = useState("");
     const [nutritionData, setNutritionData] = useState(new Map());
@@ -36,7 +36,6 @@ function Upload({onNavigate}) {
         fetch('/Nutrient_Info.csv')
             .then((response) => response.text())
             .then((data) => {
-                console.log("CSV Data:", data); // Check raw CSV data
                 parseCSV(data);
             });
     }, []);
@@ -56,28 +55,48 @@ function Upload({onNavigate}) {
 
     const handleUpload = async () => {
         try {
-            const response = await fetch('https://qox72mmfo3.execute-api.us-east-1.amazonaws.com/dev/detect', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ body: base64.split(",")[1] })
-            });
-            if (!response.ok) throw new Error('Network response was not ok.');
-            const responseBody = await response.json();
-            const bodyObj = JSON.parse(responseBody.body);
-            setCategory(bodyObj.predicted_class.toLowerCase().trim());
-
-            console.log('Nutrition data map:', nutritionData);
-
-            // Update the nutritional information state
-            const detectedCategoryData = nutritionData.get(bodyObj.predicted_class.toLowerCase().trim());
-            setCategoryData(detectedCategoryData); // Store the nutritional data in the state
+          // Set initial loading messages
+          const chartImageElement = document.getElementById('chartImage');
+          chartImageElement.alt = 'Waiting for scanning...';  // Set an alternative text during loading
+          chartImageElement.src = '';  // Clear any existing image
+      
+          const productListElement = document.getElementById('perishableProductsList');
+          productListElement.innerHTML = '<li style="text-align: center; margin-top: 20px;">Waiting for scanning...</li>';
+      
+          const response = await fetch('https://mdcnjc8b89.execute-api.us-east-1.amazonaws.com/dev/processReceipt', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ body: base64.split(",")[1] })
+          });
+          if (!response.ok) throw new Error('Network response was not ok.');
+          const responseBody = await response.json();
+          const bodyObj = JSON.parse(responseBody.body);
+          
+          // Display the chart image
+          const base64Image = bodyObj.chartImage;
+          if(base64Image) {
+            chartImageElement.src = `data:image/png;base64,${base64Image}`;
+            chartImageElement.alt = ''; // Clear the alternative text once the image is loaded
+          }
+      
+          // Display perishable products
+          const perishableProducts = bodyObj.perishableProducts;
+          productListElement.innerHTML = ''; // Clear the waiting message
+          perishableProducts.forEach(product => {
+            const productItem = document.createElement('li');
+            productItem.textContent = `${product[1]} - ${product[0]}`;
+            productItem.style.margin = '10px 0';
+            productListElement.appendChild(productItem);
+          });
         } catch (error) {
-            console.error('Error posting image:', error);
-            setCategory("Failed to detect category");
+          console.error('Error posting image:', error);
+          chartImageElement.alt = 'Failed to load image. Please try again.';
+          productListElement.innerHTML = '<li style="text-align: center; margin-top: 20px;">Failed to retrieve data. Please try again.</li>';
         }
-    };
+      };
+      
 
     const [imageUrl, setImageUrl] = useState('');
 
@@ -105,14 +124,14 @@ function Upload({onNavigate}) {
     };
 
     return (
-        <div className="Upload">
+        <div className="Recipt">
             <main style={{backgroundColor: '#faf3e0'}}>
                 <div className='row'>
                     <div className="col-md-5" style={{marginTop:'5%'}}>
-                        <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>Food Recognition</h1>
+                        <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>Recipt Scanner</h1>
                     </div>
                     <div className="col-md-6" style={{marginTop:'5%'}}>
-                        <p style={{color:'#4CAF50'}}>Quickly identify food items from uploaded images to aid in nutritional management. Upload a photo of a food item, and the system will analyze the image to recognize the type of food presented. Provides detailed nutritional information, including calorie count, portion size, and nutrient breakdown, such as fats, proteins, and carbohydrates. Assist parents in making informed decisions about their children's food consumption by aligning with dietary needs and restrictions.</p>
+                        <p style={{color:'#4CAF50'}}>Rapid identification of food items from uploaded images to assist in nutritional management. Upload a photo of a food item. and the system will analyze the image to recognize the type of food presented Provides detailed nutritional information, including calorie count. portion size, and nutrient breakdown, such as fats, proteins, and carbohydrates. Help parents make informed decisions about the foods their children consume, aligning with dietary needs and restrictions.</p>
                     </div>
                 </div>
                 <div className="row" style={{marginTop:'3%'}}>
@@ -120,7 +139,7 @@ function Upload({onNavigate}) {
                         <div className="col-md-10"  style={{border: '2px solid black', borderRadius:'15px', marginLeft:'15%', padding:'20px',  backgroundColor:'#fffdf7'}}>
                             <div className='container' style={{border:'2px', borderColor:'black', height:'50%'}}>
                                 <p style={{marginLeft: '20px'}}>Put your photo here</p>
-                                <h2 style={{marginLeft: '20px'}}>Photo Upload</h2>
+                                <h2 style={{marginLeft: '20px'}}>Recipt Upload</h2>
                                 <div {...getRootProps()} className="dropzone" style={{textAlign:'center', backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                     <input {...getInputProps()} style={{ height: '20vh', alignItems: 'center', marginTop: 'auto' }} />
                                     {base64 && <img src={base64} alt="Preview" style={{ width: '200px', height: '100%', objectFit: 'contain', position: 'relative', top: 0, left: 0 }} />}
@@ -158,72 +177,19 @@ function Upload({onNavigate}) {
                     </div>  
                     <div className='col-md-6 d-flex'>
                         <div className="col-md-10" style={{border: '2px solid black', borderRadius:'15px', marginRight:'15%', padding:'20px', backgroundColor:'#fffdf7'}}>
-                            <p style={{marginLeft: '20px'}}>Nutrition / Types / Allergies</p>
-                            <h2 style={{marginLeft: '20px'}}>Performance Overview</h2>
+                            <p style={{marginLeft: '20px'}}>Bar Chart</p>
+                            <h2 style={{marginLeft: '20px'}}>Perishable vs Non-Perishable Product Prices</h2>
                             <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                 <div className='row'>
-                                    <div className='col-md-4'>
-                                        <img src={nameicon} style={{marginLeft:'40px', marginTop:'40px'}}></img>
-                                        <h3 style={{marginLeft:'40px', color:'#4CAF50'}}>Name</h3>
-                                    </div>
-                                    <div className='col-md-8' style={{textAlign:'center', marginTop:'45px'}}>
-                                        <span style={{fontSize:'36px', marginTop:'40px', fontWeight:'bold', color:'#4CAF50'}}>{category || "No Category Detected"}</span>  {/* Display detected category */}
-                                    </div>
+                                    <img id="chartImage" style={{width:'100%', height:'100%'}}></img>
                                 </div>
                             </div>
-                            <div className='row' style={{marginTop:'36px'}}>
-                                <div className='col-md-6'>
-                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
-                                        <img src={energyicon} style={{width:'30px', marginTop:'40px', marginLeft:'40px'}}></img>
-                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Energy (K/cal)</h5>
-                                        <span style={{fontSize:'40px', marginTop:'20px', fontWeight:'bold', marginLeft:'40px'}}>{categoryData?.['Energy (K/cal)'] || "N/A"}</span>  {/* Display detected category */}
-                                    </div>
-                                </div>
-                                <div className='col-md-6'>
-                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
-                                        <img src={proteinicon} style={{width:'30px', marginTop:'40px', marginLeft:'40px'}}></img>
-                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Protein (g)</h5>
-                                        <span style={{fontSize:'40px', marginTop:'20px', fontWeight:'bold', marginLeft:'40px'}}>{categoryData?.['Protein (g)'] || "N/A"}</span>  {/* Display detected category */}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='row' style={{marginTop:'36px'}}>
-                                <div className='col-lg-4'>
-                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
-                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Fat (g)</h5>
-                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Fat (g)'] || "N/A"}</span>  {/* Display detected category */}
-                                    </div>
-                                </div>
-                                <div class='col-md-4'>
-                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
-                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Carbohydrates (g)</h5>
-                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Carbohydrates (g)'] || "N/A"}</span>  {/* Display detected category */}
-                                    </div>
-                                </div>
-                                <div className='col-md-4'>
-                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
-                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Total Sugars (g)</h5>
-                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Total Sugars (g)'] || "N/A"}</span>  {/* Display detected category */}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='row' style={{marginTop:'36px'}}>
-                                <div className='col-md-4'>
-                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
-                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Cholesterol (mg)</h5>
-                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Cholesterol (mg)'] || "N/A"}</span>  {/* Display detected category */}
-                                    </div>
-                                </div>
-                                <div className='col-md-4'>
-                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
-                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Fiber (g)</h5>
-                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Fiber (g)'] || "N/A"}</span>  {/* Display detected category */}
-                                    </div>
-                                </div>
-                                <div className='col-md-4'>
-                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
-                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Portion (g)</h5>
-                                        <span style={{marginLeft:'40px'}}>{categoryData?.['Portion (g)'] || "N/A"}</span>  {/* Display detected category */}
+                            <div className="row" style={{marginTop: '36px'}}>
+                                <div className="col-md-12">
+                                    <div className="card" style={{backgroundColor: '#faf3e0', borderRadius: '25px', padding: '20px'}}>
+                                        <h3 style={{textAlign: 'center'}}>Perishable Products</h3>
+                                        <ul id="perishableProductsList" style={{listStyleType: 'none', paddingLeft: '0'}}>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -249,4 +215,4 @@ function Upload({onNavigate}) {
     );
 }
 
-export default Upload;
+export default Recipt;
