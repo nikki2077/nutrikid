@@ -111,8 +111,8 @@ function Upload({onNavigate}) {
                     <div className="col-md-5" style={{marginTop:'5%'}}>
                         <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>Food Recognition</h1>
                     </div>
-                    <div className="col-md-7" style={{marginTop:'5%'}}>
-                        <p style={{color:'#4CAF50'}}>Rapid identification of food items from uploaded images to assist in nutritional management. Upload a photo of a food item. and the system will analyze the image to recognize the type of food presented Provides detailed nutritional information, including calorie count. portion size, and nutrient breakdown, such as fats, proteins, and carbohydrates. Help parents make informed decisions about the foods their children consume, aligning with dietary needs and restrictions.</p>
+                    <div className="col-md-6" style={{marginTop:'5%'}}>
+                        <p style={{color:'#4CAF50'}}>Quickly identify food items from uploaded images to aid in nutritional management. Upload a photo of a food item, and the system will analyze the image to recognize the type of food presented. Provides detailed nutritional information, including calorie count, portion size, and nutrient breakdown, such as fats, proteins, and carbohydrates. Assist parents in making informed decisions about their children's food consumption by aligning with dietary needs and restrictions.</p>
                     </div>
                 </div>
                 <div className="row" style={{marginTop:'3%'}}>
