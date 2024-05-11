@@ -6,6 +6,7 @@ import './Recipe.css';
 import './App.css';
 
 
+
 // export default function Recipe({ onNavigate }) {
 //     const [showConverter, setShowConverter] = useState(false);
 //     const [recipe, setRecipe] = useState(null);
@@ -74,8 +75,19 @@ import './App.css';
 //     );
 // }
 
-// Recipe.jsx
+// import React, { useState, useEffect } from 'react';
+// import CaloriesConverter from './CaloriesConverter';
+// import DietOption from './DietOption';
+// import DisplayRecipe from './DisplayRecipe';
+// import './Recipe.css';
+// import './App.css';
 
+// import React, { useState, useEffect } from 'react';
+// import CaloriesConverter from './CaloriesConverter';
+// import DietOption from './DietOption';
+// import DisplayRecipe from './DisplayRecipe';
+// import './Recipe.css';
+// import './App.css';
 
 export default function Recipe({ onNavigate }) {
     const [showConverter, setShowConverter] = useState(false);
@@ -133,8 +145,7 @@ export default function Recipe({ onNavigate }) {
                     </p>
                 </div>
                 <div className='recipe-options'>
-                    {showConverter && <CaloriesConverter />}
-                    <DietOption onToggleVisibility={toggleConverterVisibility} onSubmitPreferences={() => setFetchTrigger(fetchTrigger + 1)} setCalorieNeeds={setCalorieNeeds} />
+                    <DietOption onToggleVisibility={toggleConverterVisibility} onSubmitPreferences={() => setFetchTrigger(fetchTrigger + 1)} setCalorieNeeds={setCalorieNeeds} showConverter={showConverter} />
                 </div>
                 <div className='recipe-content'>
                     {loading ? <p>Loading...</p> : recipe ? <DisplayRecipe recipe={recipe} /> : <p>No recipe to display.</p>}
@@ -152,3 +163,4 @@ export default function Recipe({ onNavigate }) {
         </div>
     );
 }
+

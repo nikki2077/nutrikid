@@ -1,11 +1,11 @@
 import './CaloriesConverter.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function CaloriesConverter() {
+export default function CaloriesConverter({ onCalorieUpdate }) {
     const [ageGroup, setAgeGroup] = useState('');
     const [activityLevel, setActivityLevel] = useState('');
     const [weight, setWeight] = useState(18);
-    const [gender, setGender] = useState(''); 
+    const [gender, setGender] = useState('');
 
     const handleAgeGroupChange = (e) => setAgeGroup(e.target.value);
     const handleActivityLevelChange = (e) => setActivityLevel(e.target.value);
@@ -57,10 +57,18 @@ export default function CaloriesConverter() {
         return Math.round(totalCalories);
     };
 
+    useEffect(() => {
+        const dailyCalories = calculateCalories();
+        const caloriesPerMeal = Math.round(dailyCalories / 3);
+        if (onCalorieUpdate) {
+            onCalorieUpdate(caloriesPerMeal);
+        }
+    }, [ageGroup, activityLevel, weight, gender]);
+
     return (
         <div className="converter">
             <div>
-                I am a  
+                I am a
                 <span> </span>
                 <select value={gender} onChange={handleGenderChange} className="custom-select">
                     <option value="">Select gender</option>
@@ -72,8 +80,8 @@ export default function CaloriesConverter() {
                     <option value="3-10">3-10 years old</option>
                     <option value="10-18">10-18 years old</option>
                 </select> <span> </span>
-                years old, my weight is 
-                <input 
+                years old, my weight is
+                <input
                     type="number"
                     value={weight}
                     onChange={handleWeightChange}
@@ -90,7 +98,7 @@ export default function CaloriesConverter() {
                 </select>.
             </div>
             <div>
-                Estimated Daily Caloric Need: <span className="highlight-output">{calculateCalories()} Calories</span>
+                Estimated Caloric Need per Meal: <span className="highlight-output">{Math.round(calculateCalories() / 3)} Calories</span>
             </div>
         </div>
     );

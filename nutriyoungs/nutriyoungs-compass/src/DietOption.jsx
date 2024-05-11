@@ -114,17 +114,23 @@
 // export default DietOption;
 import React, { useState } from 'react';
 import './DietOption.css';
+import CaloriesConverter from './CaloriesConverter';
 
-
-const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds }) => {
+const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, showConverter }) => {
     const [calorieInput, setCalorieInput] = useState(500);
 
     const handleCalorieChange = (event) => {
-        setCalorieInput(event.target.value);
+        const value = parseInt(event.target.value, 10);
+        setCalorieInput(value);
+        setCalorieNeeds(value); // Update calorie needs in parent component
+    };
+
+    const handleConverterUpdate = (caloriesPerMeal) => {
+        setCalorieInput(caloriesPerMeal);
+        setCalorieNeeds(caloriesPerMeal);
     };
 
     const handleSubmit = () => {
-        setCalorieNeeds(parseInt(calorieInput, 10));
         onSubmitPreferences();
     };
 
@@ -132,26 +138,29 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds }
         <div className="diet-option">
             <div className="calorie-slider-container">
                 <h2>How many calories per meal?</h2>
-                <button onClick={onToggleVisibility} className="unsure-button">
-                    I'm not sure about this
-                </button>
+                {!showConverter && (
+                    <button onClick={onToggleVisibility} className="unsure-button">
+                        I'm not sure about this
+                    </button>
+                )}
                 <br />
                 <br />
+                {showConverter && <CaloriesConverter onCalorieUpdate={handleConverterUpdate} />}
                 <div className="calorie-slider-container">
                     <label htmlFor="calorie-slider">Calories per meal:</label> <br />
                     <input
                         type="range"
                         id="calorie-slider"
-                        min="100"  
-                        max="1000"
+                        min="0"
+                        max="2000"
                         value={calorieInput}
                         onChange={handleCalorieChange}
                         step="50"
                     />
                     <div className="calorie-values">
-                        <span>100</span>
+                        <span>0</span>
                         <span>{calorieInput}</span>
-                        <span>1000</span>
+                        <span>2000</span>
                     </div>
                 </div>
             </div>

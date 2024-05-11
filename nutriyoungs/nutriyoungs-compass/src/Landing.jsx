@@ -6,6 +6,7 @@ import dynamicGrid from './assets/images/dynamicGrid.png';
 import trackingGrid from './assets/images/trackingGrid.png';
 import recipeGrid from './assets/images/recipeGrid.png';
 import groceriedGrid from './assets/images/groceriesGrid.png';
+import arrow from './assets/images/arrow.png';
 
 export default function Landing({ onNavigate }) {
   return (
@@ -24,6 +25,10 @@ export default function Landing({ onNavigate }) {
           <img src={backgroundImage} alt="background-image" className="background-image" />
         </div>
       </div>
+
+      <div className='arrow'>
+        <img src={arrow} alt="arrow-image" className="arrow-image" />
+        </div>
 
       <div className="info-section">
         <h2>Some things you should know about children’s nutrition</h2>

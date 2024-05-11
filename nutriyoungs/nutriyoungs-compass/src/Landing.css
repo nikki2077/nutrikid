@@ -177,4 +177,17 @@
   .try-it-btn:hover {
     background-color: #45a049;
   }
+
+  .arrow {
+    background-color: #faf3e0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .arrow-image {
+    width: 70px; 
+    height: auto;
+    margin-bottom: 40px;
+  }
+  
 }
