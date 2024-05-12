@@ -8,12 +8,15 @@ import Papa from 'papaparse';
 import nameicon from './assets/images/fork_knife.png'
 import energyicon from './assets/images/energyicon.png'
 import proteinicon from './assets/images/proteinicon.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Upload({onNavigate}) {
     const [base64, setBase64] = useState("");
     const [category, setCategory] = useState("");
     const [nutritionData, setNutritionData] = useState(new Map());
     const [categoryData, setCategoryData] = useState({}); // <-- Declare categoryData state here
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const parseCSV = (data) => {
@@ -55,6 +58,12 @@ function Upload({onNavigate}) {
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     const handleUpload = async () => {
+        if (!base64) {
+            alert('Please select a file before upload.');
+            return;
+        }
+        toast.info('Uploading image...');
+        setIsLoading(true);
         try {
             const response = await fetch('https://qox72mmfo3.execute-api.us-east-1.amazonaws.com/dev/detect', {
                 method: 'POST',
@@ -73,6 +82,7 @@ function Upload({onNavigate}) {
             // Update the nutritional information state
             const detectedCategoryData = nutritionData.get(bodyObj.predicted_class.toLowerCase().trim());
             setCategoryData(detectedCategoryData); // Store the nutritional data in the state
+            toast.success('Image processed successfully!');
         } catch (error) {
             console.error('Error posting image:', error);
             setCategory("Failed to detect category");
@@ -106,6 +116,7 @@ function Upload({onNavigate}) {
 
     return (
         <div className="Upload">
+            <ToastContainer />
             <main style={{backgroundColor: '#faf3e0'}}>
                 <div className='row'>
                     <div className="col-md-5" style={{marginTop:'5%'}}>
@@ -114,6 +125,16 @@ function Upload({onNavigate}) {
                     <div className="col-md-6" style={{marginTop:'5%'}}>
                         <p style={{color:'#4CAF50'}}>Quickly identify food items from uploaded images to aid in nutritional management. Upload a photo of a food item, and the system will analyze the image to recognize the type of food presented. Provides detailed nutritional information, including calorie count, portion size, and nutrient breakdown, such as fats, proteins, and carbohydrates. Assist parents in making informed decisions about their children's food consumption by aligning with dietary needs and restrictions.</p>
                     </div>
+                </div>
+                <div className='row'>
+                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
+                    <div className="col-md-8" style={{marginTop:'5%'}}>
+                        <h1 style={{color:'black'}}>Limitations</h1>
+                        <p style={{color:'black'}}>The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
+                        <p style={{color:'black'}}>The current capabilities of our model allow for the identification of nine specific types of food: donuts. chicken curry, French fries, ice cream. pizza. waffies. garlic bread, burgers, and onion rings. We regret any inaccuracies in food recognition that may occur and are actively working to expand the range of foods our model can accurately identify. Thank you for your understanding.</p>
+                        <p style={{color:'black'}}>Due to the performance of the model, the current model accuracy is only 70%. We apologize for the images that may not be correctly recognized.We are working on improving the model accuracy. Thanks for your understanding.</p>
+                    </div>
+                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>
                 <div className="row" style={{marginTop:'3%'}}>
                     <div className='col-md-6 d-flex'>
@@ -233,10 +254,6 @@ function Upload({onNavigate}) {
                 <div className='row'>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                     <div className="col-md-8" style={{marginTop:'5%'}}>
-                        <h1 style={{color:'black'}}>Limitations</h1>
-                        <p style={{color:'black'}}>The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
-                        <p style={{color:'black'}}>The current capabilities of our model allow for the identification of nine specific types of food: donuts. chicken curry, French fries, ice cream. pizza. waffies. garlic bread, burgers, and onion rings. We regret any inaccuracies in food recognition that may occur and are actively working to expand the range of foods our model can accurately identify. Thank you for your understanding.</p>
-                        <p style={{color:'black'}}>Due to the performance of the model, the current model accuracy is only 70%. We apologize for the images that may not be correctly recognized.We are working on improving the model accuracy. Thanks for your understanding.</p>
                     </div>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>

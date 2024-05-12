@@ -63,6 +63,21 @@ body {
     align-items: center;
     justify-content: center;
   }
+
+  .modal {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    z-index: 20000;
+    width: 400px; /* Example width */
+    height: 200px; /* Example height */
+    background-color: 'rgba(0,0,0,0.5)';
+    padding: 20px;
+    border-radius: 10px;
+    color: '#fff';
+}
+
   
   .input-group input[type="text"] {
     padding: 10px;
