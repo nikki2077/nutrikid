@@ -152,7 +152,7 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, 
                         type="range"
                         id="calorie-slider"
                         min="0"
-                        max="2000"
+                        max="1000"
                         value={calorieInput}
                         onChange={handleCalorieChange}
                         step="50"
@@ -160,7 +160,7 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, 
                     <div className="calorie-values">
                         <span>0</span>
                         <span>{calorieInput}</span>
-                        <span>2000</span>
+                        <span>1000</span>
                     </div>
                 </div>
             </div>
