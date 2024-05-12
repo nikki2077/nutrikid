@@ -1,112 +1,175 @@
+// import React, { useState } from 'react';
+// import './DietOption.css';
+
+
+// const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
+//     const [calorieNeeds, setCalorieNeeds] = useState(2000);
+//     const [selectedCuisine, setSelectedCuisine] = useState('');
+//     const [selectedDietHabit, setSelectedDietHabit] = useState('');
+//     const [mealCount, setMealCount] = useState(3);
+
+//     const cuisines = ['italian', 'japanese', 'chinese', 'indian', 'american'];
+//     const dietHabits = ['Gluten Free', 'vegetarian'];
+
+//     const handleCalorieChange = (event) => {
+//         setCalorieNeeds(event.target.value);
+//     };
+
+//     const handleCuisineSelection = (cuisine) => {
+//         setSelectedCuisine(cuisine === selectedCuisine ? '' : cuisine);
+//     };
+
+//     const handleDietHabitSelection = (habit) => {
+//         setSelectedDietHabit(habit === selectedDietHabit ? '' : habit);
+//     };
+
+//     const handleSubmit = () => {
+//         const preferences = {
+//             calorieNeeds,
+//             cuisine: selectedCuisine || undefined,
+//             dietHabit: selectedDietHabit || undefined,
+//             mealCount,
+//         };
+//         onSubmitPreferences(preferences);
+//     };
+
+//     return (
+//         <div className="diet-option">
+//             <div className="calorie-slider-container">
+//                 <h2>Level of Calorie Needs (per day)?</h2>
+//                 <button onClick={onToggleVisibility} className="unsure-button">
+//                     I'm not sure about this
+//                 </button>
+//                 <br />
+//                 <br />
+//                 <div className="calorie-slider-container">
+//                     <label htmlFor="calorie-slider">Calories per day:</label> <br />
+//                     <input
+//                         type="range"
+//                         id="calorie-slider"
+//                         min="1000"  
+//                         max="3000"
+//                         value={calorieNeeds}
+//                         onChange={handleCalorieChange}
+//                         step="100"
+//                     />
+//                     <div className="calorie-values">
+//                         <span>1000</span>
+//                         <span>{calorieNeeds}</span>
+//                         <span>3000</span>
+//                     </div>
+//                 </div>
+//             </div>
+//             <div className="selection-container">
+//                 <div className="cuisine-selection">
+//                     <h2>Any Cuisine Preference?</h2>
+//                     {cuisines.map((cuisine) => (
+//                         <button
+//                             key={cuisine}
+//                             name={cuisine}
+//                             onClick={() => handleCuisineSelection(cuisine)}
+//                             className={selectedCuisine === cuisine ? 'selected' : ''}
+//                         >
+//                             {cuisine}
+//                         </button>
+//                     ))}
+//                 </div>
+//                 <div className="diet-habit-selection">
+//                     <h2>Any Diet Preference?</h2>
+//                     {dietHabits.map((habit) => (
+//                         <button
+//                             key={habit}
+//                             name={habit.replace(' ', '_')}
+//                             onClick={() => handleDietHabitSelection(habit)}
+//                             className={selectedDietHabit === habit ? 'selected' : ''}
+//                         >
+//                             {habit}
+//                         </button>
+                        
+//                     ))}
+                    
+//                     <h2>Meals per day:</h2>
+//                         <input 
+//                         type="number" 
+//                         value={mealCount} 
+//                         onChange={e => setMealCount(e.target.value)} 
+//                         min="1" 
+//                         max="5" 
+//                         className="meals-per-day-input" 
+//                         />
+//                 </div>
+
+//                 <div className="button-container">
+//                 <button onClick={handleSubmit} className="generate-button">
+//                     Generate
+//                 </button>
+//             </div>
+//             </div>
+
+
+//         </div>
+//     );
+// };
+
+// export default DietOption;
 import React, { useState } from 'react';
 import './DietOption.css';
+import CaloriesConverter from './CaloriesConverter';
 
-
-const DietOption = ({ onToggleVisibility, onSubmitPreferences }) => {
-    const [calorieNeeds, setCalorieNeeds] = useState(2000);
-    const [selectedCuisine, setSelectedCuisine] = useState('');
-    const [selectedDietHabit, setSelectedDietHabit] = useState('');
-    const [mealCount, setMealCount] = useState(3);
-
-    const cuisines = ['italian', 'japanese', 'chinese', 'indian', 'american'];
-    const dietHabits = ['Gluten Free', 'vegetarian'];
+const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, showConverter }) => {
+    const [calorieInput, setCalorieInput] = useState(500);
 
     const handleCalorieChange = (event) => {
-        setCalorieNeeds(event.target.value);
+        const value = parseInt(event.target.value, 10);
+        setCalorieInput(value);
+        setCalorieNeeds(value); // Update calorie needs in parent component
     };
 
-    const handleCuisineSelection = (cuisine) => {
-        setSelectedCuisine(cuisine === selectedCuisine ? '' : cuisine);
-    };
-
-    const handleDietHabitSelection = (habit) => {
-        setSelectedDietHabit(habit === selectedDietHabit ? '' : habit);
+    const handleConverterUpdate = (caloriesPerMeal) => {
+        setCalorieInput(caloriesPerMeal);
+        setCalorieNeeds(caloriesPerMeal);
     };
 
     const handleSubmit = () => {
-        const preferences = {
-            calorieNeeds,
-            cuisine: selectedCuisine || undefined,
-            dietHabit: selectedDietHabit || undefined,
-            mealCount,
-        };
-        onSubmitPreferences(preferences);
+        onSubmitPreferences();
     };
 
     return (
         <div className="diet-option">
             <div className="calorie-slider-container">
-                <h2>Level of Calorie Needs (per day)?</h2>
-                <button onClick={onToggleVisibility} className="unsure-button">
-                    I'm not sure about this
-                </button>
+                <h2>How many calories per meal?</h2>
+                {!showConverter && (
+                    <button onClick={onToggleVisibility} className="unsure-button">
+                        I'm not sure about this
+                    </button>
+                )}
                 <br />
                 <br />
+                {showConverter && <CaloriesConverter onCalorieUpdate={handleConverterUpdate} />}
                 <div className="calorie-slider-container">
-                    <label htmlFor="calorie-slider">Calories per day:</label> <br />
+                    <label htmlFor="calorie-slider">Calories per meal:</label> <br />
                     <input
                         type="range"
                         id="calorie-slider"
-                        min="1000"  
-                        max="3000"
-                        value={calorieNeeds}
+                        min="0"
+                        max="1000"
+                        value={calorieInput}
                         onChange={handleCalorieChange}
-                        step="100"
+                        step="50"
                     />
                     <div className="calorie-values">
+                        <span>0</span>
+                        <span>{calorieInput}</span>
                         <span>1000</span>
-                        <span>{calorieNeeds}</span>
-                        <span>3000</span>
                     </div>
                 </div>
             </div>
-            <div className="selection-container">
-                <div className="cuisine-selection">
-                    <h2>Any Cusine Preference?</h2>
-                    {cuisines.map((cuisine) => (
-                        <button
-                            key={cuisine}
-                            name={cuisine}
-                            onClick={() => handleCuisineSelection(cuisine)}
-                            className={selectedCuisine === cuisine ? 'selected' : ''}
-                        >
-                            {cuisine}
-                        </button>
-                    ))}
-                </div>
-                <div className="diet-habit-selection">
-                    <h2>Any Diet Preference?</h2>
-                    {dietHabits.map((habit) => (
-                        <button
-                            key={habit}
-                            name={habit.replace(' ', '_')}
-                            onClick={() => handleDietHabitSelection(habit)}
-                            className={selectedDietHabit === habit ? 'selected' : ''}
-                        >
-                            {habit}
-                        </button>
-                        
-                    ))}
-                    
-                    <h2>Meals per day:</h2>
-                        <input 
-                        type="number" 
-                        value={mealCount} 
-                        onChange={e => setMealCount(e.target.value)} 
-                        min="1" 
-                        max="5" 
-                        className="meals-per-day-input" 
-                        />
-                </div>
 
-                <div className="button-container">
+            <div className="button-container">
                 <button onClick={handleSubmit} className="generate-button">
                     Generate
                 </button>
             </div>
-            </div>
-
-
         </div>
     );
 };
