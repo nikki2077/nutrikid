@@ -126,6 +126,16 @@ function Upload({onNavigate}) {
                         <p style={{color:'#4CAF50'}}>Quickly identify food items from uploaded images to aid in nutritional management. Upload a photo of a food item, and the system will analyze the image to recognize the type of food presented. Provides detailed nutritional information, including calorie count, portion size, and nutrient breakdown, such as fats, proteins, and carbohydrates. Assist parents in making informed decisions about their children's food consumption by aligning with dietary needs and restrictions.</p>
                     </div>
                 </div>
+                <div className='row'>
+                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
+                    <div className="col-md-8" style={{marginTop:'5%'}}>
+                        <h1 style={{color:'black'}}>Limitations</h1>
+                        <p style={{color:'black'}}>The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
+                        <p style={{color:'black'}}>The current capabilities of our model allow for the identification of nine specific types of food: donuts. chicken curry, French fries, ice cream. pizza. waffies. garlic bread, burgers, and onion rings. We regret any inaccuracies in food recognition that may occur and are actively working to expand the range of foods our model can accurately identify. Thank you for your understanding.</p>
+                        <p style={{color:'black'}}>Due to the performance of the model, the current model accuracy is only 70%. We apologize for the images that may not be correctly recognized.We are working on improving the model accuracy. Thanks for your understanding.</p>
+                    </div>
+                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
+                </div>
                 <div className="row" style={{marginTop:'3%'}}>
                     <div className='col-md-6 d-flex'>
                         <div className="col-md-10"  style={{border: '2px solid black', borderRadius:'15px', marginLeft:'15%', padding:'20px',  backgroundColor:'#fffdf7'}}>
@@ -244,10 +254,6 @@ function Upload({onNavigate}) {
                 <div className='row'>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                     <div className="col-md-8" style={{marginTop:'5%'}}>
-                        <h1 style={{color:'black'}}>Limitations</h1>
-                        <p style={{color:'black'}}>The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
-                        <p style={{color:'black'}}>The current capabilities of our model allow for the identification of nine specific types of food: donuts. chicken curry, French fries, ice cream. pizza. waffies. garlic bread, burgers, and onion rings. We regret any inaccuracies in food recognition that may occur and are actively working to expand the range of foods our model can accurately identify. Thank you for your understanding.</p>
-                        <p style={{color:'black'}}>Due to the performance of the model, the current model accuracy is only 70%. We apologize for the images that may not be correctly recognized.We are working on improving the model accuracy. Thanks for your understanding.</p>
                     </div>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>

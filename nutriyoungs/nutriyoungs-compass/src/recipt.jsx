@@ -140,6 +140,15 @@ Grocery Analysis Tool</h1>
                         <p style={{color:'#4CAF50'}}>Transform the chore of grocery shopping into a strategic advantage for budgeting and nutritional planning. Using Optical Character Recognition, with an automated analysis of grocery receipts and categorizes purchases, focusing on key areas like expenditure on fruits and vegetables and providing detailed nutritional breakdowns for each item. Enhance understanding and management of family nutrition and finances in real time.</p>
                     </div>
                 </div>
+                <div className='row'>
+                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
+                    <div className="col-md-8" style={{marginTop:'5%'}}>
+                        <h1 style={{color:'black'}}>Limitations</h1>
+                        <p style={{color:'black'}}>* We regret any possible inaccuracies in receipt recognition and are actively working to expand support for receipts from different supermarkets. Thank you for your understanding.</p>
+                        <p style={{color:'black'}}>* The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
+                    </div>
+                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
+                </div>
                 <div className="row" style={{marginTop:'3%'}}>
                     <div className='col-md-6 d-flex'>
                         <div className="col-md-10"  style={{border: '2px solid black', borderRadius:'15px', marginLeft:'15%', padding:'20px',  backgroundColor:'#fffdf7'}}>
@@ -213,9 +222,6 @@ Grocery Analysis Tool</h1>
                 <div className='row'>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                     <div className="col-md-8" style={{marginTop:'5%'}}>
-                        <h1 style={{color:'black'}}>Limitations</h1>
-                        <p style={{color:'black'}}>* We regret any possible inaccuracies in receipt recognition and are actively working to expand support for receipts from different supermarkets. Thank you for your understanding.</p>
-                        <p style={{color:'black'}}>* The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
                     </div>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>
