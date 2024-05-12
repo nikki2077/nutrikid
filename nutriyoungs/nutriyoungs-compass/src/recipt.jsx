@@ -1,19 +1,20 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
+import Button from 'react-bootstrap/Button';
 import './App.css';
 import './recipt.css';
 import './Knowledge.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // ensure this is correct
 import Papa from 'papaparse';
-import nameicon from './assets/images/fork_knife.png'
-import energyicon from './assets/images/energyicon.png'
-import proteinicon from './assets/images/proteinicon.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Recipt({onNavigate}) {
     const [base64, setBase64] = useState("");
     const [category, setCategory] = useState("");
     const [nutritionData, setNutritionData] = useState(new Map());
-    const [categoryData, setCategoryData] = useState({}); // <-- Declare categoryData state here
+    const [isLoading, setIsLoading] = useState(false);
+    const [recommendation, setRecommendation] = useState("");
 
 
     const parseCSV = (data) => {
@@ -54,50 +55,53 @@ function Recipt({onNavigate}) {
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     const handleUpload = async () => {
-        try {
-          // Set initial loading messages
-          const chartImageElement = document.getElementById('chartImage');
-          chartImageElement.alt = 'Waiting for scanning...';  // Set an alternative text during loading
-          chartImageElement.src = '';  // Clear any existing image
-      
-          const productListElement = document.getElementById('perishableProductsList');
-          productListElement.innerHTML = '<li style="text-align: center; margin-top: 20px;">Waiting for scanning...</li>';
-      
-          const response = await fetch('https://mdcnjc8b89.execute-api.us-east-1.amazonaws.com/dev/processReceipt', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ body: base64.split(",")[1] })
-          });
-          if (!response.ok) throw new Error('Network response was not ok.');
-          const responseBody = await response.json();
-          const bodyObj = JSON.parse(responseBody.body);
-          
-          // Display the chart image
-          const base64Image = bodyObj.chartImage;
-          if(base64Image) {
-            chartImageElement.src = `data:image/png;base64,${base64Image}`;
-            chartImageElement.alt = ''; // Clear the alternative text once the image is loaded
-          }
-      
-          // Display perishable products
-          const perishableProducts = bodyObj.perishableProducts;
-          productListElement.innerHTML = ''; // Clear the waiting message
-          perishableProducts.forEach(product => {
-            const productItem = document.createElement('li');
-            productItem.textContent = `${product[1]} - ${product[0]}`;
-            productItem.style.margin = '10px 0';
-            productListElement.appendChild(productItem);
-          });
-        } catch (error) {
-          console.error('Error posting image:', error);
-          chartImageElement.alt = 'Failed to load image. Please try again.';
-          productListElement.innerHTML = '<li style="text-align: center; margin-top: 20px;">Failed to retrieve data. Please try again.</li>';
+        if (!base64) {
+            alert('Please select a file before upload.');
+            return;
         }
-      };
-      
-
+        toast.info('Uploading image...');
+        setIsLoading(true);
+        try {
+            const chartImageElement = document.getElementById('chartImage');
+            const productListElement = document.getElementById('perishableProductsList');
+            
+            const response = await fetch('https://mdcnjc8b89.execute-api.us-east-1.amazonaws.com/dev/processReceipt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ body: base64.split(",")[1] })
+            });
+            if (!response.ok) throw new Error('Network response was not ok.');
+            const responseBody = await response.json();
+            const bodyObj = JSON.parse(responseBody.body);
+            
+            chartImageElement.src = `data:image/png;base64,${bodyObj.chartImage}`;
+            chartImageElement.alt = ''; // Clear alternative text when image is loaded
+    
+            productListElement.innerHTML = ''; // Clear the message
+            bodyObj.perishableProducts.forEach(product => {
+                const productItem = document.createElement('li');
+                productItem.textContent = `${product[1]} - ${product[0]}`;
+                productListElement.appendChild(productItem);
+            });
+            console.log(bodyObj.perishableProducts.length);
+            let newRecommendation = '';
+            if (bodyObj.perishableProducts.length < 3) {
+                newRecommendation = "You should purchase more perishable products.";
+            } else if (bodyObj.perishableProducts.length > 12) {
+                newRecommendation = "There are enough perishable products purchased.";
+            } else {
+                newRecommendation = "no recommendation.";}
+            setRecommendation(newRecommendation); // This will trigger a re-render
+            toast.success('Image processed successfully!');
+        } catch (error) {
+            console.error('Error posting image:', error);
+            chartImageElement.alt = 'Failed to load image. Please try again.';
+            productListElement.innerHTML = '<li style="text-align: center; margin-top: 20px;">Failed to retrieve data. Please try again.</li>';
+        }
+    };
+    
     const [imageUrl, setImageUrl] = useState('');
 
     const handleUrlUpload = async () => {
@@ -125,13 +129,15 @@ function Recipt({onNavigate}) {
 
     return (
         <div className="Recipt">
+            <ToastContainer />
             <main style={{backgroundColor: '#faf3e0'}}>
                 <div className='row'>
                     <div className="col-md-5" style={{marginTop:'5%'}}>
-                        <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>Recipt Scanner</h1>
+                        <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>SpendSmart:
+Grocery Analysis Tool</h1>
                     </div>
                     <div className="col-md-6" style={{marginTop:'5%'}}>
-                        <p style={{color:'#4CAF50'}}>Rapid identification of food items from uploaded images to assist in nutritional management. Upload a photo of a food item. and the system will analyze the image to recognize the type of food presented Provides detailed nutritional information, including calorie count. portion size, and nutrient breakdown, such as fats, proteins, and carbohydrates. Help parents make informed decisions about the foods their children consume, aligning with dietary needs and restrictions.</p>
+                        <p style={{color:'#4CAF50'}}>Transform the chore of grocery shopping into a strategic advantage for budgeting and nutritional planning. Using Optical Character Recognition, with an automated analysis of grocery receipts and categorizes purchases, focusing on key areas like expenditure on fruits and vegetables and providing detailed nutritional breakdowns for each item. Enhance understanding and management of family nutrition and finances in real time.</p>
                     </div>
                 </div>
                 <div className="row" style={{marginTop:'3%'}}>
@@ -177,8 +183,8 @@ function Recipt({onNavigate}) {
                     </div>  
                     <div className='col-md-6 d-flex'>
                         <div className="col-md-10" style={{border: '2px solid black', borderRadius:'15px', marginRight:'15%', padding:'20px', backgroundColor:'#fffdf7'}}>
-                            <p style={{marginLeft: '20px'}}>Bar Chart</p>
-                            <h2 style={{marginLeft: '20px'}}>Perishable vs Non-Perishable Product Prices</h2>
+                            <p style={{marginLeft: '20px'}}>Analysing Cost of Perishable & Non-Perishable</p>
+                            <h2 style={{marginLeft: '20px'}}>Product Prices</h2>
                             <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                 <div className='row'>
                                     <img id="chartImage" style={{width:'100%', height:'100%'}}></img>
@@ -193,6 +199,14 @@ function Recipt({onNavigate}) {
                                     </div>
                                 </div>
                             </div>
+                            <div className="row" style={{marginTop: '36px'}}>
+                                <div className="col-md-12">
+                                    <div className="card" style={{backgroundColor: '#faf3e0', borderRadius: '25px', padding: '20px'}}>
+                                        <h3 style={{textAlign: 'center'}}>Recommondations</h3>
+                                        <p>{recommendation}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -200,9 +214,8 @@ function Recipt({onNavigate}) {
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                     <div className="col-md-8" style={{marginTop:'5%'}}>
                         <h1 style={{color:'black'}}>Limitations</h1>
-                        <p style={{color:'black'}}>The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
-                        <p style={{color:'black'}}>The current capabilities of our model allow for the identification of nine specific types of food: donuts. chicken curry, French fries, ice cream. pizza. waffies. garlic bread, burgers, and onion rings. We regret any inaccuracies in food recognition that may occur and are actively working to expand the range of foods our model can accurately identify. Thank you for your understanding.</p>
-                        <p style={{color:'black'}}>Due to the performance of the model, the current model accuracy is only 70%. We apologize for the images that may not be correctly recognized.We are working on improving the model accuracy. Thanks for your understanding.</p>
+                        <p style={{color:'black'}}>* We regret any possible inaccuracies in receipt recognition and are actively working to expand support for receipts from different supermarkets. Thank you for your understanding.</p>
+                        <p style={{color:'black'}}>* The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
                     </div>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>

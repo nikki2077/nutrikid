@@ -8,12 +8,15 @@ import Papa from 'papaparse';
 import nameicon from './assets/images/fork_knife.png'
 import energyicon from './assets/images/energyicon.png'
 import proteinicon from './assets/images/proteinicon.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Upload({onNavigate}) {
     const [base64, setBase64] = useState("");
     const [category, setCategory] = useState("");
     const [nutritionData, setNutritionData] = useState(new Map());
     const [categoryData, setCategoryData] = useState({}); // <-- Declare categoryData state here
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const parseCSV = (data) => {
@@ -55,6 +58,12 @@ function Upload({onNavigate}) {
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     const handleUpload = async () => {
+        if (!base64) {
+            alert('Please select a file before upload.');
+            return;
+        }
+        toast.info('Uploading image...');
+        setIsLoading(true);
         try {
             const response = await fetch('https://qox72mmfo3.execute-api.us-east-1.amazonaws.com/dev/detect', {
                 method: 'POST',
@@ -73,6 +82,7 @@ function Upload({onNavigate}) {
             // Update the nutritional information state
             const detectedCategoryData = nutritionData.get(bodyObj.predicted_class.toLowerCase().trim());
             setCategoryData(detectedCategoryData); // Store the nutritional data in the state
+            toast.success('Image processed successfully!');
         } catch (error) {
             console.error('Error posting image:', error);
             setCategory("Failed to detect category");
@@ -106,6 +116,7 @@ function Upload({onNavigate}) {
 
     return (
         <div className="Upload">
+            <ToastContainer />
             <main style={{backgroundColor: '#faf3e0'}}>
                 <div className='row'>
                     <div className="col-md-5" style={{marginTop:'5%'}}>
