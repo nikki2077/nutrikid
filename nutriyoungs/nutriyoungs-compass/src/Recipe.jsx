@@ -139,7 +139,8 @@ export default function Recipe({ onNavigate }) {
         <div className='recipe'>
             <div className='page-container'>
                 <div className="intro-section">
-                    <h1 className="bmi-title">Recipe Recommendation</h1>
+                    <h1 className="bmi-title">MealPlans:
+<br />Tailored Recipes for Kids</h1>
                     <p className="bmi-intro">
                         Rapid creation and customization of weekly meal plans based on dietary needs and preferences to ensure a balanced and varied diet. Enter the desired calories per meal to get a tailored recipe recommendation. This feature provides options to adjust meals according to specific dietary requirements, easily manage and optimize nutrition, and support informed decision-making for maintaining balanced dietary habits.
                     </p>
@@ -149,6 +150,9 @@ export default function Recipe({ onNavigate }) {
                 </div>
                 <div className='recipe-content'>
                     {loading ? <p>Loading...</p> : recipe ? <DisplayRecipe recipe={recipe} /> : <p>No recipe to display.</p>}
+                    <div>
+                <p>* Calories and kcal are used interchangeably and refer to the same amount of energy, but kilojoules require conversion. Usage may differ depending on where you live.</p>
+            </div>
                 </div>
             </div>
             <div className="bmi-buttons">

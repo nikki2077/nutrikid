@@ -33,7 +33,8 @@ export default function BMI({ onNavigate }) {
   return (
     <div className="bmi-page">
       <div className="intro-section">
-        <h1 className="bmi-title">BMI Calculator</h1>
+        <h1 className="bmi-title">BMI Check:
+Kids Body Index</h1>
         <p className="bmi-intro">
           Streamlined, intuitive interface, quickly assess a child's body mass index (BMI) to ensure their growth is on track and they maintain a healthy weight for their age and activity level. Get instant calculations by entering basic information like age, height, and weight.
         </p>
