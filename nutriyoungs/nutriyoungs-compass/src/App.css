@@ -37,11 +37,11 @@ html, body {
   background: none;
   border: none;
   color: #4CAF50;
-  font-size: 24px; 
+  font-size: 20px; 
   font-weight: bold;
   cursor: pointer;
   padding: 10px 20px;
-  margin-right: 45px; 
+  margin-right: 20px; 
   transition: color 0.3s;
 }
 
@@ -79,6 +79,6 @@ body {
 }
 
 .logo-image {
-  height: 50px; 
+  height: 32px; 
   margin-right: 10px; 
 }

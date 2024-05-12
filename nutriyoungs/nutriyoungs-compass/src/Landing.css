@@ -6,8 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 100px 20px;
-  height: 100vh;
+  padding: 100px 150px;
+  height: 90vh;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -16,7 +16,7 @@
 
 .hero-left {
   flex-basis: 50%;
-  padding: 100px;
+  padding: 50px;
 }
 
 .hero-right {
@@ -28,14 +28,18 @@
   height: auto;
   max-width: 100%;
   object-fit: cover;
+  border-radius: 16px; /* Ensure image fits inside the box */
 }
+
 
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
+    padding: 20px;
   }
   .hero-left, .hero-right {
     flex-basis: auto;
+    padding: 20px;
   }
 }
 
@@ -45,7 +49,7 @@
   border: none;
   border-radius: 20px;
   padding: 10px 40px;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   display: inline-block;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -56,16 +60,21 @@
   background-color: #45a049;
 }
 
+.cta-icon {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
 .title {
-  font-size: 96px;
+  font-size: 64px;
   color: #4CAF50;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .sub-title {
-  font-size: 24px;
+  font-size: 20px;
   color: #4CAF50;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .info-section {
@@ -74,28 +83,30 @@
   align-items: flex-start;
   padding: 20px;
   background-color: #EDE3C7;
-  padding-left: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 50px;
 }
 
 .info-section h2 {
   color: #45a049;
   margin-bottom: 10px;
-  font-size: 48px;
-  margin-top: 50px;
+  font-size: 36px;
+  margin-top: 30px;
 }
 
 .info-section h3 {
   color: #777;
   font-weight: normal;
-  font-size: 18px;
-  margin-bottom: 50px;
+  font-size: 16px;
+  margin-bottom: 30px;
 }
 
 .info-section p {
   color: #777;
   font-weight: normal;
-  font-size: 24px;
-  margin-bottom: 50px;
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 
 .info-content {
@@ -107,7 +118,7 @@
 .info-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  gap: 60px;
   width: 100%;
 }
 
@@ -123,7 +134,9 @@
   background-color: #FFFEF5;
   border-radius: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 0px 20px;
+  padding-top: 0%;
+  padding-bottom: 0%;
   text-align: left;
   align-items: center;
 }
@@ -140,12 +153,13 @@
 
 .grid-image {
   width: 100%;
+  height: 100%;
   max-width: 350px;
-  height: auto;
+  object-fit:contain; /* Ensure image fits inside the box */
 }
 
 .grid-title {
-  font-size: 24px;
+  font-size: 20px;
   color: #333;
   margin-top: 0;
 }
@@ -160,7 +174,7 @@
 .grid-description {
   font-size: 16px;
   color: #666;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .button-container {

@@ -34,8 +34,9 @@ export default function Knowledge({ onNavigate }) {
     <div className="knowledge">
       <div className="wrapper">
         <div className="intro-section">
-          <h1 className="bmi-title">NutriTrends: <br />
-Child Nutrition Tracker</h1>
+        <div className="bmi-title">NutriTrends:
+        <h4>Child Nutrition Tracker</h4>
+        </div>
           <p className="bmi-intro">
             Convergence of technology and nutrition, offering dynamic visualizations that transform raw data into actionable insights. Navigates the complexities of their children's dietary trends across various age groups. Enhances understanding, and fosters proactive engagement with children's nutritional health, ensuring that developmental food choices are informed, strategic, and adaptable to changing nutritional needs.
           </p>
@@ -49,7 +50,6 @@ Child Nutrition Tracker</h1>
               <option value="fruitVege">Fruit & Vegetable Consumption</option>
               <option value="foodConsumption">Food Consumption</option>
               <option value="overweight">Obesity and Overweight</option>
-              <option value="macro">Macro Nutrient</option>
             </select>
           </div>
           <div className="graph-container">
@@ -62,7 +62,9 @@ Child Nutrition Tracker</h1>
             <p>Picture fruits as vibrant packages of nutrition, essential for every stage of life. Take strawberries, for instance they are rich in vitamin C, a key player in immune function and collagen production, promoting skin health and wound healing. Apples, on the other hand, are a crunchy source of fiber, aiding digestion and heart health. These nutritional gems offer a delicious and convenient way to support overall well-being.</p>
             <br />
             <p>Think of vegetables as the unsung heroes of the culinary world, boasting an array of vitamins and minerals vital for optimal health. Broccoli, for example, is packed with vitamin K, essential for blood clotting and bone health, while carrots provide beta-carotene, a precursor to vitamin A, crucial for vision and skin integrity. By incorporating a variety of vegetables into meals, both adults and children can reap the diverse benefits of these nutritional powerhouses.</p>
-            <a href="..." target="_blank" rel="noopener noreferrer">Read more</a>
+            <button className="readmore-button" onClick={() => window.open("https://www.betterhealth.vic.gov.au/health/healthyliving/fruit-and-vegetables", "_blank")}>
+                Read more ↗
+              </button>
           </article>
 
           <article className="bmi-article">
@@ -72,7 +74,9 @@ Child Nutrition Tracker</h1>
             <p>Immune Support: Strengthen your body's defenses with the immune-boosting properties of fruits and vegetables. Rich in antioxidants like vitamin C and beta-carotene, they help fortify your immune system, protecting against infections and promoting overall health. Incorporating a colorful array of produce, such as oranges, berries, and leafy greens, ensures a diverse range of immune-supporting nutrients.</p>
             <br />
             <p>Cognitive Enhancement: Elevate your mental performance with the brain-boosting nutrients found in fruits and vegetables. Omega-3 fatty acids in avocados support cognitive function and mood regulation, while vitamin E in spinach protects against oxidative stress, preserving brain health. By prioritizing a diet rich in these brain-boosting foods, both adults and children can optimize cognitive function and mental well-being.</p>
-            <a href="..." target="_blank" rel="noopener noreferrer">Read more</a>
+            <button className="readmore-button" onClick={() => window.open("https://www.safefruitsandveggies.com/blog/unlock-healthier-you-in-2024-embrace-the-power-of-fruits-and-vegetables/#:~:text=Elevate%20your%20energy%20levels%20with,the%20pitfalls%20of%20added%20sugars.", "_blank")}>
+                Read more ↗
+              </button>
           </article>
         </section>
       </div>

@@ -1,20 +1,5 @@
-.overweight-graph{
-    display: grid;
+.overweight-graph {
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
-
-.play-btn {
-  background-color:#3a86ff; 
-  color: #ffffff; 
-    border: none;
-    border-radius: 20px; 
-    padding: 10px 20px; 
-    margin-left: 40%;
-    font-size: 36px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    transition: background-color 0.3s;
-}
-
-  .play-btn:hover {
-    background-color:#5985B1;
-  }

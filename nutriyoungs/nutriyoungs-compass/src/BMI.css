@@ -1,92 +1,139 @@
 .bmi-page {
   display: flex;
+  padding: 30px 60px;
   flex-direction: column;
-  gap: 20px;
-  padding: 100px;
+  align-items: flex-start;
+  gap: 30px;
+  align-self: stretch;
   background: #faf3e0;
 }
 
 .intro-section {
   display: flex;
-  justify-content: space-between;
+  padding: 10px 0px;
+  justify-content: center;
   align-items: center;
-  margin: 20px 0;
-  padding: 20px;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  align-content: center;
+  gap: 30px;
+  align-self: stretch;
+  flex-wrap: wrap;
+  margin: 10px 0;
 }
 
 .bmi-title {
-  flex-basis: 30%;
-  font-size: 64px;
+  font-size: 48px;
   color: #4CAF50;
 }
 
+.bmi-title h4 {
+  font-size: 18px;
+  color: #666;
+}
+
 .bmi-intro {
-  flex-basis: 60%;
-  font-size: 24px;
+  font-size: 18px;
   color: #4CAF50;
+  max-width: 60%;
 }
 
 .bmi-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  align-self: stretch;
+  width: 100%; /* Ensures the content takes full width */
 }
 
-.bmi-container {
-  width: 100%; 
-}
-
-.bmi-wrapper,
-.bmi-info {
-  width: 100%;
+.bmi-wrapper-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-self: stretch;
 }
 
 .bmi-wrapper {
   display: flex;
-  gap: 40px; 
-  margin-bottom: 40px; 
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+  margin-bottom: 30px;
 }
 
 .bmi-iframe {
   flex: 1;
-  height: 800px;
+  height: 600px;
 }
 
 .bmi-image {
   flex: 1;
   max-width: 100%;
-  height: 800px;
+  height: 600px;
+}
+
+.bmi-info {
+  display: flex;
+  padding: 10px 0px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 50px;
+  align-self: stretch;
+  flex-wrap: wrap;
 }
 
 .bmi-article h2 {
-  font-size: 48px;
+  font-size: 32px;
   margin-bottom: 20px;
 }
 
 .bmi-article p {
-  font-size: 28px;
+  font-size: 20px;
 }
 
-.bmi-article a {
-  font-size: 28px;
+.bmi-article button {
+  font-size: 20px;
 }
 
 .bmi-article {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+.readmore-button {
+  border-radius: 30px;
+  opacity: 0.92;
+  background: #3498DB;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.readmore-button:hover {
+  background-color: #2a65d1;
+}
+
+.readmore-icon {
+  font-size: 14px;
+  margin-left: 5px;
 }
 
 .recipe-button {
-  background-color:#3a86ff; 
-  color: #ffffff; 
+  background-color: #3a86ff;
+  color: #ffffff;
   border: none;
-  border-radius: 20px; 
+  border-radius: 20px;
   padding: 10px 20px;
-  font-size: 36px;
+  font-size: 28px;
   cursor: pointer;
   display: inline-block;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
 }
 
@@ -94,13 +141,13 @@
   background-color: #2a65d1;
 }
 
-.recipt-wrapper{
-  margin-bottom: 40px;
-  margin-top: 40px;
+.recipt-wrapper {
+  margin-bottom: 30px;
+  margin-top: 30px;
   text-align: left;
 }
 
-.recipt-button-wrapper{
+.recipt-button-wrapper {
   text-align: center;
 }
 
@@ -117,7 +164,7 @@
 .btn-primary,
 .btn-secondary {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
   border: none;
@@ -126,7 +173,7 @@
 }
 
 .btn-primary {
-  background-color: #3a86ff;
+  background-color: #3498DB;
 }
 
 .btn-primary:hover {
