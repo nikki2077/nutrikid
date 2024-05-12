@@ -15,6 +15,18 @@ const Footer = ({ onNavigate }) => {
           <div>© 2024 All Rights Reserved</div>
         </div>
         <div className="footer-product">
+          {/* <div className='product-list'>Product</div>
+          <div className='list-item'>
+            <a href="#" onClick={navigateToComingSoon}>Landing Page</a>
+            <br />
+            <a href="#" onClick={navigateToComingSoon}>Popup Builder</a>
+            <br />
+            <a href="#" onClick={navigateToComingSoon}>Web-design</a>
+            <br />
+            <a href="#" onClick={navigateToComingSoon}>Content</a>
+            <br />
+            <a href="#" onClick={navigateToComingSoon}>Integrations</a>
+          </div> */}
         </div>
       </div>
     </footer>

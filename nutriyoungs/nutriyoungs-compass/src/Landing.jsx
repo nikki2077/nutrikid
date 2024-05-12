@@ -39,7 +39,6 @@ export default function Landing({ onNavigate }) {
                 <img src={bmiGrid} alt="BMI Check" className="grid-image" />
               </div>
               <div className="grid-right">
-                
                 <h2 className="grid-title">BMI Check</h2>
                 <h3 className="grid-subtitle">Body Mass Index & Nutrition advice</h3>
                 <button className="try-it-btn" onClick={() => onNavigate('bmi')}>Calculate BMI Now</button>
@@ -51,7 +50,6 @@ export default function Landing({ onNavigate }) {
                 <img src={dynamicGrid} alt="NutriTrends" className="grid-image" />
               </div>
               <div className="grid-right">
-                
                 <h2 className="grid-title">NutriTrends</h2>
                 <h3 className="grid-subtitle">Nutritional intake & Food consumption</h3>
                 <button className="try-it-btn" onClick={() => onNavigate('bmi')}>Calculate BMI Now</button>
@@ -63,7 +61,6 @@ export default function Landing({ onNavigate }) {
                 <img src={recipeGrid} alt="MealPlans" className="grid-image" />
               </div>
               <div className="grid-right">
-                
                 <h2 className="grid-title">MealPlans</h2>
                 <h3 className="grid-subtitle">Healthy & Tasty nutritional recipes</h3>
                 <button className="try-it-btn" onClick={() => onNavigate('bmi')}>Calculate BMI Now</button>
@@ -75,7 +72,6 @@ export default function Landing({ onNavigate }) {
                 <img src={trackingGrid} alt="NutriScan" className="grid-image" />
               </div>
               <div className="grid-right">
-                
                 <h2 className="grid-title">NutriScan</h2>
                 <h3 className="grid-subtitle">Recognition & Tracking</h3>
                 <button className="try-it-btn" onClick={() => onNavigate('bmi')}>Calculate BMI Now</button>
@@ -87,7 +83,6 @@ export default function Landing({ onNavigate }) {
                 <img src={groceriesGrid} alt="SpendSmart" className="grid-image" />
               </div>
               <div className="grid-right">
-                
                 <h2 className="grid-title">SpendSmart</h2>
                 <h3 className="grid-subtitle">Shopping</h3>
                 <button className="try-it-btn" onClick={() => onNavigate('bmi')}>Calculate BMI Now</button>

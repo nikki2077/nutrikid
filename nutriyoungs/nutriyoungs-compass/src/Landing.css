@@ -106,9 +106,15 @@
 
 .info-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .grid-item {
