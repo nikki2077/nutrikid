@@ -69,16 +69,16 @@ function App() {
             BMI Check
           </button>
           <button
-            onClick={() => setView('upload')}
+            onClick={() => setView('recipe')}
             className="button"
-            style={view === 'upload' ? activeButtonStyle : {}}
+            style={view === 'recipe' ? activeButtonStyle : {}}
           >
             MealPlans
           </button>
           <button
-            onClick={() => setView('recipe')}
+            onClick={() => setView('upload')}
             className="button"
-            style={view === 'recipe' ? activeButtonStyle : {}}
+            style={view === 'upload' ? activeButtonStyle : {}}
           >
             NutriScan
           </button>
