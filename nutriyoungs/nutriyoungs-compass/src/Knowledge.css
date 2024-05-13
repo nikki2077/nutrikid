@@ -1,19 +1,23 @@
+/* Base styles */
 .knowledge {
-  display: flex; 
+  display: flex;
   justify-content: center;
-  min-height: 100vh; 
-  padding: 60px;
+  min-height: 100vh;
+  padding: 0px 100px;
   background: #faf3e0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
 }
 
-.graph-wrapper{
+.graph-wrapper {
   justify-content: center;
-  display: grid; 
+  display: grid;
 }
 
 .dropdown-container {
-  grid-column: 1 / -1; 
-  margin-bottom: 10px; 
+  grid-column: 1 / -1;
+  margin-bottom: 10px;
 }
 
 #graph-select {
@@ -24,35 +28,20 @@
 
 .dropdown-container label,
 #graph-select {
-font-size: 24px; 
+  font-size: 16px;
 }
 
 #graph-select {
-padding: 10px;
-}
-
-.trends-info{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  padding: 10px;
 }
 
 .trends-info {
-  display: flex;
-  gap: 40px; 
-  justify-content: space-between; 
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+  gap: 80px; /* Gap between grid items */
   align-items: flex-start;
-  margin-top: 40px; 
+  margin-top: 100px;
   margin-bottom: 100px;
-}
-
-.bmi-article {
-  flex: 1;
-  margin: 0; 
-  padding: 20px;
-  background-color: #faf3e0; 
 }
 
 .graph-wrapper {
@@ -65,11 +54,11 @@ padding: 10px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
   padding: 20px;
-  border: 1px solid #ccc; 
-  border-radius: 8px; 
-  background-color: #FFFEF5; 
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #FFFEF5;
 }
 
 .graph-container {
@@ -78,9 +67,8 @@ padding: 10px;
   justify-content: center;
   align-items: center;
   border: 1px solid #ccc;
-  background-color: #FFFEF5; 
+  background-color: #FFFEF5;
 }
-
 
 .btn-primary,
 .btn-secondary {
@@ -107,4 +95,103 @@ padding: 10px;
 
 .btn-secondary:hover {
   background-color: #5a6268;
+}
+
+.readmore-button {
+  border-radius: 30px;
+  opacity: 0.92;
+  background: #3498DB;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.readmore-button:hover {
+  background-color: #2a65d1;
+}
+
+.readmore-icon {
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.user-journey {
+  display: grid;
+  grid-template-columns: 3fr 1fr; 
+  padding: 0px 20px;
+  padding-bottom: 100px;
+  gap: 135px; 
+  align-items: center; 
+}
+
+.next-title {
+  color: #4CAF50;
+  font-size: 48px;
+}
+
+.next-text {
+  color: #4CAF50;
+  font-size: 24px;
+}
+
+.feature-title {
+  color: #4CAF50;
+  font-size: 48px;
+}
+
+.feature-button {
+  display: flex;
+  padding: 5px 15px;
+  justify-content: left;
+  align-items: left;
+  gap: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .knowledge {
+    padding: 0 20px;
+  }
+
+  .trends-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .graph-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dropdown-container {
+    padding: 10px;
+  }
+
+  .graph-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .user-journey {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  .feature-title,
+  .next-title {
+    font-size: 36px;
+  }
+
+  .next-text {
+    font-size: 18px;
+  }
 }

@@ -33,8 +33,10 @@ export default function BMI({ onNavigate }) {
   return (
     <div className="bmi-page">
       <div className="intro-section">
-        <h1 className="bmi-title">BMI Check:
-Kids Body Index</h1>
+        <div className="bmi-title">
+          BMI Check:
+          <h4>Kids Body Index</h4>
+        </div>
         <p className="bmi-intro">
           Streamlined, intuitive interface, quickly assess a child's body mass index (BMI) to ensure their growth is on track and they maintain a healthy weight for their age and activity level. Get instant calculations by entering basic information like age, height, and weight.
         </p>
@@ -56,46 +58,51 @@ Kids Body Index</h1>
               <h2>What is BMI?</h2>
               <p>BMI, or Body Mass Index, is a ratio of weight to height (kg/m²) often used as a proxy for body fatness. However, it doesn't directly measure body fat; it estimates weight excess. Studies confirm BMI is broadly indicative of body fat levels, as gauged by more precise methods like underwater weighing and DXA scans.</p>
               <br />
-              <a href="https://www.cdc.gov/obesity/downloads/bmiforpactitioners.pdf" target="_blank" rel="noopener noreferrer">Read more</a>
+              <button className="readmore-button" onClick={() => window.open("https://www.cdc.gov/obesity/downloads/bmiforpactitioners.pdf", "_blank")}>
+                Read more <span className="readmore-icon">↗</span>
+              </button>
             </article>
             <article className="bmi-article">
               <h2>Why use BMI?</h2>
               <p>BMI is a quick, easy method to estimate body fat based on height and weight. It's not a precise measurement of body fat but correlates well with health risks associated with obesity. It's widely used for population health assessments.</p>
               <br />
-              <a href="https://www.cdc.gov/obesity/downloads/bmiforpactitioners.pdf" target="_blank" rel="noopener noreferrer">Read more</a>
+              <button className="readmore-button" onClick={() => window.open("https://www.cdc.gov/obesity/downloads/bmiforpactitioners.pdf", "_blank")}>
+                Read more ↗
+              </button>
             </article>
           </section>
         </div>
 
-        <div className='recipt-wrapper'>
-          <h1>To explore personalized meal suggestions based on your child’s nutritional needs:</h1>
-          <br />
-          <div className='recipt-button-wrapper'>
-          <button className="recipe-button" onClick={() => {
-              onNavigate('recipe');
+        <div className="bmi-buttons">
+          <button className="btn-secondary mb-2" onClick={() => {
+              onNavigate('landing');
               setTimeout(() => {
                   window.scrollTo(0, 0);
               }, 0);  
-          }}>
-              Try recipe recommendation
-          </button>
+          }}>Back to Home</button>
+          <button className="btn-primary" onClick={() => window.scrollTo(0, 0)}>To the Top</button>
+        </div>
 
-          </div>
-        </div>
-        <div className="bmi-buttons">
-          <button className="btn-secondary mb-2" onClick={() => onNavigate('landing')}>Back to Home</button>
-          <button className="btn-primary" onClick={() => window.scrollTo(0,0)}>To the Top</button>
-        </div>
-        <div className="bmi-buttons">
-                <button className="btn-secondary mb-2" onClick={() => {
-                    onNavigate('landing');
-                    setTimeout(() => {
-                        window.scrollTo(0, 0);
-                    }, 0);  
-                }}>Back to Home</button>
-                <button className="btn-primary" onClick={() => window.scrollTo(0, 0)}>To the Top</button>
-            </div>
+        
       </main>
+      <div className='user-journey'>
+      <div className='next-wrapper'>
+        <div className='next-title'>What is next?</div>
+        <div className='next-text'>
+          <p>After quickly assessing your child's BMI through our intuitive interface, why not take the next step in managing their nutrition? Our feature for creating and customizing weekly meal plans is just what you need. Simply enter their daily calorie needs to get a customized weekly meal plan. It's simple to adjust for dietary requirements, ensuring they enjoy a balanced diet all week.</p>
+        </div>
+      </div>
+      <div className='feature-wrapper'>
+        <div className='feature-title'>MealPlans</div>
+        <div className='feature-button'>
+        <button className="try-it-btn" onClick={() => {
+                  onNavigate('recipts');
+                  setTimeout(() => {
+                    window.scrollTo(0, 0);
+                }, 0); }}>Find Recipes</button>
+        </div>
+      </div>
+    </div>
     </div>
   );
 }

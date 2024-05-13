@@ -1,3 +1,4 @@
+/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -9,76 +10,315 @@ html, body {
   width: 100%;
 }
 
+body {
+  font-family: "Manrope", sans-serif;
+}
+
 .main-section {
   position: relative;
   width: 100%; 
   height: 100%;
- 
 }
 
+.global-container {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+/* Navigation bar */
 .NavigationBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  color:#4CAF50;
+  color: #4CAF50;
   background: #faf3e0;
-}
-
-.app-logo {
-  font-size: 48px; 
-  cursor: pointer;
-  color: #4CAF50;
-}
-
-
-
-.button {
-  background: none;
-  border: none;
-  color: #4CAF50;
-  font-size: 24px; 
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px 20px;
-  margin-right: 45px; 
-  transition: color 0.3s;
-}
-
-.button:hover {
-  text-decoration: underline; 
-}
-
-
-.hero-section {
-  background-size: cover;
-  background-position: center;
-  padding: 100px 20px; 
-  height: 100vh; 
-  width: 100%; 
-}
-
-@media (min-width: 1920px) {
-  .hero-section {
-    height: 1080px; 
-    width: 1920px; 
-    margin: 0 auto; 
-  }
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-
-body {
-  font-family: "Manrope", sans-serif;
 }
 
 .app-logo {
   display: flex; 
   align-items: center; 
   cursor: pointer;
+  font-size: 48px;
+  color: #4CAF50;
 }
 
 .logo-image {
-  height: 50px; 
-  margin-right: 10px; 
+  height: 32px; 
+  margin-right: 10px;
+}
+
+.menu-icon {
+  display: none;
+  height: 32px;
+  cursor: pointer;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  background: none;
+  border: none;
+  color: #4CAF50;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-right: 20px;
+  transition: color 0.3s;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+/* Hero section */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  height: 100vh;
+  width: 100%;
+}
+
+@media (min-width: 1920px) {
+  .hero-section {
+    height: 1080px;
+    width: 1920px;
+    margin: 0 auto;
+  }
+}
+
+/* Knowledge section */
+.knowledge {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: #faf3e0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.graph-wrapper {
+  justify-content: center;
+  display: grid;
+}
+
+.dropdown-container {
+  grid-column: 1 / -1;
+  margin-bottom: 10px;
+}
+
+#graph-select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.dropdown-container label,
+#graph-select {
+  font-size: 16px;
+}
+
+#graph-select {
+  padding: 10px;
+}
+
+.trends-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 80px;
+  align-items: flex-start;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.graph-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.dropdown-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #FFFEF5;
+}
+
+.graph-container {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  background-color: #FFFEF5;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: #3a86ff;
+}
+
+.btn-primary:hover {
+  background-color: #2a65d1;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.readmore-button {
+  border-radius: 30px;
+  opacity: 0.92;
+  background: #3498DB;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.readmore-button:hover {
+  background-color: #2a65d1;
+}
+
+.readmore-icon {
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.user-journey {
+  display: grid;
+  grid-template-columns: 3fr 1fr; 
+  padding-bottom: 100px;
+  gap: 135px; 
+  align-items: center;
+}
+
+.next-title {
+  color: #4CAF50;
+  font-size: 48px;
+}
+
+.next-text {
+  color: #4CAF50;
+  font-size: 24px;
+}
+
+.feature-title {
+  color: #4CAF50;
+  font-size: 48px;
+}
+
+.feature-button {
+  display: flex;
+  padding: 5px 15px;
+  justify-content: left;
+  align-items: left;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-buttons {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #FFFEF5;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-buttons.open {
+    display: flex;
+  }
+
+  .button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .knowledge {
+    padding: 0 20px;
+  }
+
+  .trends-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .graph-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dropdown-container {
+    padding: 10px;
+  }
+
+  .graph-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .user-journey {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 20px;
+  }
+
+  .feature-title,
+  .next-title {
+    font-size: 36px;
+  }
+
+  .next-text {
+    font-size: 18px;
+  }
+}
+
+
+.hero-section,
+.knowledge,
+.user-journey {
+  padding-left: 100px;
+  padding-right: 100px;
 }

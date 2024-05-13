@@ -139,8 +139,9 @@ export default function Recipe({ onNavigate }) {
         <div className='recipe'>
             <div className='page-container'>
                 <div className="intro-section">
-                    <h1 className="bmi-title">MealPlans:
-<br />Tailored Recipes for Kids</h1>
+                    <div className="bmi-title">MealPlans:
+                            <h4>Tailored Recipes for Kids</h4>
+                            </div>
                     <p className="bmi-intro">
                         Rapid creation and customization of weekly meal plans based on dietary needs and preferences to ensure a balanced and varied diet. Enter the desired calories per meal to get a tailored recipe recommendation. This feature provides options to adjust meals according to specific dietary requirements, easily manage and optimize nutrition, and support informed decision-making for maintaining balanced dietary habits.
                     </p>
@@ -151,6 +152,7 @@ export default function Recipe({ onNavigate }) {
                 <div className='recipe-content'>
                     {loading ? <p>Loading...</p> : recipe ? <DisplayRecipe recipe={recipe} /> : <p>No recipe to display.</p>}
                     <div>
+                <p>* In nutritional contexts, 'calories' and 'kcal' mean the same thing and represent the same amount of energy. There is no need to convert between them as 1 kcal equals 1 calorie. This common usage helps simplify tracking your energy intake from food. Note: Energy can also be measured in kilojoules (kJ), where 1 calorie equals 4.18 kJ.</p>
                 <p>* Calories and kcal are used interchangeably and refer to the same amount of energy, but kilojoules require conversion. Usage may differ depending on where you live.</p>
             </div>
                 </div>
@@ -164,6 +166,25 @@ export default function Recipe({ onNavigate }) {
                 }}>Back to Home</button>
                 <button className="btn-primary" onClick={() => window.scrollTo(0, 0)}>To the Top</button>
             </div>
+            <div className='user-journey'>
+      <div className='next-wrapper'>
+        <div className='next-title'>What is next?</div>
+        <div className='next-text'>
+         <p>After creating your child's weekly meal plan, take it a step further with our next feature. Just upload a photo of any food item, and our system will quickly provide detailed nutritional information. This helps you make informed decisions about your child's diet, ensuring it meets their nutritional needs.</p>
+        </div>
+      </div>
+      <div className='feature-wrapper'>
+        <div className='feature-title'>NutriScan</div>
+        <div className='feature-button'>
+        <button className="try-it-btn" onClick={() => {
+                  onNavigate('upload');
+                  setTimeout(() => {
+                    window.scrollTo(0, 0);
+                }, 0); 
+              }}>Snap & Discover</button>
+        </div>
+      </div>
+    </div>
         </div>
     );
 }
