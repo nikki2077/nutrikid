@@ -1,4 +1,4 @@
-
+/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +20,12 @@ body {
   height: 100%;
 }
 
+.global-container {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+/* Navigation bar */
 .NavigationBar {
   display: flex;
   align-items: center;
@@ -69,6 +75,7 @@ body {
   text-decoration: underline;
 }
 
+/* Hero section */
 .hero-section {
   background-size: cover;
   background-position: center;
@@ -85,11 +92,11 @@ body {
   }
 }
 
+/* Knowledge section */
 .knowledge {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  padding: 0 100px;
   background: #faf3e0;
   flex-direction: column;
   align-items: flex-start;
@@ -212,7 +219,6 @@ body {
 .user-journey {
   display: grid;
   grid-template-columns: 3fr 1fr; 
-  padding: 0px 20px;
   padding-bottom: 100px;
   gap: 135px; 
   align-items: center;
@@ -307,4 +313,12 @@ body {
   .next-text {
     font-size: 18px;
   }
+}
+
+
+.hero-section,
+.knowledge,
+.user-journey {
+  padding-left: 100px;
+  padding-right: 100px;
 }

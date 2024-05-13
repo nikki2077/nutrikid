@@ -82,7 +82,27 @@ export default function BMI({ onNavigate }) {
           }}>Back to Home</button>
           <button className="btn-primary" onClick={() => window.scrollTo(0, 0)}>To the Top</button>
         </div>
+
+        
       </main>
+      <div className='user-journey'>
+      <div className='next-wrapper'>
+        <div className='next-title'>What is next?</div>
+        <div className='next-text'>
+          <p>After quickly assessing your child's BMI through our intuitive interface, why not take the next step in managing their nutrition? Our feature for creating and customizing weekly meal plans is just what you need. Simply enter their daily calorie needs to get a customized weekly meal plan. It's simple to adjust for dietary requirements, ensuring they enjoy a balanced diet all week.</p>
+        </div>
+      </div>
+      <div className='feature-wrapper'>
+        <div className='feature-title'>MealPlans</div>
+        <div className='feature-button'>
+        <button className="try-it-btn" onClick={() => {
+                  onNavigate('recipts');
+                  setTimeout(() => {
+                    window.scrollTo(0, 0);
+                }, 0); }}>Find Recipes</button>
+        </div>
+      </div>
+    </div>
     </div>
   );
 }

@@ -166,6 +166,25 @@ export default function Recipe({ onNavigate }) {
                 }}>Back to Home</button>
                 <button className="btn-primary" onClick={() => window.scrollTo(0, 0)}>To the Top</button>
             </div>
+            <div className='user-journey'>
+      <div className='next-wrapper'>
+        <div className='next-title'>What is next?</div>
+        <div className='next-text'>
+         <p>After creating your child's weekly meal plan, take it a step further with our next feature. Just upload a photo of any food item, and our system will quickly provide detailed nutritional information. This helps you make informed decisions about your child's diet, ensuring it meets their nutritional needs.</p>
+        </div>
+      </div>
+      <div className='feature-wrapper'>
+        <div className='feature-title'>NutriScan</div>
+        <div className='feature-button'>
+        <button className="try-it-btn" onClick={() => {
+                  onNavigate('upload');
+                  setTimeout(() => {
+                    window.scrollTo(0, 0);
+                }, 0); 
+              }}>Snap & Discover</button>
+        </div>
+      </div>
+    </div>
         </div>
     );
 }
