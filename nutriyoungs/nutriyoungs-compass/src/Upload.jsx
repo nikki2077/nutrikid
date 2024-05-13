@@ -120,7 +120,8 @@ function Upload({onNavigate}) {
             <main style={{backgroundColor: '#faf3e0'}}>
                 <div className='row'>
                     <div className="col-md-5" style={{marginTop:'5%'}}>
-                        <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>Food Recognition</h1>
+                        <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>NutriScan</h1>
+                        <p style={{marginLeft: '30%'}}>Instant Food Analyzer</p>
                     </div>
                     <div className="col-md-6" style={{marginTop:'5%'}}>
                         <p style={{color:'#4CAF50'}}>Quickly identify food items from uploaded images to aid in nutritional management. Upload a photo of a food item, and the system will analyze the image to recognize the type of food presented. Provides detailed nutritional information, including calorie count, portion size, and nutrient breakdown, such as fats, proteins, and carbohydrates. Assist parents in making informed decisions about their children's food consumption by aligning with dietary needs and restrictions.</p>
@@ -129,7 +130,6 @@ function Upload({onNavigate}) {
                 <div className='row'>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                     <div className="col-md-8" style={{marginTop:'5%'}}>
-                        <h1 style={{color:'black'}}>Limitations</h1>
                         <p style={{color:'black'}}>The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
                         <p style={{color:'black'}}>The current capabilities of our model allow for the identification of nine specific types of food: donuts. chicken curry, French fries, ice cream. pizza. waffies. garlic bread, burgers, and onion rings. We regret any inaccuracies in food recognition that may occur and are actively working to expand the range of foods our model can accurately identify. Thank you for your understanding.</p>
                         <p style={{color:'black'}}>Due to the performance of the model, the current model accuracy is only 70%. We apologize for the images that may not be correctly recognized.We are working on improving the model accuracy. Thanks for your understanding.</p>
@@ -251,6 +251,24 @@ function Upload({onNavigate}) {
                         </div>
                     </div>
                 </div>
+                <div className='user-journey' style={{marginLeft:'7.5%', marginTop:'5%'}}>
+                <div className='next-wrapper'>
+                    <div className='next-title'>What is next?</div>
+                    <div className='next-text'>
+                    <p>After quickly assessing your child's BMI through our intuitive interface, why not take the next step in managing their nutrition? Our feature for creating and customizing weekly meal plans is just what you need. Simply enter their daily calorie needs to get a customized weekly meal plan. It's simple to adjust for dietary requirements, ensuring they enjoy a balanced diet all week.</p>
+                    </div>
+                </div>
+                <div className='feature-wrapper'>
+                    <div className='feature-title'>SpendSmart</div>
+                    <div className='feature-button'>
+                    <button className="try-it-btn" onClick={() => {
+                            onNavigate('recipt');
+                            setTimeout(() => {
+                                window.scrollTo(0, 0);
+                            }, 0); }}>Analyze Receipts</button>
+                    </div>
+                </div>
+                </div>
                 <div className='row'>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                     <div className="col-md-8" style={{marginTop:'5%'}}>
@@ -266,6 +284,7 @@ function Upload({onNavigate}) {
                 }}>Back to Home</button>
                 <button className="btn-primary" onClick={() => window.scrollTo(0, 0)}>To the Top</button>
             </div>
+
             </main>
         </div>
     );

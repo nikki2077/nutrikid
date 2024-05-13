@@ -7,15 +7,22 @@ import './Knowledge.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; // ensure this is correct
 import Papa from 'papaparse';
 import { ToastContainer, toast } from 'react-toastify';
+import nameicon from './assets/images/fork_knife.png'
+import energyicon from './assets/images/energyicon.png'
+import proteinicon from './assets/images/proteinicon.png'
 import 'react-toastify/dist/ReactToastify.css';
+
 
 function Recipt({onNavigate}) {
     const [base64, setBase64] = useState("");
-    const [category, setCategory] = useState("");
     const [nutritionData, setNutritionData] = useState(new Map());
     const [isLoading, setIsLoading] = useState(false);
+    const [perishablePrices, setPerishablePrices] = useState("");
+    const [nonperishablePrices, setnonPerishablePrices] = useState("");
     const [recommendation, setRecommendation] = useState("");
-
+    const [selectedProductInfo, setSelectedProductInfo] = useState({});
+    const [perishableProducts, setPerishableProducts] = useState([]);
+    
 
     const parseCSV = (data) => {
         Papa.parse(data, {
@@ -24,8 +31,8 @@ function Recipt({onNavigate}) {
             complete: (results) => {
                 const dataMap = new Map();
                 results.data.forEach((row) => {
-                    if (row.Product) { // Check if the Product property is not undefined
-                        dataMap.set(row.Product.toLowerCase(), row);
+                    if (row.Category) { // Check if the Product property is not undefined
+                        dataMap.set(row.Category.toLowerCase(), row);
                     }
                 });
                 setNutritionData(dataMap);
@@ -34,12 +41,22 @@ function Recipt({onNavigate}) {
     };
 
     useEffect(() => {
-        fetch('/Nutrient_Info.csv')
+        fetch('/Perishable_goods.csv')
             .then((response) => response.text())
             .then((data) => {
+                console.log("CSV Data:", data); // Check raw CSV data
                 parseCSV(data);
             });
     }, []);
+
+    const handleProductChange = (event) => {
+        const productName = event.target.value.toLowerCase().trim();
+        console.log("Selected product name:", productName);
+        const productInfo = nutritionData.get(productName);
+        setSelectedProductInfo(productInfo || {}); // Fallback to an empty object if not found
+        console.log("Product info:", productInfo);
+    };
+    
 
     const onDrop = useCallback(acceptedFiles => {
         const file = acceptedFiles[0];
@@ -85,14 +102,12 @@ function Recipt({onNavigate}) {
                 productItem.textContent = `${product[1]} - ${product[0]}`;
                 productListElement.appendChild(productItem);
             });
+            // Update the state with the API response data
+            setPerishableProducts(bodyObj.perishableProducts);
+
             console.log(bodyObj.perishableProducts.length);
             let newRecommendation = '';
-            if (bodyObj.perishableProducts.length < 3) {
-                newRecommendation = "You should purchase more perishable products.";
-            } else if (bodyObj.perishableProducts.length > 12) {
-                newRecommendation = "There are enough perishable products purchased.";
-            } else {
-                newRecommendation = "no recommendation.";}
+            newRecommendation = 'You have spent $'+ bodyObj.perishable_prices + ' on perishable items and $'+ bodyObj.non_perishable_prices+ ' on non-perishable items. This breakdown helps you understand and manage your spending on different categories of grocery items effectively. Thank you for using SpendSmart to optimize your grocery shopping.'
             setRecommendation(newRecommendation); // This will trigger a re-render
             toast.success('Image processed successfully!');
         } catch (error) {
@@ -133,8 +148,8 @@ function Recipt({onNavigate}) {
             <main style={{backgroundColor: '#faf3e0'}}>
                 <div className='row'>
                     <div className="col-md-5" style={{marginTop:'5%'}}>
-                        <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>SpendSmart:
-Grocery Analysis Tool</h1>
+                        <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>SpendSmart</h1>
+                        <p style={{marginLeft: '30%'}}>Grocery Analysis Tool</p>
                     </div>
                     <div className="col-md-6" style={{marginTop:'5%'}}>
                         <p style={{color:'#4CAF50'}}>Transform the chore of grocery shopping into a strategic advantage for budgeting and nutritional planning. Using Optical Character Recognition, with an automated analysis of grocery receipts and categorizes purchases, focusing on key areas like expenditure on fruits and vegetables and providing detailed nutritional breakdowns for each item. Enhance understanding and management of family nutrition and finances in real time.</p>
@@ -143,9 +158,8 @@ Grocery Analysis Tool</h1>
                 <div className='row'>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                     <div className="col-md-8" style={{marginTop:'5%'}}>
-                        <h1 style={{color:'black'}}>Limitations</h1>
-                        <p style={{color:'black'}}>* We regret any possible inaccuracies in receipt recognition and are actively working to expand support for receipts from different supermarkets. Thank you for your understanding.</p>
-                        <p style={{color:'black'}}>* The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
+                        <p style={{color:'black'}}>* Currently supports the analysis of digital dockets exclusively from Coles. We are dedicated to enhancing our service and may expand to include more stores in the future.</p>
+                        <p style={{color:'black'}}>* Currently accepts only one receipt per analysis session. Future updates will enable the processing of multiple receipts simultaneously to enhance your experience.</p>
                     </div>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>
@@ -211,13 +225,77 @@ Grocery Analysis Tool</h1>
                             <div className="row" style={{marginTop: '36px'}}>
                                 <div className="col-md-12">
                                     <div className="card" style={{backgroundColor: '#faf3e0', borderRadius: '25px', padding: '20px'}}>
-                                        <h3 style={{textAlign: 'center'}}>Recommondations</h3>
+                                        <h3 style={{textAlign: 'center'}}>Analysis</h3>
                                         <p>{recommendation}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className='col-md-12 d-flex'>
+                        <div className="col-md-10" style={{border: '2px solid black', borderRadius:'15px', marginLeft:'7.5%',marginTop:'5%', padding:'20px', backgroundColor:'#fffdf7'}}>
+                            <p style={{marginLeft: '20px'}}>Nutrition / Types / Allergies</p>
+                            <h2 style={{marginLeft: '20px'}}>Goods Information</h2>
+                            <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
+                                <div className='row'>
+                                <select onChange={handleProductChange} style={{ width: '100%', height: '40px', borderRadius: '10px' }}>
+                                    {perishableProducts.map((product, index) => (
+                                        <option key={index} value={product[0].toLowerCase()}>
+                                            {product[0]}
+                                        </option>
+                                    ))}
+                                </select>
+                                </div>  
+                            </div>
+                            <div className='row' style={{marginTop:'36px'}}>
+                                <div class='col-md-4'>
+                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
+                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Protein (g)</h5>
+                                        <span style={{marginLeft:'40px'}}>{selectedProductInfo?.['Protein'] || "N/A"}</span>  {/* Display detected category */}
+                                    </div>
+                                </div>
+                                <div class='col-md-4'>
+                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
+                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Carbohydrates (g)</h5>
+                                        <span style={{marginLeft:'40px'}}>{selectedProductInfo?.['Carbohydrate'] || "N/A"}</span>  {/* Display detected category */}
+                                    </div>
+                                </div>
+                                <div className='col-md-4'>
+                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
+                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Energy (k/cal)</h5>
+                                        <span style={{marginLeft:'40px'}}>{selectedProductInfo?.['Energy'] || "N/A"}</span>  {/* Display detected category */}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='row' style={{marginTop:'36px'}}>
+                                <div className='col-md-4'>
+                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
+                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Fat (g)</h5>
+                                        <span style={{marginLeft:'40px'}}>{selectedProductInfo?.['Fat'] || "N/A"}</span>  {/* Display detected category */}
+                                    </div>
+                                </div>
+                                <div className='col-md-4'>
+                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
+                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Cholesterol (mg)</h5>
+                                        <span style={{marginLeft:'40px'}}>{selectedProductInfo?.['Cholesterol'] || "N/A"}</span>  {/* Display detected category */}
+                                    </div>
+                                </div>
+                                <div className='col-md-4'>
+                                    <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
+                                        <h5 style={{marginLeft:'40px', marginTop:'10px'}}>Expiry days</h5>
+                                        <span style={{marginLeft:'40px'}}>{selectedProductInfo?.['product_expiry_days'] || "N/A"}</span>  {/* Display detected category */}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='row'>
+                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
+                    <div className="col-md-8" style={{marginTop:'5%'}}>
+                        <p style={{color:'#4CAF50'}}>After mastering grocery receipt analysis to optimize your budgeting and nutritional planning, you're well on your way to becoming more strategic about your family's dietary and financial health. Harness this powerful tool to keep your nutrition and expenses on track seamlessly.</p>
+                    </div>
+                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>
                 <div className='row'>
                     <div className="col-md-2" style={{marginTop:'5%'}}></div>

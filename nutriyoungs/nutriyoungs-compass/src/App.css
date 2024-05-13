@@ -1,4 +1,3 @@
-/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -25,7 +24,6 @@ body {
   padding-right: 100px;
 }
 
-/* Navigation bar */
 .NavigationBar {
   display: flex;
   align-items: center;
@@ -301,7 +299,7 @@ body {
   }
 
   .user-journey {
-    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-columns: 1fr; 
     gap: 20px;
   }
 

@@ -22,7 +22,7 @@ export default function Landing({ onNavigate }) {
       <div className="hero-section">
         <div className="hero-left">
           <h1 className="title">NutriYoungs Compass</h1>
-          <h2 className="sub-title">Experience the future of dietary planning with our AI-driven family nutrition consultant—personalized, intelligent, and always caring.</h2>
+          <h2 className="sub-title">Empowering low income Victorian Households to adopt optimal nutritional choices, foster healthy eating practices and affordable solutions</h2>
           <br />
           <button className="cta-button" onClick={() => onNavigate('bmi')}>
             Explore Now <span className="cta-icon">↗</span>

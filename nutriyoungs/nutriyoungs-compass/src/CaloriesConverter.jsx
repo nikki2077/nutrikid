@@ -34,11 +34,11 @@ export default function CaloriesConverter({ onCalorieUpdate }) {
                     BMR = 13.384 * weight + 692.6;
                     break;
                 default:
-                    BMR = 58.317 * weight - 31.1; // Default to 0-3 years if not specified
+                    BMR = 58.317 * weight - 31.1; 
             }
         }
 
-        let factor = 1.2; // Default sedentary
+        let factor = 1.2; 
         switch (activityLevel) {
             case 'lightly_active':
                 factor = 1.4;
