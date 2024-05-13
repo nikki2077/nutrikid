@@ -28,11 +28,11 @@
     margin: 0 auto 20px;
 }
 
-/* DisplayRecipe.css */
+
 .recipe-title {
-    color: #4CAF50; /* Set the title color */
-    font-size: 48px; /* Set the title font size */
-    margin-bottom: 20px; /* Adjust as needed */
+    color: #4CAF50; 
+    font-size: 48px;
+    margin-bottom: 20px; 
 }
 
 

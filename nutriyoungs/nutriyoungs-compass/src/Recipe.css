@@ -1,4 +1,3 @@
-/* Recipe.css */
 .recipe {
   min-height: 100vh;
   background: #faf3e0;
@@ -43,7 +42,7 @@
   align-items: flex-start;
   gap: 30px;
   align-self: stretch;
-  width: 100%; /* Ensures the content takes full width */
+  width: 100%; 
 }
 
 .bmi-buttons {
@@ -135,9 +134,9 @@ input[type='number']:focus {
 }
 
 .recipe-title {
-  color: #4CAF50; /* Set the title color */
-  font-size: 36px; /* Set the title font size */
-  margin-bottom: 20px; /* Adjust as needed */
+  color: #4CAF50; 
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 .next-text {

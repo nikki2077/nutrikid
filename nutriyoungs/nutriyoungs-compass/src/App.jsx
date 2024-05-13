@@ -8,7 +8,7 @@ import Upload from './Upload';
 import Recipe from './Recipe';
 import Recipt from './recipt';
 import logoImage from './assets/images/logo.png';
-import menuIcon from './assets/images/hide-icon.png'; // Add the menu icon image
+import menuIcon from './assets/images/hide-icon.png'; 
 
 function App() {
   const [view, setView] = useState('home');
@@ -16,7 +16,7 @@ function App() {
 
   const handleFooterNavigation = (viewName) => {
     setView(viewName);
-    setIsNavOpen(false); // Close the navigation menu when navigating
+    setIsNavOpen(false); 
   };
 
   const toggleNav = () => {
@@ -59,35 +59,35 @@ function App() {
             className="button"
             style={view === 'knowledge' ? activeButtonStyle : {}}
           >
-            Trends
+            NutriTrends
           </button>
           <button
             onClick={() => setView('bmi')}
             className="button"
             style={view === 'bmi' ? activeButtonStyle : {}}
           >
-            BMI
+            BMI Check
           </button>
           <button
             onClick={() => setView('upload')}
             className="button"
             style={view === 'upload' ? activeButtonStyle : {}}
           >
-            Recognize
+            MealPlans
           </button>
           <button
             onClick={() => setView('recipe')}
             className="button"
             style={view === 'recipe' ? activeButtonStyle : {}}
           >
-            Recipe
+            NutriScan
           </button>
           <button
             onClick={() => setView('recipt')}
             className="button"
             style={view === 'recipt' ? activeButtonStyle : {}}
           >
-            Recipt Scanner
+            SpendSmart
           </button>
         </div>
       </div>
