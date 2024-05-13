@@ -1,4 +1,4 @@
-/* Base styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -85,7 +85,6 @@ body {
   }
 }
 
-/* Knowledge Section */
 .knowledge {
   display: flex;
   justify-content: center;
@@ -124,8 +123,8 @@ body {
 
 .trends-info {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns with equal width */
-  gap: 80px; /* Gap between grid items */
+  grid-template-columns: 1fr 1fr; 
+  gap: 80px;
   align-items: flex-start;
   margin-top: 100px;
   margin-bottom: 100px;
@@ -212,11 +211,11 @@ body {
 
 .user-journey {
   display: grid;
-  grid-template-columns: 3fr 1fr; /* Left-right layout with 3fr 1fr */
+  grid-template-columns: 3fr 1fr; 
   padding: 0px 20px;
   padding-bottom: 100px;
-  gap: 135px; /* Gap between the two sections */
-  align-items: center; /* Center align items vertically */
+  gap: 135px; 
+  align-items: center;
 }
 
 .next-title {
@@ -242,7 +241,6 @@ body {
   gap: 10px;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
@@ -252,7 +250,7 @@ body {
     display: none;
     flex-direction: column;
     align-items: flex-start;
-    background: #FCF9F9;
+    background: #FFFEF5;
     position: absolute;
     top: 70px;
     right: 0;
