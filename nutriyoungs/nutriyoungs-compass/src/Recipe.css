@@ -103,19 +103,6 @@ input[type='number']:focus {
   border-color: #4CAF50; 
 }
 
-.user-journey {
-  grid-template-columns: 1fr; 
-  gap: 20px;
-}
-
-.feature-title,
-.next-title {
-  font-size: 36px;
-}
-
-.next-text {
-  font-size: 18px;
-}
 
 .recipe-details h1 {
   font-size: 24px; 
@@ -151,4 +138,12 @@ input[type='number']:focus {
   color: #4CAF50; /* Set the title color */
   font-size: 36px; /* Set the title font size */
   margin-bottom: 20px; /* Adjust as needed */
+}
+
+.next-text {
+  font-size: 18px;
+}
+
+.note{
+  margin-left: 20px;
 }
