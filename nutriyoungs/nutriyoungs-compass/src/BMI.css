@@ -10,14 +10,12 @@
 
 .intro-section {
   display: flex;
-  padding: 10px 0px;
-  justify-content: center;
   align-items: center;
   align-content: center;
-  gap: 30px;
+  gap: 135px;
   align-self: stretch;
   flex-wrap: wrap;
-  margin: 10px 0;
+  padding: 150px 20px 100px 20px;
 }
 
 .bmi-title {

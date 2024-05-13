@@ -28,9 +28,8 @@
   height: auto;
   max-width: 100%;
   object-fit: cover;
-  border-radius: 16px; /* Ensure image fits inside the box */
+  border-radius: 16px; 
 }
-
 
 @media (max-width: 768px) {
   .hero-section {
@@ -155,7 +154,8 @@
   width: 100%;
   height: 100%;
   max-width: 350px;
-  object-fit:contain; /* Ensure image fits inside the box */
+  margin: 20px 0px;
+  object-fit: contain; /* Ensure image fits inside the box */
 }
 
 .grid-title {
@@ -207,12 +207,18 @@
   background-color: #faf3e0;
   display: flex;
   justify-content: center;
+  cursor: pointer; 
 }
 
 .arrow-image {
   width: 70px;
   height: auto;
   margin-bottom: 40px;
+  transition: transform 0.3s;
+}
+
+.arrow:hover .arrow-image {
+  transform: scale(1.1); 
 }
 
 .bmi-buttons {

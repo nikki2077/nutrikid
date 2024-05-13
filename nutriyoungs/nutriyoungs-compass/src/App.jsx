@@ -47,18 +47,18 @@ function App() {
         </div>
         <div>
           <button
-              onClick={() => setView('bmi')}
-              className="button"
-              style={view === 'bmi' ? activeButtonStyle : {}}
-            >
-              BMI
-          </button>
-          <button
               onClick={() => setView('knowledge')}
               className="button"
               style={view === 'knowledge' ? activeButtonStyle : {}}
             >
               Trends
+          </button>
+          <button
+              onClick={() => setView('bmi')}
+              className="button"
+              style={view === 'bmi' ? activeButtonStyle : {}}
+            >
+              BMI
           </button>
           <button
               onClick={() =>setView('upload')}

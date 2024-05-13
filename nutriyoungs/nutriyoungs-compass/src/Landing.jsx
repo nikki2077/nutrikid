@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Landing.css';
 import backgroundImage from './assets/images/bg.png';
 import bmiGrid from './assets/images/bmi-check.png';
@@ -9,6 +9,14 @@ import groceriesGrid from './assets/images/SpendSmart.png';
 import arrow from './assets/images/arrow.png';
 
 export default function Landing({ onNavigate }) {
+  const infoSectionRef = useRef(null);
+
+  const scrollToInfoSection = () => {
+    if (infoSectionRef.current) {
+      infoSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="landing">
       <div className="hero-section">
@@ -25,11 +33,11 @@ export default function Landing({ onNavigate }) {
         </div>
       </div>
 
-      <div className='arrow'>
+      <div className='arrow' onClick={scrollToInfoSection}>
         <img src={arrow} alt="arrow" className="arrow-image" />
       </div>
 
-      <div className="info-section">
+      <div ref={infoSectionRef} className="info-section">
         <h2>Some things you should know about children’s nutrition</h2>
         <h3>The question that every parent is most concerned about: How to scientifically and happily keep children healthy at a cost-effective manner?</h3>
         <div className="info-content">
