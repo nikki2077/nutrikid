@@ -6,14 +6,21 @@ import BMI from './BMI';
 import Knowledge from './Knowledge';
 import Upload from './Upload';
 import Recipe from './Recipe';
-import Recipt from './recipt'
+import Recipt from './recipt';
 import logoImage from './assets/images/logo.png';
+import menuIcon from './assets/images/hide-icon.png'; // Add the menu icon image
 
 function App() {
   const [view, setView] = useState('home');
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleFooterNavigation = (viewName) => {
     setView(viewName);
+    setIsNavOpen(false); // Close the navigation menu when navigating
+  };
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
   };
 
   const renderComponent = () => {
@@ -26,8 +33,8 @@ function App() {
         return <Upload onNavigate={setView} />; 
       case 'recipe':
         return <Recipe onNavigate={setView} />; 
-        case 'recipt':
-          return <Recipt onNavigate={setView} />;
+      case 'recipt':
+        return <Recipt onNavigate={setView} />;
       case 'home':
       default:
         return <Landing onNavigate={setView} />;
@@ -35,51 +42,52 @@ function App() {
   };
 
   const activeButtonStyle = {
-    color: '#3498DB',
+    color: '#4CAF50',
   };
 
   return (
     <div className="main-section">
       <div className="NavigationBar">
-        <div className='app-logo' onClick={() => setView('home')}>
-          <img src={logoImage} alt="logo-image" className='logo-image' />
+        <div className="app-logo" onClick={() => setView('home')}>
+          <img src={logoImage} alt="logo-image" className="logo-image" />
           NutriYoungs Compass
         </div>
-        <div>
+        <img src={menuIcon} alt="menu-icon" className="menu-icon" onClick={toggleNav} />
+        <div className={`nav-buttons ${isNavOpen ? 'open' : ''}`}>
           <button
-              onClick={() => setView('knowledge')}
-              className="button"
-              style={view === 'knowledge' ? activeButtonStyle : {}}
-            >
-              Trends
+            onClick={() => setView('knowledge')}
+            className="button"
+            style={view === 'knowledge' ? activeButtonStyle : {}}
+          >
+            Trends
           </button>
           <button
-              onClick={() => setView('bmi')}
-              className="button"
-              style={view === 'bmi' ? activeButtonStyle : {}}
-            >
-              BMI
+            onClick={() => setView('bmi')}
+            className="button"
+            style={view === 'bmi' ? activeButtonStyle : {}}
+          >
+            BMI
           </button>
           <button
-              onClick={() =>setView('upload')}
-              className="button"
-              style={view === 'upload' ? activeButtonStyle : {}}
-            >
-              Recognize
+            onClick={() => setView('upload')}
+            className="button"
+            style={view === 'upload' ? activeButtonStyle : {}}
+          >
+            Recognize
           </button>
           <button
-              onClick={() => setView('recipe')}
-              className="button"
-              style={view === 'recipe' ? activeButtonStyle : {}}
-            >
-              Recipe
+            onClick={() => setView('recipe')}
+            className="button"
+            style={view === 'recipe' ? activeButtonStyle : {}}
+          >
+            Recipe
           </button>
           <button
-              onClick={() => setView('recipt')}
-              className="button"
-              style={view === 'recipt' ? activeButtonStyle : {}}
-            >
-              Recipt Scanner
+            onClick={() => setView('recipt')}
+            className="button"
+            style={view === 'recipt' ? activeButtonStyle : {}}
+          >
+            Recipt Scanner
           </button>
         </div>
       </div>
