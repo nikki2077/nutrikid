@@ -125,11 +125,11 @@
 
 .user-journey {
   display: grid;
-  grid-template-columns: 3fr 1fr; /* Left-right layout with 3fr 1fr */
+  grid-template-columns: 3fr 1fr; 
   padding: 0px 20px;
   padding-bottom: 100px;
-  gap: 135px; /* Gap between the two sections */
-  align-items: center; /* Center align items vertically */
+  gap: 135px; 
+  align-items: center; 
 }
 
 .next-title {
@@ -182,7 +182,7 @@
   }
 
   .user-journey {
-    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-columns: 1fr; 
     gap: 20px;
   }
 
