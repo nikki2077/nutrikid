@@ -36,7 +36,7 @@ const FruitVege = () => {
     type: 'scatter',
     mode: 'lines+markers',
     name: 'Girls',
-    marker: { color: 'orange' }, // Changed to orange for consistency with Vege component
+    marker: { color: 'orange' }, 
   };
 
   const layout = {

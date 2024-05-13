@@ -137,14 +137,12 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, 
     return (
         <div className="diet-option">
             <div className="calorie-slider-container">
-                <h2>How many calories per meal?</h2>
+                <h4>How many calories per meal?</h4>
                 {!showConverter && (
                     <button onClick={onToggleVisibility} className="unsure-button">
                         I'm not sure about this
                     </button>
                 )}
-                <br />
-                <br />
                 {showConverter && <CaloriesConverter onCalorieUpdate={handleConverterUpdate} />}
                 <div className="calorie-slider-container">
                     <label htmlFor="calorie-slider">Calories per meal:</label> <br />
@@ -158,11 +156,12 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, 
                         step="50"
                     />
                     <div className="calorie-values">
-                        <span>0</span>
+                        <span className="calorie-value-min">0</span>
                         <span>{calorieInput}</span>
-                        <span>1000</span>
+                        <span className="calorie-value-max">1000</span>
                     </div>
                 </div>
+
             </div>
 
             <div className="button-container">
