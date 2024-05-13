@@ -1,5 +1,5 @@
 .converter {
-    font-size: 28px; 
+    font-size: 18px; 
 }
 
 .converter div {
@@ -7,7 +7,7 @@
 }
 
 .weight-input {
-    width: 80px; 
+    width: 40px; 
     padding: 8px; 
     border: 2px solid #ccc;
     border-radius: 4px; 
@@ -40,5 +40,5 @@ input[type="number"]:hover {
     font-weight: bold; 
 }
 .custom-select {
-    font-size: 24px; 
+    font-size: 18px; 
 }
