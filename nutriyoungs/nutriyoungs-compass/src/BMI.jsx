@@ -35,7 +35,7 @@ export default function BMI({ onNavigate }) {
   }, []);
 
   const toggleGender = () => {
-    setIsBoy(!isBoy); // Toggle between true (boy) and false (girl)
+    setIsBoy(!isBoy); 
   };
 
   return (
