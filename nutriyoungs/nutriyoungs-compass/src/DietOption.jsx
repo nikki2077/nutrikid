@@ -110,8 +110,6 @@
 //         </div>
 //     );
 // };
-
-// export default DietOption;
 import React, { useState } from 'react';
 import './DietOption.css';
 import CaloriesConverter from './CaloriesConverter';
@@ -145,23 +143,27 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, 
                 )}
                 {showConverter && <CaloriesConverter onCalorieUpdate={handleConverterUpdate} />}
                 <div className="calorie-slider-container">
-                    <label htmlFor="calorie-slider">Calories per meal:</label> <br />
-                    <input
-                        type="range"
-                        id="calorie-slider"
-                        min="0"
-                        max="1000"
-                        value={calorieInput}
-                        onChange={handleCalorieChange}
-                        step="50"
-                    />
-                    <div className="calorie-values">
-                        <span className="calorie-value-min">0</span>
-                        <span>{calorieInput}</span>
-                        <span className="calorie-value-max">1000</span>
-                    </div>
+                                <label htmlFor="calorie-slider">Calories per meal: <span className="calorie-input">{calorieInput} </span>calories</label> <br />
+                               
+                <input
+                    type="range"
+                    id="calorie-slider"
+                    min="0"
+                    max="1000"
+                    value={calorieInput}
+                    onChange={handleCalorieChange}
+                    step="50"
+                />
+                <div className="calorie-values">
+                    <span className="calorie-value-min"></span>
+                    <span className="calorie-value-mid1">250</span>
+                    <span className="calorie-value-mid2">500</span>
+                    <span className="calorie-value-mid3">750</span>
+                    <span className="calorie-value-max"></span>
                 </div>
-
+                </div>
+                
+                
             </div>
 
             <div className="button-container">

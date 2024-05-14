@@ -14,9 +14,11 @@
   background-color: #faf3e0;
 }
 
+
 .hero-left {
   flex-basis: 50%;
   padding: 50px;
+  padding-right: 120px;
 }
 
 .hero-right {
@@ -204,11 +206,15 @@
 }
 
 .arrow {
-  background-color: #faf3e0;
-  display: flex;
-  justify-content: center;
-  cursor: pointer; 
+  position: fixed;      /* Make the arrow fixed to the viewport */
+  bottom: 40px;         /* Position it towards the bottom */
+  left: 45%;            /* Center horizontally */
+  transform: translateX(-50%); /* Center align properly */
+  background-color: transparent; /* Optional: Make background transparent */
+  cursor: pointer;
+  z-index: 1000;        /* Ensure it's above other content */
 }
+
 
 .arrow-image {
   width: 70px;

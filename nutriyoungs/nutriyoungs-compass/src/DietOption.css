@@ -21,48 +21,6 @@
     gap: 20px; 
 }
 
-.calorie-values {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-}
-
-.calorie-values span {
-    font-size: 14px;
-}
-
-#calorie-slider {
-    -webkit-appearance: none;
-    width: 50%;
-    height: 15px;
-    background: #ddd;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-
-#calorie-slider:hover {
-    opacity: 1;
-}
-
-#calorie-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    background: #4CAF50;
-    cursor: pointer;
-}
-
-#calorie-slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    background: #4CAF50;
-    cursor: pointer;
-}
-
-
 .button-group {
     display: flex;
     flex-wrap: wrap;
@@ -215,4 +173,63 @@
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     transform: scale(1); 
+}
+.calorie-slider-container {
+    width: 100%; /* Ensures the slider stretches to container width */
+    position: relative;
+    padding: 20px 0;
+}
+
+.slider-value-display {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.calorie-values {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 5px;
+}
+
+.calorie-values span {
+    position: static; /* Utilizes flexbox instead of absolute positioning */
+}
+
+#calorie-slider {
+    -webkit-appearance: none;
+    width: 70%;
+    height: 8px; /* Slender track */
+    background: #FFFEF5; /* Default track color changed to light cream */
+    outline: none;
+    transition: opacity .2s;
+}
+
+#calorie-slider:hover {
+    opacity: 0.8; /* Slight fade on hover for better UI interaction */
+}
+
+#calorie-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; /* Smaller thumb for a more refined look */
+    height: 20px;
+    background: #4CAF50;
+    cursor: pointer;
+    border-radius: 50%; /* Circular thumb */
+}
+
+#calorie-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #4CAF50;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.calorie-input {
+    color: #4CAF50;
+    font-weight: bold; /* Set the color for the calorie input value */
 }
