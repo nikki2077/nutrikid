@@ -114,15 +114,13 @@ import React, { useState } from 'react';
 import './DietOption.css';
 import CaloriesConverter from './CaloriesConverter';
 
-
-const DietOption = ({ onSubmitPreferences, setCalorieNeeds }) => {
+const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, showConverter }) => {
     const [calorieInput, setCalorieInput] = useState(500);
-    const [showConverter, setShowConverter] = useState(false);
 
     const handleCalorieChange = (event) => {
         const value = parseInt(event.target.value, 10);
         setCalorieInput(value);
-        setCalorieNeeds(value);
+        setCalorieNeeds(value); // Update calorie needs in parent component
     };
 
     const handleConverterUpdate = (caloriesPerMeal) => {
@@ -135,20 +133,26 @@ const DietOption = ({ onSubmitPreferences, setCalorieNeeds }) => {
     };
 
     const toggleVisibility = () => {
-        setShowConverter(!showConverter);
+        setShowConverter(!showConverter); // Correctly toggle visibility
     };
+
 
     return (
         <div className="diet-option">
-            <h4>How many calories per meal?</h4>
-            <button onClick={toggleVisibility} className="unsure-button">
-                {showConverter ? "Hide Calculator" : "I'm not sure about this"}
-            </button>
-            {showConverter && (
-                <CaloriesConverter onCalorieUpdate={handleConverterUpdate} />
-            )}
             <div className="calorie-slider-container">
-                <label htmlFor="calorie-slider">Calories per meal: <span className="calorie-input">{calorieInput} </span>calories</label> <br />
+                <h4>How many calories per meal?</h4>
+                {!showConverter && (
+                    <button onClick={onToggleVisibility} className="unsure-button">
+                        I'm not sure about this
+                    </button>
+                )}
+                {showConverter && (
+                    <CaloriesConverter onCalorieUpdate={handleConverterUpdate} />
+                )}
+
+                <div className="calorie-slider-container">
+                                <label htmlFor="calorie-slider">Calories per meal: <span className="calorie-input">{calorieInput} </span>calories</label> <br />
+                               
                 <input
                     type="range"
                     id="calorie-slider"
@@ -159,13 +163,17 @@ const DietOption = ({ onSubmitPreferences, setCalorieNeeds }) => {
                     step="50"
                 />
                 <div className="calorie-values">
-                    <span className="calorie-value-min">0</span>
+                    <span className="calorie-value-min"></span>
                     <span className="calorie-value-mid1">250</span>
                     <span className="calorie-value-mid2">500</span>
                     <span className="calorie-value-mid3">750</span>
-                    <span className="calorie-value-max">1000</span>
+                    <span className="calorie-value-max"></span>
                 </div>
+                </div>
+                
+                
             </div>
+
             <div className="button-container">
                 <button onClick={handleSubmit} className="generate-button">
                     Generate
