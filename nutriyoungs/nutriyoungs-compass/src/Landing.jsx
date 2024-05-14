@@ -97,7 +97,7 @@ export default function Landing({ onNavigate }) {
                 <h2 className="grid-title">MealPlans</h2>
                 <h3 className="grid-subtitle">Healthy & Tasty nutritional recipes</h3>
                 <button className="try-it-btn" onClick={() => {
-                  onNavigate('recipts');
+                  onNavigate('recipe');
                   setTimeout(() => {
                     window.scrollTo(0, 0);
                 }, 0); }}>Find Recipes</button>
