@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Landing.css';
 import backgroundImage from './assets/images/bg.png';
 import bmiGrid from './assets/images/bmi-check.png';
@@ -17,6 +17,20 @@ export default function Landing({ onNavigate }) {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const arrowElement = document.querySelector('.arrow');
+      // Hide the arrow when the user scrolls down 100 pixels
+      arrowElement.style.display = window.pageYOffset > 100 ? 'none' : 'flex';
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="landing">
       <div className="hero-section">
@@ -24,7 +38,7 @@ export default function Landing({ onNavigate }) {
           <h1 className="title">NutriYoungs Compass</h1>
           <h2 className="sub-title">Empowering low income Victorian Households to adopt optimal nutritional choices, foster healthy eating practices and affordable solutions</h2>
           <br />
-          <button className="cta-button" onClick={() => onNavigate('bmi')}>
+          <button className="cta-button" onClick={scrollToInfoSection}>
             Explore Now <span className="cta-icon">↗</span>
           </button>
         </div>
@@ -77,13 +91,13 @@ export default function Landing({ onNavigate }) {
 
             <div className="grid-item">
               <div className="grid-left">
-                <img src={recipeGrid} alt="MealPlans" className="grid-image" />
+                <img src={trackingGrid} alt="NutriScan" className="grid-image" />
               </div>
               <div className="grid-right">
                 <h2 className="grid-title">MealPlans</h2>
                 <h3 className="grid-subtitle">Healthy & Tasty nutritional recipes</h3>
                 <button className="try-it-btn" onClick={() => {
-                  onNavigate('recipts');
+                  onNavigate('recipe');
                   setTimeout(() => {
                     window.scrollTo(0, 0);
                 }, 0); }}>Find Recipes</button>
@@ -92,7 +106,7 @@ export default function Landing({ onNavigate }) {
             </div>
             <div className="grid-item">
               <div className="grid-left">
-                <img src={trackingGrid} alt="NutriScan" className="grid-image" />
+              <img src={recipeGrid} alt="MealPlans" className="grid-image" />
               </div>
               <div className="grid-right">
                 <h2 className="grid-title">NutriScan</h2>
