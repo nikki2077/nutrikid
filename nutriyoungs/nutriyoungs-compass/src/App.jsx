@@ -42,7 +42,7 @@ function App() {
   };
 
   const activeButtonStyle = {
-    color: '#4CAF50',
+    color: '#3498DB',
   };
 
   return (

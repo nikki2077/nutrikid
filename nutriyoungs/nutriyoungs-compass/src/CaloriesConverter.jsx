@@ -68,7 +68,7 @@ export default function CaloriesConverter({ onCalorieUpdate }) {
     return (
         <div className="converter">
             <div>
-                My child is a 
+                My child is a
                 <span> </span>
                 <select value={gender} onChange={handleGenderChange} className="custom-select">
                     <option value="">Select gender</option>
@@ -88,7 +88,7 @@ export default function CaloriesConverter({ onCalorieUpdate }) {
                     min="0"
                     max="500"
                     step="1"
-                /> kg, and my activity level is <span> </span>
+                /> kg, and his/her activity level is <span> </span>
                 <select value={activityLevel} onChange={handleActivityLevelChange} className='custom-select'>
                     <option value="">Select activity level</option>
                     <option value="sedentary">Sedentary (minimal activity)</option>

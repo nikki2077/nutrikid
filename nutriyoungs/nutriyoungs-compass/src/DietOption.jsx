@@ -149,6 +149,7 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, 
                 {showConverter && (
                     <CaloriesConverter onCalorieUpdate={handleConverterUpdate} />
                 )} */}
+                
 
                 <div className="calorie-slider-container">
                     <label htmlFor="calorie-slider">Calories per meal: <span className="calorie-input">{calorieInput} </span>calories</label> <br />
