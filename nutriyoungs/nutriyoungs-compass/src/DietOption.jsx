@@ -120,7 +120,7 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, 
     const handleCalorieChange = (event) => {
         const value = parseInt(event.target.value, 10);
         setCalorieInput(value);
-        setCalorieNeeds(value); // Update calorie needs in parent component
+        setCalorieNeeds(value); 
     };
 
     const handleConverterUpdate = (caloriesPerMeal) => {
@@ -133,7 +133,7 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, 
     };
 
     const toggleVisibility = () => {
-        setShowConverter(!showConverter); // Correctly toggle visibility
+        setShowConverter(!showConverter); 
     };
 
 
@@ -141,17 +141,17 @@ const DietOption = ({ onToggleVisibility, onSubmitPreferences, setCalorieNeeds, 
         <div className="diet-option">
             <div className="calorie-slider-container">
                 <h4>How many calories per meal?</h4>
-                {!showConverter && (
+                {/* {!showConverter && (
                     <button onClick={onToggleVisibility} className="unsure-button">
                         I'm not sure about this
                     </button>
                 )}
                 {showConverter && (
                     <CaloriesConverter onCalorieUpdate={handleConverterUpdate} />
-                )}
+                )} */}
 
                 <div className="calorie-slider-container">
-                                <label htmlFor="calorie-slider">Calories per meal: <span className="calorie-input">{calorieInput} </span>calories</label> <br />
+                    <label htmlFor="calorie-slider">Calories per meal: <span className="calorie-input">{calorieInput} </span>calories</label> <br />
                                
                 <input
                     type="range"
