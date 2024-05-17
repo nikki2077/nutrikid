@@ -87,13 +87,15 @@ export default function Recipe({ onNavigate }) {
 
     const handlePreferencesSubmit = async () => {
         console.log("Preferences received:", calorieNeeds);
-        const apiKey = import.meta.env.VITE_API_KEY;
+        // const apiKey = import.meta.env.VITE_API_KEY;
+        const apiKey = import.meta.env.VITE_API_KEY.trim();
 
         // Generate a random offset
         const randomOffset = Math.floor(Math.random() * 100);
+        let url = `https://api.spoonacular.com/recipes/findByNutrients?apiKey=${apiKey}&number=1&minCalories=${calorieNeeds - 50}&maxCalories=${calorieNeeds + 50}&offset=${randomOffset}`;
 
-        let url = `https://api.spoonacular.com/recipes/findByNutrients?apiKey=${apiKey}
-        &number=1&minCalories=${calorieNeeds - 50}&maxCalories=${calorieNeeds + 50}&offset=${randomOffset}`;
+        // let url = `https://api.spoonacular.com/recipes/findByNutrients?apiKey=${apiKey}
+        // &number=1&minCalories=${calorieNeeds - 50}&maxCalories=${calorieNeeds + 50}&offset=${randomOffset}`;
 
         setLoading(true);
         try {
