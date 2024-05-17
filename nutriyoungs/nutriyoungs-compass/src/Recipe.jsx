@@ -92,7 +92,8 @@ export default function Recipe({ onNavigate }) {
         // Generate a random offset
         const randomOffset = Math.floor(Math.random() * 100);
 
-        let url = `https://api.spoonacular.com/recipes/findByNutrients?apiKey=${apiKey}&number=1&minCalories=${calorieNeeds - 50}&maxCalories=${calorieNeeds + 50}&offset=${randomOffset}`;
+        let url = `https://api.spoonacular.com/recipes/findByNutrients?apiKey=${apiKey}
+        &number=1&minCalories=${calorieNeeds - 50}&maxCalories=${calorieNeeds + 50}&offset=${randomOffset}`;
 
         setLoading(true);
         try {
