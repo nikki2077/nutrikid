@@ -168,7 +168,7 @@ function Recipt({onNavigate}) {
                         <div className="col-md-10"  style={{border: '2px solid black', borderRadius:'15px', marginLeft:'15%', padding:'20px',  backgroundColor:'#fffdf7'}}>
                             <div className='container' style={{border:'2px', borderColor:'black', height:'50%'}}>
                                 <p style={{marginLeft: '20px'}}>Put your photo here</p>
-                                <h2 style={{marginLeft: '20px'}}>Recipt Upload</h2>
+                                <h2 style={{marginLeft: '20px'}}>Receipt Upload</h2>
                                 <div {...getRootProps()} className="dropzone" style={{textAlign:'center', backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                     <input {...getInputProps()} style={{ height: '20vh', alignItems: 'center', marginTop: 'auto' }} />
                                     {base64 && <img src={base64} alt="Preview" style={{ width: '200px', height: '100%', objectFit: 'contain', position: 'relative', top: 0, left: 0 }} />}
@@ -235,7 +235,7 @@ function Recipt({onNavigate}) {
                 </div>
                 <div className='col-md-12 d-flex'>
                         <div className="col-md-10" style={{border: '2px solid black', borderRadius:'15px', marginLeft:'7.5%',marginTop:'5%', padding:'20px', backgroundColor:'#fffdf7'}}>
-                            <p style={{marginLeft: '20px'}}>Nutrition / Types / Allergies</p>
+                            <p style={{marginLeft: '20px'}}>Select any good from ypur receipt for Nutrition and Expiration information</p>
                             <h2 style={{marginLeft: '20px'}}>Goods Information</h2>
                             <div className="card" style={{backgroundColor:'#faf3e0', borderRadius:'25px'}}>
                                 <div className='row'>
