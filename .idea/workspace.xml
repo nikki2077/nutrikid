@@ -17,12 +17,18 @@
   "keyToString": {
     "JavaScript 调试.index.html.executor": "Run",
     "Node.js..eslintrc.cjs.executor": "Run",
+    "last_opened_file_path": "C:/Users/ken/Documents/GitHub/nutrikid/nutriyoungs/nutriyoungs-compass/public",
     "node.js.selected.package.tslint": "(autodetect)",
     "npm.dev.executor": "Run",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "C:\\Program Files (x86)\\JetBrains\\WebStorm 2024.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ken\Documents\GitHub\nutrikid\nutriyoungs\nutriyoungs-compass\public" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/nutriyoungs/nutriyoungs-compass/package.json" />

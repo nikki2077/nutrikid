@@ -6,7 +6,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 100px 150px;
+  padding-left: 100px;
+  padding-right: 150px;
+  padding-top: 80px;
+  padding-bottom: 100px;
   height: 90vh;
   width: 100%;
   background-size: cover;
