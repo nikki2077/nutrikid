@@ -41,31 +41,72 @@ export default function BMI({ onNavigate }) {
   return (
     <div className="bmi-page">
       <div className="intro-section">
-        <div className="bmi-title">
-          BMI Check:
-          <h4>Kids Body Index</h4>
+        <div style={{
+          width: '100%',
+          height: '100%',
+          paddingTop: 100,
+          paddingBottom: 100,
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 135,
+          display: 'inline-flex'
+        }}>
+          <div style={{
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
+            display: 'inline-flex'
+          }}>
+            <div style={{
+              color: '#4CAF50',
+              fontSize: 64,
+              fontFamily: 'Manrope',
+              fontWeight: '700',
+              wordWrap: 'break-word'
+            }}>BMI Check
+            </div>
+            <div style={{
+              color: '#666666',
+              fontSize: 24,
+              fontFamily: 'Manrope',
+              fontWeight: '700',
+              wordWrap: 'break-word'
+            }}>Kids Body Index
+            </div>
+          </div>
+          <div style={{
+            flex: '1 1 0',
+            color: '#4CAF50',
+            fontSize: 24,
+            fontFamily: 'Manrope',
+            fontWeight: '400',
+            wordWrap: 'break-word'
+          }}>Streamlined, intuitive interface, quickly assess a child's body mass index (BMI) to ensure their growth is
+            on track and they maintain a healthy weight for their age and activity level. Get instant calculations by
+            entering basic information like age, height, and weight.
+          </div>
         </div>
-        <p className="bmi-intro">
-          Streamlined, intuitive interface, quickly assess a child's body mass index (BMI) to ensure their growth is on track and they maintain a healthy weight for their age and activity level. Get instant calculations by entering basic information like age, height, and weight.
-        </p>
       </div>
 
       <main className="bmi-content">
         <div className="bmi-wrapper-info-container">
-          <div className="bmi-wrapper" >
+          <div className="bmi-wrapper">
             <iframe
-              src="https://www.cdc.gov/healthyweight/bmi/calculator-widget.html"
-              title="BMI Calculator for Child and Teen"
-              className="bmi-iframe"
+                src="https://www.cdc.gov/healthyweight/bmi/calculator-widget.html"
+                title="BMI Calculator for Child and Teen"
+                className="bmi-iframe"
             ></iframe>
             <div className="bmi-article">
               <h2>Why It Matters?</h2>
               <h4>Age and Gender-specific</h4>
-              <h5> Unlike adults, a child's BMI is evaluated against age and gender-specific percentile charts to account for their growth patterns and developmental stages.</h5>
-              <br /><h4>Health Screening Tool</h4>
-              <h5>BMI helps identify potential weight-related health risks early on, allowing for timely interventions.</h5>
-              <br /><h4>Track Growth Patterns</h4>
-              <h5>Regular tracking of BMI over time helps ensure your child is growing healthily. Changes in their growth trajectory can prompt discussions with healthcare providers to adopt necessary dietary adjustments and activity levels.</h5>
+              <h5> Unlike adults, a child's BMI is evaluated against age and gender-specific percentile charts to
+                account for their growth patterns and developmental stages.</h5>
+              <br/><h4>Health Screening Tool</h4>
+              <h5>BMI helps identify potential weight-related health risks early on, allowing for timely
+                interventions.</h5>
+              <br/><h4>Track Growth Patterns</h4>
+              <h5>Regular tracking of BMI over time helps ensure your child is growing healthily. Changes in their
+                growth trajectory can prompt discussions with healthcare providers to adopt necessary dietary adjustments and activity levels.</h5>
               <br /><h2>Encouraging Healthy Habits</h2>
               <h5>It's important to support your child with balanced nutrition and regular physical activity, regardless of their current BMI. Engage in ongoing health conversations and consult with healthcare professionals to tailor wellness strategies that fit your child’s needs.</h5>
 

@@ -119,32 +119,129 @@ function Upload({onNavigate}) {
             <ToastContainer />
             <main style={{backgroundColor: '#faf3e0'}}>
                 <div className='row'>
-                    <div className="col-md-5" style={{marginTop:'5%'}}>
-                        <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>NutriScan</h1>
-                        <p style={{marginLeft: '30%'}}>Instant Food Analyzer</p>
-                    </div>
-                    <div className="col-md-6" style={{marginTop:'5%'}}>
-                        <p style={{color:'#4CAF50'}}>Quickly identify food items from uploaded images to aid in nutritional management. Upload a photo of a food item, and the system will analyze the image to recognize the type of food presented. Provides detailed nutritional information, including calorie count, portion size, and nutrient breakdown, such as fats, proteins, and carbohydrates. Assist parents in making informed decisions about their children's food consumption by aligning with dietary needs and restrictions.</p>
+                    <div style={{
+                        width: '100%',
+                        height: '100%',
+                        paddingTop: 200,
+                        paddingBottom: 100,
+                        paddingLeft: 150,
+                        paddingRight: 150,
+                        justifyContent: 'flex-start',
+                        alignItems: 'flex-start',
+                        gap: 135,
+                        display: 'inline-flex'
+                    }}>
+                        <div style={{
+                            flexDirection: 'column',
+                            justifyContent: 'flex-start',
+                            alignItems: 'flex-start',
+                            display: 'inline-flex'
+                        }}>
+                            <div style={{
+                                color: '#4CAF50',
+                                fontSize: 64,
+                                fontFamily: 'Manrope',
+                                fontWeight: '700',
+                                wordWrap: 'break-word'
+                            }}>NutriScan
+                            </div>
+                            <div style={{
+                                color: '#666666',
+                                fontSize: 24,
+                                fontFamily: 'Manrope',
+                                fontWeight: '700',
+                                wordWrap: 'break-word'
+                            }}>Instant Food Analyzer
+                            </div>
+                        </div>
+                        <div style={{
+                            flex: '1 1 0',
+                            color: '#4CAF50',
+                            fontSize: 24,
+                            fontFamily: 'Manrope',
+                            fontWeight: '400',
+                            wordWrap: 'break-word'
+                        }}>Rapid identification of food items from uploaded images to assist in nutritional management.
+                            Upload a photo of a food item, and the system will analyze the image to recognize the type
+                            of food presented. Provides detailed nutritional information, including calorie count,
+                            portion size, and nutrient breakdown, such as fats, proteins, and carbohydrates. Help
+                            parents make informed decisions about the foods their children consume, aligning with
+                            dietary needs and restrictions.
+                        </div>
                     </div>
                 </div>
                 <div className='row'>
-                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
-                    <div className="col-md-8" style={{marginTop:'5%'}}>
-                        <p style={{color:'black'}}>The nutrient values presented are average estimates and can vary due to differences in cooking techniques and the inclusion of various ingredients to achieve different flavors. Additionally, these values may vary across different brands.</p>
-                        <p style={{color:'black'}}>The current capabilities of our model allow for the identification of nine specific types of food: donuts. chicken curry, French fries, ice cream. pizza. waffies. garlic bread, burgers, and onion rings. We regret any inaccuracies in food recognition that may occur and are actively working to expand the range of foods our model can accurately identify. Thank you for your understanding.</p>
-                        <p style={{color:'black'}}>Due to the performance of the model, the current model accuracy is only 70%. We apologize for the images that may not be correctly recognized.We are working on improving the model accuracy. Thanks for your understanding.</p>
+                    <div style={{
+                        width: '100%',
+                        height: '100%',
+                        padding: 150,
+                        flexDirection: 'column',
+                        justifyContent: 'flex-start',
+                        alignItems: 'flex-start',
+                        gap: 10,
+                        display: 'inline-flex'
+                    }}>
+                        <div style={{
+                            alignSelf: 'stretch',
+                            color: '#666666',
+                            fontSize: 20,
+                            fontFamily: 'Manrope',
+                            fontWeight: '400',
+                            wordWrap: 'break-word'
+                        }}>* The nutrient values presented are average estimates and can vary due to differences in
+                            cooking techniques and the inclusion of various ingredients to achieve different flavors.
+                            Additionally, these values may vary across different brands.
+                        </div>
+                        <div style={{
+                            alignSelf: 'stretch',
+                            color: '#666666',
+                            fontSize: 20,
+                            fontFamily: 'Manrope',
+                            fontWeight: '400',
+                            wordWrap: 'break-word'
+                        }}>* The current capabilities of our model allow for the identification of nine specific types
+                            of food: donuts, chicken curry, French fries, ice cream, pizza, waffles, garlic bread,
+                            burgers, and onion rings. We regret any inaccuracies in food recognition that may occur and
+                            are actively working to expand the range of foods our model can accurately identify. Thank
+                            you for your understanding.
+                        </div>
+                        <div style={{
+                            alignSelf: 'stretch',
+                            color: '#666666',
+                            fontSize: 20,
+                            fontFamily: 'Manrope',
+                            fontWeight: '400',
+                            wordWrap: 'break-word'
+                        }}>* Due to the performance of the model, the current model accuracy is only 70%. We apologize
+                            for the images that may not be correctly recognized. We are working on improving the model
+                            accuracy. Thanks for your understanding.
+                        </div>
+
                     </div>
-                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>
-                <div className="row" style={{marginTop:'3%'}}>
+                <div className="row" style={{marginTop: '3%'}}>
                     <div className='col-md-6 d-flex'>
-                        <div className="col-md-10"  style={{border: '2px solid black', borderRadius:'15px', marginLeft:'15%', padding:'20px',  backgroundColor:'#fffdf7'}}>
-                            <div className='container' style={{border:'2px', borderColor:'black', height:'50%'}}>
+                        <div className="col-md-10" style={{
+                            border: '2px solid black',
+                            borderRadius: '15px',
+                            marginLeft: '15%',
+                            padding: '20px',
+                            backgroundColor: '#fffdf7'
+                        }}>
+                            <div className='container' style={{border: '2px', borderColor: 'black', height: '50%'}}>
                                 <p style={{marginLeft: '20px'}}>Put your photo here</p>
                                 <h2 style={{marginLeft: '20px'}}>Photo Upload</h2>
-                                <div {...getRootProps()} className="dropzone" style={{textAlign:'center', backgroundColor:'#faf3e0', borderRadius:'25px'}}>
-                                    <input {...getInputProps()} style={{ height: '20vh', alignItems: 'center', marginTop: 'auto' }} />
-                                    {base64 && <img src={base64} alt="Preview" style={{ width: '200px', height: '100%', objectFit: 'contain', position: 'relative', top: 0, left: 0 }} />}
+                                <div {...getRootProps()} className="dropzone"
+                                     style={{textAlign: 'center', backgroundColor: '#faf3e0', borderRadius: '25px'}}>
+                                    <input {...getInputProps()}
+                                           style={{height: '20vh', alignItems: 'center', marginTop: 'auto'}}/>
+                                    {base64 && <img src={base64} alt="Preview" style={{
+                                        width: '200px',
+                                        height: '100%',
+                                        objectFit: 'contain',
+                                        position: 'relative',
+                                        top: 0,
+                                        left: 0 }} />}
                                     <p style={{ alignItems: 'center', marginTop: 'auto' }}>Drag 'n' drop the image here</p>
                                 </div>
                                 <div style={{textAlign:'center'}}>

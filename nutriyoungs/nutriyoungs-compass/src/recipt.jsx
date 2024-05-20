@@ -147,26 +147,87 @@ function Recipt({onNavigate}) {
             <ToastContainer />
             <main style={{backgroundColor: '#faf3e0'}}>
                 <div className='row'>
-                    <div className="col-md-5" style={{marginTop:'5%'}}>
-                        <h1 style={{marginLeft: '30%', color:'#4CAF50'}}>SpendSmart</h1>
-                        <p style={{marginLeft: '30%'}}>Grocery Analysis Tool</p>
-                    </div>
-                    <div className="col-md-6" style={{marginTop:'5%'}}>
-                        <p style={{color:'#4CAF50'}}>Transform the chore of grocery shopping into a strategic advantage for budgeting and nutritional planning. Using Optical Character Recognition, with an automated analysis of grocery receipts and categorizes purchases, focusing on key areas like expenditure on fruits and vegetables and providing detailed nutritional breakdowns for each item. Enhance understanding and management of family nutrition and finances in real time.</p>
+                    <div style={{
+                        width: '100%',
+                        height: '100%',
+                        paddingTop: 200,
+                        paddingBottom: 100,
+                        paddingLeft: 150,
+                        paddingRight: 150,
+                        justifyContent: 'flex-start',
+                        alignItems: 'flex-start',
+                        gap: 135,
+                        display: 'inline-flex'
+                    }}>
+                        <div style={{
+                            flexDirection: 'column',
+                            justifyContent: 'flex-start',
+                            alignItems: 'flex-start',
+                            display: 'inline-flex'
+                        }}>
+                            <div style={{
+                                color: '#4CAF50',
+                                fontSize: 64,
+                                fontFamily: 'Manrope',
+                                fontWeight: '700',
+                                wordWrap: 'break-word'
+                            }}>SpendSmart
+                            </div>
+                            <div style={{
+                                color: '#666666',
+                                fontSize: 24,
+                                fontFamily: 'Manrope',
+                                fontWeight: '700',
+                                wordWrap: 'break-word'
+                            }}>Grocery Analysis Tool
+                            </div>
+                        </div>
+                        <div style={{
+                            flex: '1 1 0',
+                            color: '#4CAF50',
+                            fontSize: 24,
+                            fontFamily: 'Manrope',
+                            fontWeight: '400',
+                            wordWrap: 'break-word'
+                        }}>Transform the chore of grocery shopping into a strategic advantage for budgeting and
+                            nutritional planning. Analysis of grocery receipts and categorizes purchases, enhance
+                            understanding and management of family nutrition and finances in real time.
+                        </div>
                     </div>
                 </div>
                 <div className='row'>
-                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
-                    <div className="col-md-8" style={{marginTop:'5%'}}>
-                        <p style={{color:'black'}}>* Currently supports the analysis of digital dockets exclusively from Coles. We are dedicated to enhancing our service and may expand to include more stores in the future.</p>
-                        <p style={{color:'black'}}>* Currently accepts only one receipt per analysis session. Future updates will enable the processing of multiple receipts simultaneously to enhance your experience.</p>
+                    <div style={{
+                        width: '100%',
+                        height: '100%',
+                        padding: 150,
+                        flexDirection: 'column',
+                        justifyContent: 'flex-start',
+                        alignItems: 'flex-start',
+                        gap: 10,
+                        display: 'inline-flex'
+                    }}>
+                        <div style={{
+                            alignSelf: 'stretch',
+                            color: '#666666',
+                            fontSize: 20,
+                            fontFamily: 'Manrope',
+                            fontWeight: '400',
+                            wordWrap: 'break-word'
+                        }}>* Currently supports the analysis of digital dockets exclusively from Coles. We are dedicated
+                            to enhancing our service and may expand to include more stores in the future.<br/>*
+                            Currently accepts only one receipt per analysis session. Future updates will enable the
+                            processing of multiple receipts simultaneously to enhance your experience.
+                        </div>
                     </div>
-                    <div className="col-md-2" style={{marginTop:'5%'}}></div>
                 </div>
-                <div className="row" style={{marginTop:'3%'}}>
+                <div className="row" style={{marginTop: '3%'}}>
                     <div className='col-md-6 d-flex'>
-                        <div className="col-md-10"  style={{border: '2px solid black', borderRadius:'15px', marginLeft:'15%', padding:'20px',  backgroundColor:'#fffdf7'}}>
-                            <div className='container' style={{border:'2px', borderColor:'black', height:'50%'}}>
+                        <div className="col-md-10" style={{
+                            border: '2px solid black',
+                            borderRadius: '15px',
+                            marginLeft: '15%', padding: '20px', backgroundColor: '#fffdf7'
+                        }}>
+                            <div className='container' style={{border: '2px', borderColor: 'black', height: '50%'}}>
                                 <p style={{marginLeft: '20px'}}>Put your photo here</p>
                                 <h2 style={{marginLeft: '20px'}}>Receipt Upload</h2>
                                 <div {...getRootProps()} className="dropzone" style={{textAlign:'center', backgroundColor:'#faf3e0', borderRadius:'25px'}}>

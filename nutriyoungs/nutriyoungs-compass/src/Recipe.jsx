@@ -129,21 +129,71 @@ export default function Recipe({ onNavigate }) {
         <div className='recipe'>
             <div className='page-container'>
                 <div className="intro-section">
-                    <div className="bmi-title">MealPlans:
-                        <h4>Tailored Recipes for Kids</h4>
+                    <div style={{
+                        width: '100%',
+                        height: '100%',
+                        paddingTop: 100,
+                        paddingBottom: 100,
+                        paddingLeft: 20,
+                        paddingRight: 20,
+                        justifyContent: 'flex-start',
+                        alignItems: 'flex-start',
+                        gap: 135,
+                        display: 'inline-flex'
+                    }}>
+                        <div style={{
+                            flexDirection: 'column',
+                            justifyContent: 'flex-start',
+                            alignItems: 'flex-start',
+                            display: 'inline-flex'
+                        }}>
+                            <div style={{
+                                color: '#4CAF50',
+                                fontSize: 64,
+                                fontFamily: 'Manrope',
+                                fontWeight: '700',
+                                wordWrap: 'break-word'
+                            }}>MealPlans
+                            </div>
+                            <div style={{
+                                color: '#666666',
+                                fontSize: 24,
+                                fontFamily: 'Manrope',
+                                fontWeight: '700',
+                                wordWrap: 'break-word'
+                            }}>Tailored Recipes for Kids
+                            </div>
+                        </div>
+                        <div style={{
+                            flex: '1 1 0',
+                            color: '#4CAF50',
+                            fontSize: 24,
+                            fontFamily: 'Manrope',
+                            fontWeight: '400',
+                            wordWrap: 'break-word'
+                        }}>Rapid creation and customization of weekly meal plans based on a child's dietary needs and
+                            preferences to ensure a balanced and varied diet throughout the week. Enter the daily
+                            calorie intake to get a tailored weekly meal plan. Provides options to adjust meals
+                            according to specific dietary requirements, easily manage and optimize their children's
+                            nutrition. Supports informed decision-making for maintaining balanced dietary habits.
+                        </div>
                     </div>
-                    <p className="bmi-intro">
-                        Rapid creation and customization of weekly meal plans based on dietary needs and preferences to ensure a balanced and varied diet. Enter the desired calories per meal to get a tailored recipe recommendation. This feature provides options to adjust meals according to specific dietary requirements, easily manage and optimize nutrition, and support informed decision-making for maintaining balanced dietary habits.
-                    </p>
                 </div>
                 <div className='recipe-content'>
                     <div className='left-column'>
-                        {showConverter && <CaloriesConverter />}
-                        <DietOption onToggleVisibility={toggleConverterVisibility} onSubmitPreferences={() => setFetchTrigger(fetchTrigger + 1)} setCalorieNeeds={setCalorieNeeds} showConverter={showConverter} />
-                        {loading ? <p>Loading...</p> : recipe ? <DisplayRecipe recipe={recipe} /> : <p>No recipe to display.</p>}
+                        {showConverter && <CaloriesConverter/>}
+                        <DietOption onToggleVisibility={toggleConverterVisibility}
+                                    onSubmitPreferences={() => setFetchTrigger(fetchTrigger + 1)}
+                                    setCalorieNeeds={setCalorieNeeds} showConverter={showConverter}/>
+                        {loading ? <p>Loading...</p> : recipe ? <DisplayRecipe recipe={recipe}/> :
+                            <p>No recipe to display.</p>}
                         <div className='note'>
-                            <p>* In nutritional contexts, 'calories' and 'kcal' mean the same thing and represent the same amount of energy. There is no need to convert between them as 1 kcal equals 1 calorie. This common usage helps simplify tracking your energy intake from food. Note: Energy can also be measured in kilojoules (kJ), where 1 calorie equals 4.18 kJ.</p>
-                            <p>* Calories and kcal are used interchangeably and refer to the same amount of energy, but kilojoules require conversion. Usage may differ depending on where you live.</p>
+                            <p>* In nutritional contexts, 'calories' and 'kcal' mean the same thing and represent the
+                                same amount of energy. There is no need to convert between them as 1 kcal equals 1
+                                calorie. This common usage helps simplify tracking your energy intake from food. Note:
+                                Energy can also be measured in kilojoules (kJ), where 1 calorie equals 4.18 kJ.</p>
+                            <p>* Calories and kcal are used interchangeably and refer to the same amount of energy, but
+                                kilojoules require conversion. Usage may differ depending on where you live.</p>
                         </div>
                     </div>
                     <div className='right-column'>

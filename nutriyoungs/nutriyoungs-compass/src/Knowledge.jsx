@@ -34,12 +34,53 @@ export default function Knowledge({ onNavigate }) {
     <div className="knowledge">
       <div className="wrapper">
         <div className="intro-section">
-        <div className="bmi-title">NutriTrends:
-        <h4>Child Nutrition Tracker</h4>
-        </div>
-          <p className="bmi-intro">
-            Convergence of technology and nutrition, offering dynamic visualizations that transform raw data into actionable insights. Navigates the complexities of their children's dietary trends across various age groups. Enhances understanding, and fosters proactive engagement with children's nutritional health, ensuring that developmental food choices are informed, strategic, and adaptable to changing nutritional needs.
-          </p>
+          <div style={{
+            width: '100%',
+            height: '100%',
+            paddingTop: 150,
+            paddingBottom: 100,
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
+            gap: 135,
+            display: 'inline-flex'
+          }}>
+            <div style={{
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+              display: 'inline-flex'
+            }}>
+              <div style={{
+                color: '#4CAF50',
+                fontSize: 64,
+                fontFamily: 'Manrope',
+                fontWeight: '700',
+                wordWrap: 'break-word'
+              }}>NutriTrends
+              </div>
+              <div style={{
+                color: '#666666',
+                fontSize: 24,
+                fontFamily: 'Manrope',
+                fontWeight: '700',
+                wordWrap: 'break-word'
+              }}>Child Nutrition Tracker
+              </div>
+            </div>
+            <div style={{
+              flex: '1 1 0',
+              color: '#4CAF50',
+              fontSize: 24,
+              fontFamily: 'Manrope',
+              fontWeight: '400',
+              wordWrap: 'break-word'
+            }}>Convergence of technology and nutrition, offering dynamic visualizations that transform raw data into
+              actionable insights. Navigates the complexities of their children's dietary trends across various age
+              groups. Enhances understanding, and fosters proactive engagement with children's nutritional health,
+              ensuring that developmental food choices are informed, strategic, and adaptable to changing nutritional
+              needs.
+            </div>
+          </div>
         </div>
         <div className="graph-wrapper">
           <div className="dropdown-container">
@@ -51,7 +92,8 @@ export default function Knowledge({ onNavigate }) {
               <option value="foodConsumption">Food Consumption</option>
               <option value="overweight">Obesity and Overweight</option>
             </select>
-            <p>This trend chart shows the recent trend changes in your child's BMI. At the same time, auxiliary lines are used to help you understand the difference between the standard values.</p>
+            <p>This trend chart shows the recent trend changes in your child's BMI. At the same time, auxiliary lines
+              are used to help you understand the difference between the standard values.</p>
           </div>
           <div className="graph-container">
             {renderGraph()}

@@ -34,21 +34,51 @@ export default function Landing({ onNavigate }) {
   return (
     <div className="landing">
       <div className="hero-section">
-        <div className="hero-left">
-          <h1 className="title">NutriYoungs Compass</h1>
-          <h2 className="sub-title">Empowering low income Victorian Households to adopt optimal nutritional choices, foster healthy eating practices and affordable solutions</h2>
-          <br />
+        <div className="hero-left" style={{
+          width: '100%',
+          height: '100%',
+          paddingLeft: 10,
+          paddingRight: 10,
+          paddingTop: 50,
+          paddingBottom: 50,
+          background: 'rgba(250, 243, 224, 0.30)',
+          borderRadius: 20,
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
+          gap: 55,
+          display: 'inline-flex'
+        }}>
+          <div style={{
+            alignSelf: 'stretch',
+            color: '#4CAF50',
+            fontSize: 96,
+            fontFamily: 'Manrope',
+            fontWeight: '700',
+            wordWrap: 'break-word'
+          }}>NutriYoungs Compass
+          </div>
+          <div style={{
+            width: '100%',
+            color: '#4CAF50',
+            fontSize: 24,
+            fontFamily: 'Manrope',
+            fontWeight: '400',
+            wordWrap: 'break-word'
+          }}>Empowering low income Victorian Households to adopt optimal nutritional choices, foster healthy eating
+            practices and affordable solutions
+          </div>
           <button className="cta-button" onClick={scrollToInfoSection}>
             Explore Now <span className="cta-icon">↗</span>
           </button>
         </div>
         <div className="hero-right">
-          <img src={backgroundImage} alt="background" className="hero-image" />
+          <img src={backgroundImage} alt="background" className="hero-image"/>
         </div>
       </div>
 
       <div className='arrow' onClick={scrollToInfoSection}>
-        <img src={arrow} alt="arrow" className="arrow-image" />
+        <img src={arrow} alt="arrow" className="arrow-image"/>
       </div>
 
       <div ref={infoSectionRef} className="info-section">
